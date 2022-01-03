@@ -1,6 +1,8 @@
 package Ch07_ex01;
 
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Scanner;
 import java.util.Vector;
 
 abstract class Ex{
@@ -90,6 +92,31 @@ class Ex02 extends Ex{
 	}
 }
 
+class Ex03 extends Ex{
+	public void run() {
+		System.out.println(">> 문자열만 삽입가능한 ArrayList 컬렉션");
+		ArrayList<String> a = new ArrayList<String>();
+		Scanner scan = new Scanner(System.in);
+		
+		for(int i = 0; i < 4; i++) {
+			System.out.print("이름을 입력하세요>> ");
+			a.add(scan.next());
+		}
+		System.out.println("저장 완료!");
+		
+		int longIndex = 0; // index는 -1이 될 수 없다
+		for(int i = 0; i < a.size(); i++) {
+			String name = a.get(i);
+			System.out.println(name + " ");
+			if(name.length() > a.get(longIndex).length()) {
+				longIndex = i;
+			}
+		}
+		System.out.println();
+		System.out.println("긴 이름 => " + a.get(longIndex));
+	}
+}
+
 public class Ch07_Ex01_VectorEx {
 	public Ch07_Ex01_VectorEx() {
 		// 생성자는 필드를 초기화 한다.
@@ -101,6 +128,12 @@ public class Ch07_Ex01_VectorEx {
 
 		Ex ex = new Ex02();
 		ex.start();
+		System.out.println();
+		System.out.println();
+
+		
+		Ex ex03 = new Ex03();
+		ex03.start();
 	}
 	
 //	private void ex01() {

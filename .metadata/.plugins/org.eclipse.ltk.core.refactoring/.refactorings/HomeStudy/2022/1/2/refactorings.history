@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;IteratorEx.java&apos; to &apos;Day14/src/Ch07_ex01&apos;&#x0D;&#x0A;- Original project: &apos;HomeStudy&apos;&#x0D;&#x0A;- Destination element: &apos;Day14/src/Ch07_ex01&apos;&#x0D;&#x0A;- Original element: &apos;Ch07.IteratorEx.java&apos;" description="Copy compilation unit" destination="=Day14/src&lt;Ch07_ex01" element1="/src&lt;Ch07{IteratorEx.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1641177555581" units="1" version="1.0"/>
+</session>
