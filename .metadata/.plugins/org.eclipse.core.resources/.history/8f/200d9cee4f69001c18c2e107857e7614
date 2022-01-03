@@ -1,0 +1,92 @@
+package Ch05_실습문제풀이_6;
+
+import java.util.Scanner;
+
+// 실습문제 12번
+abstract class Shape { // 슈퍼 클래스
+	Shape next;
+	
+	public Shape() {
+		next = null;
+	}
+	
+	public void setNext(Shape obj) { // 링크드 연결
+		next = obj;
+	}
+	
+	public Shape getNext() {
+		return next;
+	}
+	
+	public abstract void draw(); // 추상메소드
+	
+}
+
+class Line extends Shape {
+	public void draw() { // 메소드 오버라이딩
+		System.out.println("Line");
+	}
+}
+
+class Rect extends Shape {
+	public void draw() { // 메소드 오버라이딩
+		System.out.println("Rect");
+	}
+}
+
+class Circle extends Shape {
+	public void draw() { // 메소드 오버라이딩
+		System.out.println("Circle");
+	}
+}
+
+class ShapeLinkedList {
+	private Shape start, last, node, cur;
+	private int size = 0;
+
+	public void append(Shape shape) {
+		size++;
+		if(start == null) {
+			start = shape;
+			last = start;
+//			System.out.println(">>> 첫번째 노드 생성 ");
+			return;
+		}
+		node = shape;
+		last.next = node;
+		last = node;
+//		System.out.println(">>> 마지막 노드 추가");
+	}
+
+	public void showAll() {
+		cur = start;
+		while(cur != null) {
+			cur.draw();
+			cur = cur.next;
+		}
+	}
+
+	public void remove(int i) {
+		size--;
+	}
+
+	public int size() {
+		return size;
+	}
+}
+
+
+public class ShapeEx{
+	public static void main(String[] args) {
+		ShapeLinkedList linkedList = new ShapeLinkedList();
+		linkedList.append(new Circle());
+		linkedList.append(new Rect());
+		linkedList.append(new Line());
+		linkedList.append(new Circle());
+		
+		linkedList.showAll();
+		
+		linkedList.remove(3);
+		System.out.println(linkedList.size());
+	}
+}

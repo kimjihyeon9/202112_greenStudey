@@ -1,0 +1,11 @@
+package saram_view;
+
+import saram.R;
+
+public class SaramDelete extends SaramView {
+	@Override
+	public void display() {
+		System.out.println("::::: 사람 정보 삭제 :::::");
+		
+	}
+}

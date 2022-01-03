@@ -1,0 +1,7 @@
+package notice_controller;
+
+public class NoticeController {
+	public void action() {
+		
+	}
+}

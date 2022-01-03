@@ -1,0 +1,30 @@
+package notice;
+
+import notice_model.NoticeDao;
+import notice_model.NoticeVo;
+
+public class TestDao {
+	public static NoticeDao dao = new NoticeDao();
+
+	public static void test_selectAll(String[] args) {
+		// DAO 테스트 selectAll
+
+		NoticeVo[] NoticeArr = dao.selectAll();
+		for (NoticeVo saram : NoticeArr) {
+			System.out.println(saram);
+		}
+	}
+
+	public static void test_selectOne(String[] args) {
+		NoticeVo vo = new NoticeVo(0, "LEE", null, null);
+		NoticeVo notice = dao.selectOne(vo);
+		System.out.println(notice);
+	}
+	
+	public static void main(String[] args) {
+		NoticeVo vo = new NoticeVo(3, null, null, null);
+		NoticeVo notice = dao.selectByNo(0);
+		System.out.println(notice);
+	}
+
+}

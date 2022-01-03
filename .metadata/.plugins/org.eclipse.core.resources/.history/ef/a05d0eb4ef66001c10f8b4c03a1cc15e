@@ -1,0 +1,15 @@
+package saram_view;
+
+import saram.R;
+import saram_model.SaramVo;
+
+public class SaramEdit extends SaramView {
+	@Override
+	public void display() {
+		System.out.println("::::: 사람 정보 수정 :::::");
+		System.out.print("수정할 이름>> ");
+		String name1 = scan.next();
+//		R.saramVo = new SaramVo(no, name, phone, email);
+		System.out.println(R.saramVo);
+	}
+}

@@ -1,0 +1,5 @@
+package notice_view;
+
+public class Edit extends NoticeView {
+
+}

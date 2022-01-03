@@ -1,0 +1,9 @@
+package notice_view;
+
+public class NoticeView {
+	public static Scanner scan = new Scanner(System.in);
+	
+	public void display() {
+		System.out.println("view display");
+	}
+}

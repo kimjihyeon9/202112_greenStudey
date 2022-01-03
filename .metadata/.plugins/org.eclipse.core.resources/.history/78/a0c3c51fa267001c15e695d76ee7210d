@@ -1,0 +1,23 @@
+package notice;
+
+import notice_model.NoticeVo;
+import notice_view.Delete;
+import notice_view.Edit;
+import notice_view.InsertView;
+import notice_view.NoticeListView;
+import notice_view.NoticeView;
+
+public class R {
+	public static int no;
+	public static NoticeVo noticeVo;
+	public static NoticeVo[] noticeArr;
+	
+	public static final NoticeView insertView = new InsertView();
+	public static final NoticeView listView = new NoticeListView();
+	public static final NoticeView detail = new Detail();
+	public static final NoticeView editView = new Edit(); 
+	public static final NoticeView delete = new Delete();
+	
+	public static final NoticeController noticeController = new NoticeController();
+	
+}

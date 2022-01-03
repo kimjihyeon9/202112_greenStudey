@@ -13,14 +13,20 @@ public class Ch06_연습문제 {
 			System.out.println(st.nextToken());
 	}
 
-	public static void main04(String[] args) {
-		StringTokenizer st = new StringTokenizer("a=3,b=5,c=6", "=");
+	public static void main(String[] args) {
+		StringTokenizer st = new StringTokenizer("a=3,b=5,c=6", ",=");
 		int sum = 0;
 
 		while (st.hasMoreTokens()) {
 			String s = st.nextToken();
-			System.out.println(s);
+			try {
+				sum += Integer.parseInt(s);
+				System.out.println(s);
+			} catch (NumberFormatException e) {
+				System.out.println(s);
+			}
 		}
+		System.out.println("합은 " + sum);
 	}
 	
 	public static void main06(String[] args) {
@@ -76,7 +82,7 @@ public class Ch06_연습문제 {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main12(String[] args) {
 		Calendar date = Calendar.getInstance();
 		date.clear();
 		date.set(Calendar.YEAR,2020);

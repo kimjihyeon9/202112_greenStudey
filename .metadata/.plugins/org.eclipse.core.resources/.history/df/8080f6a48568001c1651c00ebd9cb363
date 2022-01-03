@@ -1,0 +1,181 @@
+package Day12;
+
+import java.util.Scanner;
+
+//////////////////////////////////////////1번
+class TV{
+	private int size;
+	
+	public TV(int size) {
+		this.size = size;
+	}
+	
+	protected int getSize() {
+		return size;
+	}
+}
+
+class ColorTV extends TV{
+	private int colorC;
+	
+	public ColorTV(int size, int colorC) {
+		super(size);
+		this.colorC = colorC;
+	}
+
+	public void printProperty() {
+		System.out.printf("%d인치 %d컬러", getSize(), colorC);
+	}
+}
+
+//////////////////////////////////////////2번
+class IPTV extends ColorTV{
+	private String address;
+	
+	public IPTV(String address, int size, int colorC) {
+		super(size, colorC);
+		this.address = address;
+	}
+	
+	public void printProperty() {
+		System.out.printf("나의 IPTV는 %s 주소의 ", address);
+		super.printProperty();
+	}
+}
+
+//////////////////////////////////////////3번
+abstract class Converter{
+	abstract protected double convert(double src);
+	abstract protected String getSrcString();
+	abstract protected String getDestString();
+	protected double ratio; // 비율
+	
+	public void run() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println(getSrcString() + "을 " + getDestString() + "로 바꿉니다.");
+		System.out.print(getSrcString() + "을 입력하세요>> ");
+		double val = scan.nextDouble();
+		double res = convert(val);
+		
+		System.out.println("반환 결과 : " + res + getDestString() + "입니다");
+		scan.close();
+	}
+}
+
+class Won2Dollar extends Converter{
+	public Won2Dollar(double ratio) {
+		this.ratio = ratio;
+	}
+
+	@Override
+	protected double convert(double src) {
+		return src / ratio;
+	}
+
+	@Override
+	protected String getSrcString() {
+		return "원";
+	}
+
+	@Override
+	protected String getDestString() {
+		return "달러";
+	}
+}
+
+//////////////////////////////////////////4번
+class Km2Mile extends Converter{
+	public Km2Mile(double ratio) {
+		this.ratio = ratio;
+	}
+
+	@Override
+	protected double convert(double src) {
+		return src / ratio;
+	}
+
+	@Override
+	protected String getSrcString() {
+		return "Km";
+	}
+
+	@Override
+	protected String getDestString() {
+		return "mile";
+	}
+}
+
+//////////////////////////////////////////5번
+class Point{
+	private int x, y;
+	
+	public Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+	
+	protected void move(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+class ColorPoint extends Point{
+	private String color;
+	
+	public ColorPoint(int x, int y, String color) {
+		super(x, y);
+		this.color = color;
+	}
+
+	public void setXY(int x, int y) {
+		System.out.printf("(%d, %d)의 점입니다.", x, y);
+	}
+
+	public void setColor(String color) {
+		System.out.printf("%s색의 ", color);
+	}
+}
+
+public class Ch05_실습문제 {
+
+	public static void main01(String[] args) {
+		ColorTV myTV = new ColorTV(32, 1024);
+		myTV.printProperty();
+	}
+	
+	public static void main02(String[] args) {
+		IPTV iptv = new IPTV("192.1.1.2", 32, 2048);
+		// "192.1.1.2" 주소에 32인치, 2048 컬러
+		
+		iptv.printProperty();
+	}
+	
+	public static void main03(String[] args) {
+		Won2Dollar toDollar = new Won2Dollar(1200); // 1달러는 1200원
+		toDollar.run();
+	}
+	
+	public static void main04(String[] args) {
+		Km2Mile toMile = new Km2Mile(1.6); // 1마일은 1.6km
+		toMile.run();
+	}
+	
+	public static void main(String[] args) {
+		ColorPoint cp = new ColorPoint(5, 5, "YELLOW");
+		cp.setXY(10, 20);
+		cp.setColor("RED");
+		
+		String str = cp.toString();
+		System.out.println(str + "입니다.");
+	}
+
+}

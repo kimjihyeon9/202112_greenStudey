@@ -1,0 +1,17 @@
+package saram_view;
+
+import saram.R;
+
+public class SaramDatail extends SaramView {
+	@Override
+	public void display() {
+		if(R.type == R.SEARCH) {
+			System.out.println("::::: 사람 정보 검색 :::::");
+			scan.next();
+			// controller 로 이동
+		} else {
+			System.out.println("::::: 사람 목록 상세보기 :::::");
+			
+		}
+	}
+}

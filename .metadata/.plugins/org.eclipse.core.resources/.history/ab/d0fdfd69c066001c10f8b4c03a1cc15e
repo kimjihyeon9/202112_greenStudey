@@ -1,0 +1,25 @@
+package saram;
+
+import saram_model.SaramDao;
+import saram_model.SaramVo;
+
+public class SaramMain {
+	public static SaramDao dao = new SaramDao();
+
+	// DAO 테스트 selectAll
+	public static void test_selestAll(String[] args) {
+		SaramDao dao = new SaramDao();
+		SaramVo[] saramArr = dao.selectAll();
+		for(SaramVo saram : saramArr) {
+			System.out.println(saram);
+		}
+	}
+	
+	// DAO 테스트 selectOne
+	public static void main(String[] args) {
+		SaramVo vo = new SaramVo(0, "LEE", null, null);
+		SaramVo saram = dao.selectOne(vo);
+		System.out.println(saram);
+	}
+
+}

@@ -1,0 +1,59 @@
+package Day13_1;
+
+import java.util.ArrayList;
+
+class Point{
+	int x, y;
+
+	public Point(int i, int j) {
+		x = i;
+		y = j;
+	}
+	
+	public boolean equals(Object obj) {
+		if(obj instanceof Point) {
+			Point p = (Point)obj;
+			if(p.x == this.x && p.y == this.y) {
+				return true;
+			}
+		}
+		return false;
+	} // end of equals
+	
+	@Override
+	public String toString() {
+//		return String.format("Point(%d, %d)", x, y);
+		return String.format("(%d, %d)", x, y);
+	}
+	
+}
+
+public class Ch05_Ex03 {
+
+	public static void test(String[] args) {
+		Point a = new Point(2, 3);
+		Point b = new Point(2, 3);
+		Point c = new Point(3, 4);
+		
+		System.out.println(a == b); // false <-- 인스턴스의 참조값 비교
+		System.out.println(a.equals(b)); // true
+		System.out.println(a.equals(c)); // false
+	}
+	
+	public static void main(String[] args) {
+		ArrayList<Point> pList = new ArrayList<Point>(); // 배열같은 구조 index (순서)
+		pList.add(new Point(2, 3));
+		pList.add(new Point(4, 5));
+		pList.add(new Point(6, 7));
+		pList.add(new Point(8, 9));
+		pList.add(new Point(1, 2));
+		
+//		System.out.println(pList);
+		System.out.println(pList.get(1));
+		pList.set(1, new Point(100, 200));
+		System.out.println(pList.get(1));
+		System.out.println(pList);
+		System.out.println("size => " + pList.size());
+	}
+
+}

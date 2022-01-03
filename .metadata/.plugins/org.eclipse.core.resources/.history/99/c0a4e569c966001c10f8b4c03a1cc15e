@@ -1,0 +1,14 @@
+package saram_controller;
+
+import saram.R;
+import saram.ViewContainer;
+
+public class SaramController {
+	private ViewContainer vc = new ViewContainer();
+	public void action() {
+		System.out.println(">>>> SaramController 실행 ...");
+		if(R.no == 0) {
+			vc.run(menu);
+		}
+	}
+}

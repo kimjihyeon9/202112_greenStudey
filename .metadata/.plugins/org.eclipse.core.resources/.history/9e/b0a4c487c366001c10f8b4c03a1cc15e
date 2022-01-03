@@ -1,0 +1,5 @@
+package saram_view;
+
+public class InsertView extends SaramView {
+
+}

@@ -1,0 +1,50 @@
+package Ch05_실습문제풀이_3;
+
+// 실습문제 5번
+
+public class ColorPoint extends Point {
+	
+	private String color;
+
+	public ColorPoint(int x, int y, String color) { // 생성자 오버로딩
+		super(x, y);
+		this.color = color;
+	}
+
+	public ColorPoint() { // default 생성자
+		super(0, 0);
+		this.color = "BLACK";
+	}
+
+	private void setColor(String string) {
+		this.color = color;
+	}
+
+	private void setXY(int x, int y) {
+		super.move(x, y);
+	}
+	
+	@Override
+	public String toString() {
+		// 객체를 사용하면 자동으로 호출된다
+		return String.format("%s색의 (%d, %d)의 점", color, getX(), getY());
+	}
+	
+	public static void test_01(String[] args) {
+		ColorPoint cp = new ColorPoint(5, 5, "YELLOW");
+		cp.setXY(10, 20);
+		cp.setColor("RED");
+//		String str = cp.toString();
+		System.out.println(cp + "입니다.");
+	}
+	
+	public static void main(String[] args) {
+		ColorPoint zeroPoint = new ColorPoint(); // (0,0)위치의 BLACK 색 점
+		System.out.println(zeroPoint.toString() + "입니다.");
+		
+		ColorPoint cp = new ColorPoint(10, 10); //(10,10)위치의 BLACK 색 점
+		cp.setXY(5, 5);
+		cp.setColor("RED");
+		System.out.println(cp.toString() + "입니다.");
+	}
+}

@@ -1,0 +1,40 @@
+package Ch07_ex01;
+
+import java.util.Vector;
+
+abstract class Ex{
+	public abstract void run();
+	
+	public void start() {
+		System.out.println("--- 예제 실행 ---");
+		run();
+	}
+}
+
+class Ex01 extends Ex{
+	@Override
+	public void run() {
+		System.out.println(">>> 정수 값만 다루는 제네릭 벡터 생성");
+		Vector<Integer> v = new Vector<Integer>();
+	}
+}
+
+public class Ch07_Ex01_VectorEx {
+	public Ch07_Ex01_VectorEx() {
+		// 생성자는 필드를 초기화 한다.
+		// 예제 구현 메소드 별도로 만든다
+		Ex ex01 = new Ex01();
+		ex01.run();
+	}
+	
+//	private void ex01() {
+//		// 정수 값만 다루는 제네릭 벡터 생성
+//		Vector<Integer> v = new Vector<Integer>();
+//	}
+
+	public static void main(String[] args) {
+		// 메인에 직접 구현하기보다는 객체에 구현 해 보자
+		new Ch07_Ex01_VectorEx();
+	}
+
+}

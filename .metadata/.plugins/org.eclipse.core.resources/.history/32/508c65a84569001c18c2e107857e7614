@@ -1,0 +1,40 @@
+package Ch05_실습문제풀이_6;
+
+// 실습문제 12번
+
+public abstract class Shape { // 슈퍼 클래스
+	private Shape next;
+	
+	public Shape() {
+		next = null;
+	}
+	
+	public void setNext(Shape obj) { // 링크드 연결
+		next = obj;
+	}
+	
+	public Shape getNext() {
+		return next;
+	}
+	
+	public abstract void draw(); // 추상메소드
+}
+
+class Line extends Shape {
+	public void draw() { // 메소드 오버라이딩
+		System.out.println("Line");
+	}
+}
+
+class Rect extends Shape {
+	public void draw() { // 메소드 오버라이딩
+		System.out.println("Rect");
+	}
+}
+
+class Circle extends Shape {
+	public void draw() { // 메소드 오버라이딩
+		System.out.println("Circle");
+	}
+}
+

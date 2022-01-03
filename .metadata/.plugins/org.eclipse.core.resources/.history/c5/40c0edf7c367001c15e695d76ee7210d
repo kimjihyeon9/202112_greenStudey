@@ -1,0 +1,9 @@
+package notice_view;
+
+public class NoticeListView extends NoticeView {
+	@Override
+	public void display() {
+		System.out.println("NOTIC LIST ---------------------------");
+		
+	}
+}

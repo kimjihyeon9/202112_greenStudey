@@ -1,0 +1,10 @@
+package Ch05_실습문제풀이_6;
+
+public class GraphicEditor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

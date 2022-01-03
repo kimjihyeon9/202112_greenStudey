@@ -1,0 +1,5 @@
+package notice_model;
+
+public class NoticeDao {
+
+}

@@ -1,0 +1,24 @@
+package Ch05_실습문제풀이_2;
+
+public class Won2Dollar extends Converter {
+	
+	public Won2Dollar(double ratio) {
+		super.ratio = ratio;
+	}
+
+	@Override
+	protected double convert(double src) {
+		return 0;
+	}
+
+	@Override
+	protected String getSrcString() {
+		return null;
+	}
+
+	@Override
+	protected String getDestString() {
+		return null;
+	}
+
+}

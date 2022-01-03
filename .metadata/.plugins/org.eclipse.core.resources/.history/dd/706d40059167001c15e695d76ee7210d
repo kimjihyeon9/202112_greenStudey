@@ -1,0 +1,20 @@
+package notice;
+
+import notice_model.NoticeDao;
+import notice_model.NoticeVo;
+
+public class TestDao {
+	public static NoticeDao dao = new NoticeDao();
+
+	public static void main(String[] args) {
+
+		// DAO 테스트 selectAll
+
+			NoticeVo[] NoticeArr = dao.selectAll();
+			for (NoticeVo saram : NoticeArr) {
+				System.out.println(saram);
+			}
+		}
+
+	}
+}

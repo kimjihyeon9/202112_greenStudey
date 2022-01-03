@@ -1,0 +1,12 @@
+package notice_model;
+
+public class NoticeVo {
+	private int no;
+	private String user;
+	private String message;
+	private String regDate;
+	
+	public NoticeVo() {
+		this(0, "", "", "");
+	}
+}

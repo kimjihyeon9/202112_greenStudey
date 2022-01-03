@@ -1,0 +1,10 @@
+package Ch07;
+
+public class HashMapScoreEx {
+
+	public static void main(String[] args) {
+		// 사용자 이름과 점수를 기로하는 HachMap 컬렉션 생성
+		HashMapScor
+	}
+
+}

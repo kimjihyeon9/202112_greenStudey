@@ -1,0 +1,9 @@
+package notice_view;
+
+public class Delete extends NoticeView {
+	@Override
+	public void display() {
+		System.out.println("DELETE -----------------------------");
+		
+	}
+}

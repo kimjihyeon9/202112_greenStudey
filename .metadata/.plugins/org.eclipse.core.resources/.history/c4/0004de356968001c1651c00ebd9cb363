@@ -1,0 +1,96 @@
+package Day12;
+
+////////////////////////////////////////// 3번
+class SharpPencil {
+	private int width; // 펜의 굵기
+	private int amount; // 남은 량
+	
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+}
+
+class BallPen extends SharpPencil {
+	private String color; // 볼펜의 색
+	
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+}
+
+class FountainPen extends BallPen {
+	public void refill(int n) { // 남은량 보충
+		setAmount(n);
+	}
+}
+
+//////////////////////////////////////////6번
+
+class TV {
+	private int size;
+	
+	public TV(int n) {
+		size = n;
+	}
+}
+
+class ColorTV extends TV {
+	private int colors;
+	
+	public ColorTV(int colors, int size) {
+		super(size);
+		this.colors = colors;
+	}
+}
+
+//////////////////////////////////////////9번
+// (1)
+abstract class A {
+	abstract void f();
+}
+
+// (3)
+//abstract class B {
+//	abstract void f();
+//}
+//abstract class C extends B {
+//	
+//}
+
+// (4)
+abstract class B {
+	abstract int f();
+}
+abstract class C extends B {
+	int f() {
+		System.out.println("~");
+		return 0;
+	}
+}
+
+//////////////////////////////////////////10번
+abstract class OddDetector {
+	protected int n;
+	
+	public OddDetector(int n) {
+		this.n = n;
+	}
+	
+	public abstract boolean isOdd(); // 홀수이면 true 리턴
+}
+// Ch05_연습문제
+public class Ch05_연습문제{
+	public B(int n) {
+		super(n);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println();
+	}
+}

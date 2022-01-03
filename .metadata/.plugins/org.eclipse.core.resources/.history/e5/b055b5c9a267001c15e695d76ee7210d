@@ -1,0 +1,9 @@
+package notice_view;
+
+public class InsertView extends NoticeView {
+	@Override
+	public void display() {
+		System.out.println("INSERT ----------------------------------");
+		
+	}
+}

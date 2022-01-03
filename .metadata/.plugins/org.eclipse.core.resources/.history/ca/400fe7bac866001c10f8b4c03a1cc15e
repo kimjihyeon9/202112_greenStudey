@@ -1,0 +1,7 @@
+package saram_controller;
+
+public class SaramController {
+	public void action() {
+		System.out.println(">>>> SaramController 실행 ...");
+	}
+}

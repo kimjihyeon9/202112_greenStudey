@@ -1,0 +1,43 @@
+package saram;
+
+import saram_model.SaramDao;
+import saram_model.SaramVo;
+
+public class SaramMain {
+	public static SaramDao dao = new SaramDao();
+
+	// DAO 테스트 selectAll
+	public static void test_selectAll(String[] args) {
+		SaramDao dao = new SaramDao();
+		SaramVo[] saramArr = dao.selectAll();
+		for(SaramVo saram : saramArr) {
+			System.out.println(saram);
+		}
+	}
+	
+	// DAO 테스트 selectOne
+	public static void test_selectOne(String[] args) {
+		SaramVo vo = new SaramVo(0, "LEE", null, null);
+		SaramVo saram = dao.selectOne(vo);
+		System.out.println(saram);
+	}
+	
+	// DAO 테스트 selectByNo
+	public static void test_selectByNo(String[] args) {
+		SaramVo saram = dao.selectByNo(1);
+		System.out.println(saram);
+	}
+	
+	// DAO 테스트 update
+	public static void main(String[] args) {
+		SaramVo vo = dao.selectByNo(3);
+		vo.setName("PARK2");
+		vo.setPhone("010-3333-3300");
+		vo.setEmail("park2@comstudy.org");
+		dao.update(vo);
+		
+		SaramVo saram = dao.selectOne(new SaramVo(0, "PARK2", null, null));
+		System.out.println(saram);
+	}
+	
+}

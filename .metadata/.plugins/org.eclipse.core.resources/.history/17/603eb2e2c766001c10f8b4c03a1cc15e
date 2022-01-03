@@ -1,0 +1,11 @@
+package saram_view;
+
+import java.util.Scanner;
+
+public class SaramView {
+	public static final Scanner scan = new Scanner(System.in);
+	
+	public void display() {
+		System.out.println("Saram view display...");
+	}
+}

@@ -1,0 +1,10 @@
+package saram_model;
+
+public class SaramVo {
+	private int no;
+	private String name;
+	private String phone;
+	private String email;
+	
+	
+}

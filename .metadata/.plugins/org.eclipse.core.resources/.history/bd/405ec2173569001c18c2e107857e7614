@@ -1,0 +1,76 @@
+package Ch05_실습문제풀이_5;
+
+// 실습문제 10번
+
+abstract class PairMap{
+	protected String[] keyArray; // key 들을 저장하는 배열
+	protected String[] valueArray; // value 들을 저장하는 배열
+	abstract String get(String key); // key 값을 가진 value 리턴. 없으면 null 리턴
+	abstract void put(String key, String value); // key 와 value를 쌍으로 저장. 기존에 key 가 있으면 값을 value로 수정
+	abstract String delete(String key); // key 값을 가진 아이템(value와 함께) 삭제. 삭제된 value값 리턴
+	abstract int length(); // 현재 저장된 아이템의 개수 리턴
+}
+
+class Dictionary extends PairMap{
+	private int top;
+	private int capacity;
+
+	public Dictionary(int capacity) {
+		keyArray = new String[capacity];
+		valueArray = new String[capacity];
+		top = 0;
+	}
+
+	@Override
+	String get(String key) {
+		// 값 비교하기(?)
+		// key값을 받으면 같은게 있는지 확인후 return(있다면 value, 없다면 null)
+		
+		return null;
+	}
+
+	@Override
+	void put(String key, String value) {
+		// 입력받으면 배열에 넣기
+		// 넣다가 꽉차면 더 큰 배열에 담기(배열길이 늘리기)
+		
+	}
+
+	@Override
+	String delete(String key) { 
+		// value와 함께 삭제되는지 모름, 일단 key값 지우기
+		for(int i = 0; i < top; i++) {
+			for(int j = i; j < top - 1; j++) {
+				keyArray[j] = keyArray[j+1];
+			}
+			keyArray[top] = null;
+			top--;
+		}
+		return null;
+	}
+
+	@Override
+	int length() {
+		// 커지면 늘려주기(여기서 값줘야하나..?)
+		return top;
+	}
+
+}
+
+public class DictionaryApp {
+
+	public static void main(String[] args) {
+		Dictionary dic = new Dictionary(10);
+		dic.put("홍길동", "자바");
+		dic.put("김길동", "파이썬");
+		dic.put("최길동", "자바스크립트");
+		
+		System.out.println("김길동의 값은 " + dic.get("김길동"));
+		System.out.println("홍길동의 값은 " + dic.get("홍길동"));
+		
+		dic.delete("홍길동");
+		
+		System.out.println("홍길동의 값은 " + dic.get("홍길동")); // null
+	}
+
+}

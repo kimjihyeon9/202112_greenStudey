@@ -1,0 +1,13 @@
+package notice_controller;
+
+import notice.ViewContainer;
+import notice_model.NoticeDao;
+
+public class NoticeController {
+//	private ViewContainer vc = new ViewContainer();
+	private NoticeDao dao = new NoticeDao(); 
+	
+	public void action() {
+		
+	}
+}

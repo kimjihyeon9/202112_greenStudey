@@ -1,0 +1,12 @@
+package saram_view;
+
+public class SaramDelete extends SaramView {
+	@Override
+	public void display() {
+		System.out.println("::::: 사람 정보 삭제 :::::");
+		// R.saramVo 에 저장 후 Controller 로 이동
+		System.out.println("삭제할 이름>> ");
+		String name = scan.next();
+		if()
+	}
+}

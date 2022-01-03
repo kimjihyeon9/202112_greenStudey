@@ -1,0 +1,20 @@
+package saram_view;
+
+import saram.R;
+import saram_model.SaramDao;
+import saram_model.SaramVo;
+
+public class SaramEdit extends SaramView {
+	@Override
+	public void display() {
+		if(R.type == R.SEARCH) {
+			System.out.println("::::: 사람 정보 수정 :::::");
+			System.out.print("수정할 이름>> ");
+			String name1 = scan.next();
+			SaramDao sd = new SaramDao();
+			sd.update(name1);
+		} else {
+			System.out.println(R.saramVo);
+		}
+	}
+}

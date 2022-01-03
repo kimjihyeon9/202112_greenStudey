@@ -1,0 +1,55 @@
+package saram_model;
+
+// 루즈 커플링
+// 결합도 낮추고 응집력 높여라.
+// SOLID 5원칙
+
+public class SaramDao {
+	// 임시로 배열에 저장하도록 구현한후 DB연동 또는 FileIO로 처리
+	private static final int Max = 100;
+	private static final SaramVo[] saramArr = new SaramVo[Max];
+	private static int top = 0;
+	
+	// static 초기화 블럭
+	static {
+		saramArr[top++] = new SaramVo(top++, "KIM", "010-1111-1111", "kim@camstudy.org");
+		saramArr[top++] = new SaramVo(top++, "LEE", "010-2222-2222", "lee@camstudy.org");
+		saramArr[top++] = new SaramVo(top++, "PARK", "010-3333-3333", "park@camstudy.org");
+	}
+	
+	// 전체 출력
+	public SaramVo[] selectAll() {
+		// satamArr와 참조 끊기 - 새 배열과 새 객체가 필요하다.
+		SaramVo[] newArr = new SaramVo[top];
+		for(int i = 0; i < newArr.length; i++) {
+			// 새로 만든 객체에 값만 옮겨 담기
+			SaramVo newSaram = new SaramVo();
+			newSaram.setNo(saramArr[i].getNo());
+			newSaram.setName(saramArr[i].getName());
+			newSaram.setPhone(saramArr[i].getPhone());
+			newSaram.setEmail(saramArr[i].getEmail());
+			newArr[i] = newSaram;
+		}
+		return newArr;
+	}
+	
+	// 상세보기
+	public SaramVo selectOne(SaramVo vo) {
+		return null;
+	}
+	
+	// 입력
+	public void insert(SaramVo vo) {
+		
+	}
+	
+	// 수정
+	public void update(SaramVo vo) {
+		
+	}
+	
+	// 삭제
+	public void delete(SaramVo vo) {
+		
+	}
+}
