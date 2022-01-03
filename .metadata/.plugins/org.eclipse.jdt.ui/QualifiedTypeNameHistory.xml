@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="Day09_1.DanceMusic"/>
-    <fullyQualifiedTypeName name="Day09_1.Music"/>
-    <fullyQualifiedTypeName name="Day09_1.MusicPlayer"/>
-    <fullyQualifiedTypeName name="Day09_2.MusicPlayer"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="Day09_2.NCSMusic"/>
-    <fullyQualifiedTypeName name="Day09_2.ViewContainer"/>
     <fullyQualifiedTypeName name="saram_view.SaramView"/>
     <fullyQualifiedTypeName name="saram_view.SaramListView"/>
     <fullyQualifiedTypeName name="saram_controller.SaramController"/>
@@ -43,21 +36,28 @@
     <fullyQualifiedTypeName name="java.awt.Shape"/>
     <fullyQualifiedTypeName name="Ch05_실습문제12번.Shape"/>
     <fullyQualifiedTypeName name="Ch05_실습문제풀이_6.Circle"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="Day13_1.Point"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.lang.Character"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.time.Year"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="java.util.Vector"/>
     <fullyQualifiedTypeName name="Ch07.HashMapDicEx"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="Ch07.HachMapScoreEx"/>
     <fullyQualifiedTypeName name="Ch07.HashMapScoreEx"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
-    <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+    <fullyQualifiedTypeName name="Ch07_ex01.HashMapStudentEx"/>
+    <fullyQualifiedTypeName name="Ch07_ex02_menu.DispatcherEx"/>
+    <fullyQualifiedTypeName name="Ch07_ex02_menu.Controller"/>
+    <fullyQualifiedTypeName name="Ch07_ex02_menu.BoardController"/>
+    <fullyQualifiedTypeName name="Ch07_ex02_menu.Menu"/>
+    <fullyQualifiedTypeName name="Ch07_ex01.CollectionsEx"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Vector"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

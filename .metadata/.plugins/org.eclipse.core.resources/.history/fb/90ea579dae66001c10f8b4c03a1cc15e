@@ -1,9 +1,0 @@
-package saram;
-
-public class SaramMain {
-
-	public static void main(String[] args) {
-		
-	}
-
-}

@@ -1,0 +1,10 @@
+package Ch07_ex02_menu;
+
+public class DispatcherEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

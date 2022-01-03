@@ -24,8 +24,8 @@ public class CollectionsEx {
 		myList.add("트랜스포머");
 		myList.add("스타워즈");
 		myList.add("매트릭스");
-		myList.add(0, "터미네이터");
-		myList.add(2, "아바타");
+		myList.add(0, "터미네이터"); // insert
+		myList.add(2, "아바타"); // insert
 		
 		Collections.sort(myList); // 요소 정렬
 		printList(myList); // 정렬된 요소 출력

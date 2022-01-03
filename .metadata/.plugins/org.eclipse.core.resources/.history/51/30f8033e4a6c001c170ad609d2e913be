@@ -1,0 +1,45 @@
+package Ch07_ex02_menu;
+
+import java.util.Scanner;
+
+class Menu {
+	public static int no;
+	public static Scanner scan = new Scanner(System.in);
+	public static void display(String[] items) {
+		for(int i = 0; i < items.length; i++) {
+			System.out.print(i + 1 + "." + items[i] + " ");
+		}
+//		System.out.println("1.게시판 2.갤러리 3.주소록 4.종료");
+		System.out.print("\n선택 : ");
+		no = scan.nextInt();
+		
+		while(no < 1 || no > 4) {
+			System.out.println("입력 범위를 초과했습니다!!");
+			System.out.print("다시 선택 : ");
+			no = scan.nextInt();
+		}
+	}
+}
+
+abstract class Controller {
+	public abstract void run();
+}
+
+public class DispatcherEx {
+	public DispatcherEx() {
+		action();
+	}
+	private void action() {
+		// 메뉴 보여준다.
+		
+		String[] menuItems = new String[] {"게시판", "갤러리", "주소록", "종료"};
+		Menu.display(menuItems);
+		System.out.println(Menu.no + " => ");
+		System.out.println(menuItems[Menu.no-1]);
+	}
+
+	public static void main(String[] args) {
+		new DispatcherEx();
+	}
+
+}

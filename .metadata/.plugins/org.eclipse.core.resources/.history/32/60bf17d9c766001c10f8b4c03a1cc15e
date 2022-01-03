@@ -1,7 +1,0 @@
-package saram_view;
-
-public class SaramView {
-	public void display() {
-		System.out.println("Saram view display...");
-	}
-}

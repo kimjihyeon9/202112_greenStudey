@@ -25,6 +25,7 @@ public class HashMapScoreEx {
 		Set<String> keys = javaScore.keySet();
 		
 		// key 문자열을 순서대로 접근할 수 있는 Iterator 리턴
+		// 해쉬코드 순으로 정렬됨(10개이하는)
 		Iterator<String> it = keys.iterator();
 		while (it.hasNext()) {
 			String name = it.next();
