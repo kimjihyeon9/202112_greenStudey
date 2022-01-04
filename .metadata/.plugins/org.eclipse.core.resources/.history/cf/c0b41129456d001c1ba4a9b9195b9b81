@@ -1,0 +1,26 @@
+package Ch07_ex03;
+
+import java.util.Scanner;
+import java.util.Vector;
+
+public class Ch07_실습문제 {
+	private static void ex01() {
+//		Vector<Integer> iv = new Vector<Integer>();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("정수 (-1이 입력될 때까지)>> ");
+		int max = 0;
+		while(true) {
+			int n = scan.nextInt();
+			if(n == -1) break;
+			if(max < n) {
+				max = n;
+			}
+		}
+		System.out.println("가장 큰 수는 " + max);
+	}
+	
+	public static void main(String[] args) {
+		ex01();
+	}
+
+}

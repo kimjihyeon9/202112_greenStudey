@@ -64,7 +64,6 @@ public class Ch07Excercise {
 	}
 
 	private void ex02() {
-		// 학점을 받는 문법(문장)
 		Scanner scan = new Scanner(System.in);
 		final int MAX = 6;
 		ArrayList<Character> scoreList = new ArrayList<Character>();
@@ -79,7 +78,6 @@ public class Ch07Excercise {
 		}
 		scan.close();
 		
-		// 입력받은 학점의 평균을 계산하는 문법(문장)
 		Iterator<Character> it = scoreList.iterator();
 		double sum = 0;
 		while(it.hasNext()) {

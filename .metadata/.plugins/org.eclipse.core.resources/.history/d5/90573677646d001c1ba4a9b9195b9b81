@@ -145,10 +145,6 @@ public class Ch07_실습문제 {
 	}
 
 	private static void ex05() {
-//		ArrayList<Student> student = new ArrayList<Student>();
-		Scanner scan = new Scanner(System.in);
-		System.out.println("학생 이름, 학과, 학번, 학점평균 입력하세요.");
-		System.out.print(">> ");
 		
 	}
 }

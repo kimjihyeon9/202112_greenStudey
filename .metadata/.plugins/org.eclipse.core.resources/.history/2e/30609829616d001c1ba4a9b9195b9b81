@@ -114,7 +114,7 @@ public class Ch07_실습문제 {
 	}
 
 	// 4번
-	public static void main04(String[] args) {
+	public static void main(String[] args) {
 		ex04();
 	}
 
@@ -128,53 +128,12 @@ public class Ch07_실습문제 {
 		while (true) {
 			System.out.print("강수량 입력 (0 입력시 종료)>> ");
 			n = scan.nextInt();
-			if (n == 0)
+			if (n == -1)
 				break;
 			sum += n;
 			avg = sum / i;
-			iv.add(n);
-			System.out.println(iv);
 			System.out.println("현재 평균 " + avg);
 			i++;
 		}
 	}
-	
-	// 5번
-	public static void main(String[] args) {
-		ex05();
-	}
-
-	private static void ex05() {
-//		ArrayList<Student> student = new ArrayList<Student>();
-		Scanner scan = new Scanner(System.in);
-		System.out.println("학생 이름, 학과, 학번, 학점평균 입력하세요.");
-		System.out.print(">> ");
-		
-	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

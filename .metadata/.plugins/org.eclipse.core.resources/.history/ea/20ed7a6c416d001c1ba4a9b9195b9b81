@@ -1,0 +1,12 @@
+package Ch07_ex03;
+
+public class Ch07_실습문제 {
+	private static void ex01() {
+		
+	}
+	
+	public static void main(String[] args) {
+		ex01();
+	}
+
+}

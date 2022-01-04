@@ -114,7 +114,7 @@ public class Ch07_실습문제 {
 	}
 
 	// 4번
-	public static void main04(String[] args) {
+	public static void main(String[] args) {
 		ex04();
 	}
 
@@ -138,43 +138,4 @@ public class Ch07_실습문제 {
 			i++;
 		}
 	}
-	
-	// 5번
-	public static void main(String[] args) {
-		ex05();
-	}
-
-	private static void ex05() {
-//		ArrayList<Student> student = new ArrayList<Student>();
-		Scanner scan = new Scanner(System.in);
-		System.out.println("학생 이름, 학과, 학번, 학점평균 입력하세요.");
-		System.out.print(">> ");
-		
-	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
