@@ -1,0 +1,60 @@
+package Day15_excercise01;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Vector;
+
+public class Ch07Excercise {
+	public Ch07Excercise() {
+//		ex01();
+		ex02();
+	}
+	
+	private void ex02() {
+		Scanner scan = new Scanner(System.in);
+		final int MAX = 6;
+		ArrayList<Character> scoreList = new ArrayList<Character>();
+		System.out.print("6개의 학점을 빈 칸으로 분리 입력(A/B/C/D/F)>>");
+		for(int i = 0; i < 6; i++) {
+			Character ch = 0;
+			ch = scan.next().charAt(0);
+			if(ch == 'A' || ch == 'B' || ch == 'C' || ch == 'D' || ch == 'F') {
+				scoreList.add(ch);
+			}
+		}
+		scan.close();
+		
+		Iterator<Character> it = scoreList.iterator();
+		double sum = 0;
+		while(it.hasNext()) {
+			Character score = it.next();
+			sum += (69 - score) < 0 ? 0 : (double)(69 - score);
+		}
+		System.out.println("평균 = " + sum / MAX);
+	}
+
+	private void ex01() {
+		// 벡터에 저장하고 가장 큰수를 출력
+		// 정수(-1이 입력될떄까지) >>
+		// 가장 큰수는
+		Vector<Integer> iv = new Vector<Integer>();
+		Scanner scan = new Scanner(System.in);
+		int i = 0;
+		int max = 0;
+		System.out.print("정수 (-1이 입력될 때까지)>> ");
+		while((i = scan.nextInt()) != -1) {
+			if(max < i) {
+				max = i;
+			}
+			iv.add(i);
+		}
+		System.out.println(iv);
+		System.out.println("가장 큰 수는 " + max);
+	}
+
+	public static void main01(String[] args) {
+		new Ch07Excercise();
+	}
+
+}

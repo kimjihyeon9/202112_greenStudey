@@ -1,7 +1,0 @@
-package notice_view;
-
-public class NoticeView {
-	public void display() {
-		System.out.println("view display");
-	}
-}

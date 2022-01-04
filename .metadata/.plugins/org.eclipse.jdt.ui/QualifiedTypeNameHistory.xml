@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="saram_view.SaramView"/>
-    <fullyQualifiedTypeName name="saram_view.SaramListView"/>
-    <fullyQualifiedTypeName name="saram_controller.SaramController"/>
-    <fullyQualifiedTypeName name="saram.ViewContainer"/>
-    <fullyQualifiedTypeName name="saram_view.MenuView"/>
     <fullyQualifiedTypeName name="saram_model.SaramVo"/>
     <fullyQualifiedTypeName name="saram_view.SaramDatail"/>
     <fullyQualifiedTypeName name="saram_view.SaramDelete"/>
@@ -47,7 +42,6 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="Ch07.HachMapScoreEx"/>
     <fullyQualifiedTypeName name="Ch07.HashMapScoreEx"/>
-    <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
     <fullyQualifiedTypeName name="Ch07_ex01.HashMapStudentEx"/>
     <fullyQualifiedTypeName name="Ch07_ex02_menu.DispatcherEx"/>
     <fullyQualifiedTypeName name="Ch07_ex02_menu.Controller"/>
@@ -55,9 +49,15 @@
     <fullyQualifiedTypeName name="Ch07_ex02_menu.Menu"/>
     <fullyQualifiedTypeName name="Ch07_ex01.CollectionsEx"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
-    <fullyQualifiedTypeName name="java.util.Vector"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+    <fullyQualifiedTypeName name="Day15_excercise01.Ch07Excercise"/>
+    <fullyQualifiedTypeName name="javax.swing.tree.VariableHeightLayoutCache"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="Day15_excercise05.Ch07Excercise05"/>
+    <fullyQualifiedTypeName name="Day15_excercise05.Ch07Excercise06"/>
+    <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+    <fullyQualifiedTypeName name="java.util.Vector"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

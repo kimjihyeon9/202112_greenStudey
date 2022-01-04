@@ -1,5 +1,0 @@
-package notice_view;
-
-public class SearchByName extends NoticeView {
-
-}

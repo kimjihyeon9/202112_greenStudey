@@ -1,0 +1,10 @@
+package Day15_excercise06;
+
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.Vector;
+
+public class Location {
+	
+}

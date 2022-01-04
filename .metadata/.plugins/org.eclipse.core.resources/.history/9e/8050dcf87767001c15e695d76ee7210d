@@ -1,5 +1,0 @@
-package saram_view;
-
-public class SearchByName extends SaramView {
-
-}

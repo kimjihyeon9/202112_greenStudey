@@ -1,0 +1,15 @@
+package Day15_excercise05;
+
+public class Ch07Excercise06 {
+	public Ch07Excercise06() {
+		start();
+	}
+	
+	private void start() {
+		
+	}
+	
+	public static void main(String[] args) {
+		new Ch07Excercise06();
+	}
+}

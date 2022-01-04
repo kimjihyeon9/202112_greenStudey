@@ -1,0 +1,33 @@
+package Day15_excercise06;
+
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Ex06Main {
+	private HashMap<String, Location> locMap = new HashMap<String, Location>();
+	private Scanner scan;
+	public static final int MAX = 4;
+	public Ex06Main() {
+		play();
+	}
+	
+	private void play() {
+		scan = new Scanner(System.in);
+		System.out.println("4개 도시의 도시, 위도, 경도를 입력하세요.");
+		for(int i = 0; i < MAX; i++) {
+			System.out.print(">> ");
+			String value = scan.nextLine();
+			StringTokenizer st = new StringTokenizer(value, ", ");
+			String 도시 = st.nextToken();
+			int 위도 = Integer.parseInt(st.nextToken());
+			int 경도 = Integer.parseInt(st.nextToken());
+			Location loc = new Location(도시, 위도, 경도);
+		}
+	}
+
+	public static void main(String[] args) {
+		new Ex06Main();
+	}
+
+}
