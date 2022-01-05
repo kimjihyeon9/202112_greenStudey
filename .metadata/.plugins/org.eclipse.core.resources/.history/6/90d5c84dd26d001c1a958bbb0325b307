@@ -1,0 +1,63 @@
+package Ch08_01;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+public class Ch08_Ex02 {
+	public static void main01(String[] args) throws IOException {
+		OutputStream os = System.out; // 업캐스팅
+		byte[] by = new byte[255];
+		
+		System.out.print("문자 입력 >> ");
+		System.in.read(by);
+		
+		String s = new String(by).trim();
+		
+		os.write(s.getBytes());
+	}
+
+	public static void main01_1(String[] args) throws IOException {
+		OutputStream os = System.out;
+		InputStream is = System.in;
+		
+//		int data = is.read(); // 바이트코드로 받는다(아스키코드) a(97), A(65), 0(48), \n(13)
+//		System.out.println(data);
+		
+		System.out.println("데이터를 입력 해 보세요. (끝내려면 Ctrl+z) : ");
+		int data = 0;
+		while((data = is.read()) != -1) { // EOF(End Of File)일때까지 (Ctrl + z)
+			os.write(data);
+		}
+		System.out.println("입력 종료!");
+	}
+
+	public static void main(String[] args) throws IOException {
+		FileOutputStream fos = new FileOutputStream("C:\\Users\\Administrator\\data.txt");
+		InputStream is = System.in;
+		
+		System.out.println("데이터를 입력 해 보세요. (끝내려면 Ctrl+z) : ");
+		int data = 0;
+		while((data = is.read()) != -1) { // EOF(End Of File)일때까지 (Ctrl + z)
+			fos.write(data);
+		}
+		System.out.println("입력 종료!");
+		
+		fos.close(); // 파일을 열었으면 반드시 닫아야한다
+		// 안닫으면 계속 열려있어서 기록이 안된다
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

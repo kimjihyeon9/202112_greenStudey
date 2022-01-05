@@ -1,0 +1,18 @@
+package Ch08_01;
+
+import java.util.Scanner;
+
+public class Ch08_Ex01 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner("우리나라 대한민국\n 만세 나라사랑\n 가족사랑");
+		
+//		while(scan.hasNext()) {
+//			System.out.println(scan.next());
+//		}
+		while(scan.hasNextLine()) {
+			System.out.println(scan.nextLine());
+		}
+	}
+
+}

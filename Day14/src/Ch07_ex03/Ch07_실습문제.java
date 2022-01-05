@@ -77,7 +77,7 @@ public class Ch07_실습문제 {
 		double sum = 0;
 		while (it.hasNext()) {
 			Character score = it.next();
-			sum += (69 - score) < 0 ? 0 : (double) (69 - score);
+			sum += (69 - score) < 0 ? 0 : (double) (69 - score); // 아스키코드(69)값으로 하는것
 		}
 		System.out.println("평균 = " + sum / 6);
 	}
@@ -140,7 +140,7 @@ public class Ch07_실습문제 {
 	}
 	
 	// 5번
-	public static void main(String[] args) {
+	public static void main05(String[] args) {
 		ex05();
 	}
 
@@ -150,6 +150,32 @@ public class Ch07_실습문제 {
 		System.out.println("학생 이름, 학과, 학번, 학점평균 입력하세요.");
 		System.out.print(">> ");
 		
+	}
+	
+	// 8번
+	public static void main(String[] args) {
+		ex08();
+	}
+
+	private static void ex08() {
+		HashMap<String, Integer> point = new HashMap<String, Integer>();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("** 포인트 관리 프로그램입니다 **");
+		String 이름 = "";
+		int 포인트 = 0;
+		while(true) {
+			System.out.print("이름과 포인트 입력>> ");
+			이름 = scan.next();
+			if("그만".equals(이름)) break;
+			포인트 = scan.nextInt();
+			if(point.containsKey(이름)) {
+				int a = point.get(이름) + 포인트;
+				point.put(이름, a);
+			} else {
+				point.put(이름, 포인트);
+			}
+			System.out.println(이름 + point.get(이름));
+		}
 	}
 }
 

@@ -1,0 +1,54 @@
+package Ch08_01;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Ch08_Ex01_1 {
+	public static void main(String[] args) throws IOException {
+		InputStreamReader is = new InputStreamReader(System.in);
+		BufferedReader b = new BufferedReader(is);
+		
+		System.out.print("이름 입력 : ");
+		String name = b.readLine();
+		System.out.println(name);
+	}
+
+	public static String getLine() {
+		InputStreamReader is = new InputStreamReader(System.in);
+		BufferedReader b = new BufferedReader(is);
+		
+		try {
+			return b.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static int getNum() {
+		String s = getLine();
+		StringBuffer s2 = new StringBuffer();
+		
+		for(int i = 0; i <s.length(); i++) {
+			char ch = s.charAt(i);
+			if(ch > '0' && ch < '9') {
+				s2.append(ch);
+			}
+		}
+		return Integer.parseInt(s);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

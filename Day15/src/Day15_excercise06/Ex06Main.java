@@ -1,5 +1,7 @@
 package Day15_excercise06;
 
+// 실습문제 6번
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
