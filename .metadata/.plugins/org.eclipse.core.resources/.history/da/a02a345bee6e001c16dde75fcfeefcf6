@@ -1,0 +1,9 @@
+package Address_view;
+
+public class ListView extends AddrView {
+	@Override
+	public void display() {
+		System.out.println("-------------------------- 조회 --------------------------");
+		super.display();
+	}
+}

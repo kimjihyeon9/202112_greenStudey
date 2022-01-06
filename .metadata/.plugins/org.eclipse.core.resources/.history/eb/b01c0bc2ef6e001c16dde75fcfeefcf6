@@ -1,0 +1,42 @@
+package Address_controller;
+
+import java.io.IOException;
+
+import Address_model.AddressDao;
+import Address_view.AddrView;
+
+public class AddressController extends AddrView {
+	private AddressDao dao = new AddressDao();
+	
+	public void run() throws IOException, ClassNotFoundException {
+		System.out.println("-------------------------- 메뉴 --------------------------");
+		System.out.println("1.등록 2.조회 3.수정 4.삭제 5.종료");
+		System.out.print(">> ");
+		int no = scan.nextInt();
+		
+		// 유효성검사
+
+		switch (no) {
+		case 1:
+			dao.add();
+//			save();
+			break;
+		case 2:
+			dao.listAll();
+			break;
+		case 3:
+			dao.edit();
+			break;
+		case 4:
+			dao.delete();
+			break;
+		case 5:
+			dao.end();
+			break;
+		default:
+			System.out.println("해당 번호는 없는 번호입니다.");
+			break;
+		}
+		run();
+	}
+}

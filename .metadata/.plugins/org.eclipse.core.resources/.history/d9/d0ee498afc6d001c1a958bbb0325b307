@@ -1,0 +1,9 @@
+package Ch08_03;
+
+public class TestJsonObj {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

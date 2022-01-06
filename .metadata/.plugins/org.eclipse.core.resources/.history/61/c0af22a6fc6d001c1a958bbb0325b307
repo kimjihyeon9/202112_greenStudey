@@ -1,0 +1,17 @@
+package Ch08_03;
+
+import org.json.JSONObject;
+
+public class TestJsonObj {
+
+	public static void main(String[] args) {
+		JSONObject jsonObj = new JSONObject();
+		
+		jsonObj.put("no", "1");
+		jsonObj.put("name", "hong");
+		jsonObj.put("email", "hong@h.com");
+		
+		System.out.println(jsonObj.toString(2));
+	}
+
+}

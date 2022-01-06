@@ -1,0 +1,25 @@
+package Address_view;
+
+public class AddView extends AddrView {
+	
+	public void display() {
+		System.out.println("-------------------------- 등록 --------------------------");
+		
+		System.out.print("이름 입력 : ");
+		String name = getLine();
+		
+		System.out.print("전화번호 입력 : ");
+		String phone = getLine();
+		
+		System.out.print("주소 입력 : ");
+		String addr = getLine();
+		
+		System.out.print("이메일 입력 : ");
+		String email = getLine();
+		
+		aList.add(new Address(name, phone, addr, email));
+		
+		System.out.println("입력완료!");
+	}}
+
+	}

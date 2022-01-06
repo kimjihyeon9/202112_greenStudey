@@ -1,0 +1,22 @@
+package Address;
+
+import Address_controller.AddressController;
+import Address_model.AddressVo;
+import Address_view.AddView;
+import Address_view.AddrView;
+import Address_view.DeleteView;
+import Address_view.EditView;
+import Address_view.ListView;
+
+public class R {
+	public static int no;
+	public static AddressVo addressvo;
+	
+	public static final AddrView addView = new AddView();
+	public static final AddrView listView = new ListView();
+	public static final AddrView editView = new EditView();
+	public static final AddrView deleteView = new DeleteView();
+	
+	public static final AddressController addressController = new AddressController();
+	
+}

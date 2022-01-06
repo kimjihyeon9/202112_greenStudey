@@ -1,0 +1,10 @@
+package Address_model;
+
+public class AddressDao {
+
+	public void add() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
