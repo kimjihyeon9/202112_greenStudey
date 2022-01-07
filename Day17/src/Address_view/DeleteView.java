@@ -16,8 +16,9 @@ public class DeleteView extends AddrView {
 		char yn = scan.next().charAt(0);
 		if(yn == 'n') {
 			R.addressvo = null;
-		} else {
 			System.out.println("취소되었습니다.");
+		} else {
+			System.out.println("삭제되었습니다.");
 		}
 	}
 }

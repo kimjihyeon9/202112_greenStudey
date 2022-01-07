@@ -1,5 +1,7 @@
 package Address;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import Address_controller.AddressController;
@@ -25,5 +27,4 @@ public class R {
 	public static final AddrView delete = new DeleteView();
 	
 	public static final AddressController addressController = new AddressController();
-	
 }

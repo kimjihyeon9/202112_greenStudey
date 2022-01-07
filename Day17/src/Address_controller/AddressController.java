@@ -56,6 +56,7 @@ public class AddressController extends AddrView {
 			System.out.println("해당 번호는 없는 번호입니다.");
 			break;
 		}
+		dao.save();
 		R.no = 0;
 		run();
 	}

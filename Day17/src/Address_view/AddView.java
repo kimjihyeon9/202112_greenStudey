@@ -1,5 +1,8 @@
 package Address_view;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import Address.R;
 import Address_model.AddressVo;
 
@@ -22,6 +25,8 @@ public class AddView extends AddrView {
 		String email = getLine();
 		
 		R.addressvo = new AddressVo(0, name, phone, addr, email);
+		
+		
 		
 		System.out.println("입력완료!");
 	}

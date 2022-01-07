@@ -1,6 +1,12 @@
 package Address_model;
 
-public class AddressVo {
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Objects;
+
+public class AddressVo implements Externalizable {
 	private int no;
 	private String name;
 	private String phone;
@@ -60,7 +66,42 @@ public class AddressVo {
 	}
 	
 	@Override
+	public int hashCode() {
+		return Objects.hash(no);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AddressVo other = (AddressVo) obj;
+		return no == other.no;
+	}
+
+	@Override
 	public String toString() {
 		return no + " " + name + " " + phone + " " + addr + " " + email;
+	}
+
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		out.write(no);
+		out.writeUTF(name);
+		out.writeUTF(phone);
+		out.writeUTF(addr);
+		out.writeUTF(email);
+	}
+
+	@Override
+	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+		no = in.read();
+		name = in.readUTF();
+		phone = in.readUTF();
+		addr = in.readUTF();
+		email = in.readUTF();
 	}
 }

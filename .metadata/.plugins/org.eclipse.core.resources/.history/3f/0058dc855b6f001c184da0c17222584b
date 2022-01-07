@@ -1,0 +1,91 @@
+package Address_model;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+public class AddressDao {
+	private static File file = new File("F:\\JH\\address.dat");
+	private static FileInputStream fis;
+	private static FileOutputStream fos;
+	private static ObjectInputStream ois;
+	private static ObjectOutputStream oos;
+	private static ArrayList<AddressVo> aList = new ArrayList<>();
+	public static int no = 1;
+
+	public void add(AddressVo vo) {
+		for (int i = 0; i < aList.size(); i++) {
+
+		}
+		vo.setNo(no++);
+		aList.add(vo);
+	}
+
+	public ArrayList<AddressVo> listAll() {
+		ArrayList<AddressVo> aList2 = new ArrayList<>();
+		for (int i = 0; i < aList.size(); i++) {
+			AddressVo av = new AddressVo();
+			av.setNo(aList.get(i).getNo());
+			av.setName(aList.get(i).getName());
+			av.setPhone(aList.get(i).getPhone());
+			av.setAddr(aList.get(i).getAddr());
+			av.setEmail(aList.get(i).getEmail());
+
+			aList2.add(av);
+		}
+		return aList2;
+	}
+
+	public AddressVo search(AddressVo vo) { // 이름으로 찾기 (인덱스 X)
+		for (int i = 0; i < aList.size(); i++) {
+			if (aList.get(i).getName().equals(vo.getName())) {
+				AddressVo a = new AddressVo();
+				a.setNo(aList.get(i).getNo());
+				a.setName(aList.get(i).getName());
+				a.setPhone(aList.get(i).getPhone());
+				a.setAddr(aList.get(i).getAddr());
+				a.setEmail(aList.get(i).getEmail());
+				return a;
+			}
+		}
+		return null;
+	}
+
+//	public AddressVo search1(AddressVo vo) { // 인덱스 반환
+//		for (int i = 0; i < aList.size(); i++) {
+//			if (aList.get(i).getName().equals(vo.getName())) {
+//				AddressVo b = new AddressVo();
+//				b.setNo(aList.indexOf(vo));
+//				int a = aList.indexOf(vo);
+//				return b;
+//			}
+//		}
+//		return null;
+//	}
+
+	public void edit(AddressVo vo) {
+		if (vo == null)
+			return;
+		for (int i = 0; i < aList.size(); i++) {
+			if (aList.get(i).getNo() == vo.getNo()) {
+				aList.set(i, vo);
+			}
+		}
+	}
+
+	public void delete(AddressVo vo) {
+		int i;
+		if (vo != null) {
+			i = aList.indexOf(vo);
+			aList.remove(i);
+		}
+	}
+
+	public void end() {
+		System.out.println("프로그램을 종료합니다!");
+		System.exit(0);
+	}
+}
