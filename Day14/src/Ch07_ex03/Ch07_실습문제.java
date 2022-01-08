@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Vector;
 
 public class Ch07_실습문제 {
@@ -139,18 +140,18 @@ public class Ch07_실습문제 {
 		}
 	}
 	
-	// 5번
-	public static void main05(String[] args) {
-		ex05();
-	}
-
-	private static void ex05() {
-//		ArrayList<Student> student = new ArrayList<Student>();
-		Scanner scan = new Scanner(System.in);
-		System.out.println("학생 이름, 학과, 학번, 학점평균 입력하세요.");
-		System.out.print(">> ");
-		
-	}
+	// 5번 - 다른클래스에서 구현
+//	public static void main(String[] args) {
+//		ex05();
+//	}
+//
+//	private static void ex05() {
+////		ArrayList<Student> student = new ArrayList<Student>();
+//		Scanner scan = new Scanner(System.in);
+//		System.out.println("학생 이름, 학과, 학번, 학점평균 입력하세요.");
+//		System.out.print(">> ");
+//		ArrayList<Student> st = new ArrayList<Student>();
+//	}
 	
 	// 8번
 	public static void main(String[] args) {
@@ -158,23 +159,32 @@ public class Ch07_실습문제 {
 	}
 
 	private static void ex08() {
-		HashMap<String, Integer> point = new HashMap<String, Integer>();
 		Scanner scan = new Scanner(System.in);
+		HashMap<String, Integer> point = new HashMap<String, Integer>();
 		System.out.println("** 포인트 관리 프로그램입니다 **");
-		String 이름 = "";
-		int 포인트 = 0;
+//		String 이름 = "";
+//		int 포인트 = 0;
 		while(true) {
 			System.out.print("이름과 포인트 입력>> ");
-			이름 = scan.next();
+			String 이름 = scan.next();
 			if("그만".equals(이름)) break;
-			포인트 = scan.nextInt();
+			int 포인트 = scan.nextInt();
+			
 			if(point.containsKey(이름)) {
-				int a = point.get(이름) + 포인트;
-				point.put(이름, a);
+				point.put(이름, point.get(이름) + 포인트);
 			} else {
 				point.put(이름, 포인트);
 			}
-			System.out.println(이름 + point.get(이름));
+			
+			Set<String> key = point.keySet();
+			Iterator<String> it = key.iterator();
+			while(it.hasNext()) {
+				이름 = it.next();
+				포인트 = point.get(이름);
+				System.out.printf("(%s, %d)", 이름, 포인트);
+			}
+//			System.out.println(이름 + point.get(이름));
+			System.out.println();
 		}
 	}
 }

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Vector;
 
+// 명현님이랑 같이 푼거(1~3번)
 
 public class day14_Exam {
 	public static void main(String[] args) {

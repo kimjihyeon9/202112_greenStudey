@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="Ch07_ex02_menu.Controller"/>
-    <fullyQualifiedTypeName name="Ch07_ex02_menu.BoardController"/>
-    <fullyQualifiedTypeName name="Ch07_ex02_menu.Menu"/>
-    <fullyQualifiedTypeName name="Ch07_ex01.CollectionsEx"/>
-    <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
     <fullyQualifiedTypeName name="Day15_excercise01.Ch07Excercise"/>
     <fullyQualifiedTypeName name="javax.swing.tree.VariableHeightLayoutCache"/>
@@ -14,12 +9,10 @@
     <fullyQualifiedTypeName name="Day15_excercise06.Ex06Main"/>
     <fullyQualifiedTypeName name="Day15_excercise06.Location"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="java.lang.Iterable"/>
     <fullyQualifiedTypeName name="Ch07_ex03.Ch07_실습문제"/>
     <fullyQualifiedTypeName name="java.lang.Character"/>
     <fullyQualifiedTypeName name="java.util.Vector"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.nio.Buffer"/>
     <fullyQualifiedTypeName name="java.io.PrintStream"/>
     <fullyQualifiedTypeName name="java.io.OutputStream"/>
@@ -38,10 +31,8 @@
     <fullyQualifiedTypeName name="org.json.JSONObject"/>
     <fullyQualifiedTypeName name="org.json.JSONTokener"/>
     <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
-    <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
     <fullyQualifiedTypeName name="Address.Address"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
@@ -50,8 +41,6 @@
     <fullyQualifiedTypeName name="Address_view.ListView"/>
     <fullyQualifiedTypeName name="java.awt.DisplayMode"/>
     <fullyQualifiedTypeName name="java.io.Externalizable"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="Address_view.AddrView"/>
     <fullyQualifiedTypeName name="Address.R"/>
     <fullyQualifiedTypeName name="Address_view.AddressDatail"/>
@@ -60,4 +49,15 @@
     <fullyQualifiedTypeName name="java.io.FileWriter"/>
     <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="java.awt.Frame"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="Ch07_ex03.Location"/>
+    <fullyQualifiedTypeName name="java.lang.Iterable"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
 </qualifiedTypeNameHistroy>
