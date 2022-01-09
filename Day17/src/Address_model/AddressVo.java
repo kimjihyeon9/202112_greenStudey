@@ -66,12 +66,15 @@ public class AddressVo implements Externalizable {
 	}
 	
 	@Override
-	public int hashCode() {
+	public int hashCode() {  // 주소 개념
+		// 문자값을 숫자로 바꿔주는 역할
+		// 이퀄할 때 주소가 맞는지 판단해야한다. 객체 정보가 같은지 확인
+		// 1순위 주소가 같은지 확인하기 위한 판단
 		return Objects.hash(no);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { // 주소가 다를 때 어떤 것을 비교하는지 위한 것
 		if (this == obj)
 			return true;
 		if (obj == null)

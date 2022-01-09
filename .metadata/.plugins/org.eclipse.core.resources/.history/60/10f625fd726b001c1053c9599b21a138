@@ -1,9 +1,0 @@
-package Ch07;
-
-public class HashMapStudnetEx {
-
-	public static void main(String[] args) {
-		// 학생 이름과 Student 객체를 쌍으로 저장하는 HashMap 컬렉션 생성
-	}
-
-}
