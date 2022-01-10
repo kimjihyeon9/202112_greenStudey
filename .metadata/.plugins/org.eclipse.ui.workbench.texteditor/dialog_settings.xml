@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="4"/>
 		<list key="findhistory">
+			<item value="1"/>
 			<item value="int[] arr = new int [10];"/>
 			<item value="math();"/>
 			<item value="2"/>
@@ -18,6 +19,7 @@
 			<item value="&#x09;&#x09;System.out.print(&quot;점 (x1, y2)의 좌표를 입력하시오&gt;&gt; &quot;);"/>
 		</list>
 		<list key="replacehistory">
+			<item value="4"/>
 			<item value="3"/>
 			<item value="2"/>
 			<item value="k"/>
