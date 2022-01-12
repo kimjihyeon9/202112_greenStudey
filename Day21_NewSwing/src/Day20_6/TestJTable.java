@@ -63,6 +63,15 @@ public class TestJTable extends MyJFrame {
 		tbModel.addRow(new Object[] {4, "aaa", "aaa@naver,com", "010-4444-4444"});
 		tbModel.addRow(new Object[] {5, "bbb", "bbb@naver,com", "010-5555-5555"});
 	}
+	
+	private void displayList() {
+		tbModel.setDataVector(null, colNames);
+		Vector<Vector> saramList = dao.selectAll();
+		for(Vector vector : saramList) {
+			tbModel.addRow(vector);
+		}
+//		tbModel.addRow(new Object[] {4, "aaa", "aaa@naver.com", "010-4444-4444"});
+	}
 
 	@Override
 	protected void actionEvt() {
@@ -72,6 +81,7 @@ public class TestJTable extends MyJFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(">>> All Button 클릭!");
+				displayList();
 			}
 		});
 		
@@ -101,14 +111,6 @@ public class TestJTable extends MyJFrame {
 				displayList();
 			}
 
-			private void displayList() {
-				tbModel.setDataVector(null, colNames);
-				Vector<Vector> saramList = dao.selectAll();
-				for(Vector vector : saramList) {
-					tbModel.addRow(vector);
-				}
-//				tbModel.addRow(new Object[] {4, "aaa", "aaa@naver.com", "010-4444-4444"});
-			}
 		});
 		
 		searchbtn.addActionListener(new ActionListener() {
@@ -131,6 +133,15 @@ public class TestJTable extends MyJFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(">>> Modify Button 클릭!");
+				
+				int idx = Integer.parseInt(txtFld1.getText());
+				String name = txtFld2.getText();
+				String email = txtFld3.getText();
+				String phone = txtFld4.getText();
+				Vector vector = dao.modify(new SaramDTO(idx, name, email, phone)); 
+//				tbModel.setDataVector(null, columnNames);
+//				tbModel.addRow(vector);
+				displayList();
 			}
 		});
 		
@@ -139,6 +150,15 @@ public class TestJTable extends MyJFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(">>> Delete Button 클릭!");
+				
+				int idx = Integer.parseInt(txtFld1.getText());
+				String name = txtFld2.getText();
+				String email = txtFld3.getText();
+				String phone = txtFld4.getText();
+				Vector vector = dao.delete(new SaramDTO(idx, name, email, phone)); 
+//				tbModel.setDataVector(null, columnNames);
+//				tbModel.addRow(vector);
+				displayList();
 			}
 		});
 		
