@@ -4,6 +4,6 @@ import member.resource.R;
 import member.view.MemberView;
 
 public abstract class Controller extends R{
-	public abstract MemberView hadlerRequest();
+	public abstract MemberView hadleRequest();
 
 }

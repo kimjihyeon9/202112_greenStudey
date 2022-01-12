@@ -3,8 +3,10 @@ package member.view;
 public class Search extends MemberView {
 
 	@Override
-	public void onCreate() {
+	public boolean onCreate() {
 		System.out.println(titleSearch);
+
+		return false;
 	}
 
 }

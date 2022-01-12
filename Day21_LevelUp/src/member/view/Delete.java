@@ -1,10 +1,11 @@
 package member.view;
 
 public class Delete extends MemberView {
-
 	@Override
-	public void onCreate() {
+	public boolean onCreate() {
 		System.out.println(titleDelete);
+
+		
+		return false;
 	}
-	
 }
