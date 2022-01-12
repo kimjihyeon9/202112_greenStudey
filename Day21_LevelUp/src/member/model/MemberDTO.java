@@ -1,8 +1,11 @@
 package member.model;
 
-import java.util.Objects;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 
-public class MemberDTO {
+public class MemberDTO implements Externalizable {
 	private int idx;
 	private String name;
 	private String email;
@@ -83,9 +86,24 @@ public class MemberDTO {
 	protected Object clone() { // DAO의 모든 참조를 DTO로 넘겨주고 DAO 참조를 끊으려고 만들었다(정보를 다 넘겼기 때문에)
 		try {
 			return new MemberDTO(idx, name, email, phone);
-		} catch (Exception e) {
-		}
+		} catch (Exception e) {}
 
 		return null;
+	}
+
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		out.writeObject(idx);
+		out.writeObject(name);
+		out.writeObject(email);
+		out.writeObject(phone);
+	}
+
+	@Override
+	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+		idx = (Integer)in.readObject();
+		name = (String)in.readObject();
+		email = (String)in.readObject();
+		phone = (String)in.readObject();
 	}
 }
