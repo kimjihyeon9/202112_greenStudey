@@ -2,6 +2,8 @@ package member_model;
 
 import java.util.Objects;
 
+import javax.sound.midi.Sequence;
+
 public class MemberDTO {
 	private int idx;
 	private String name;
@@ -54,7 +56,7 @@ public class MemberDTO {
 	@Override
 	public String toString() {
 //		return idx + "\t" + name + "\t" + email + "\t" + phone;
-		return String.format("%4d%10s%20s%20s\n", idx, name, email, phone); // format을 이용해서 조금더 편하게 구현
+		return String.format("%4d%10s%20s%20s", idx, name, email, phone); // format을 이용해서 조금더 편하게 구현
 	}
 
 	@Override
@@ -75,7 +77,7 @@ public class MemberDTO {
 	}
 	
 	@Override
-	protected Object clone(){ // 참조를 끊으려고 만들었다
+	protected Object clone(){ // DAO의 모든 참조를 DTO로 넘겨주고 DAO 참조를 끊으려고 만들었다(정보를 다 넘겼기 때문에)
 		try {
 			return new MemberDTO(idx, name, email, phone);
 		} catch (Exception e) {
@@ -83,4 +85,5 @@ public class MemberDTO {
 		}
 		return null;
 	}
+
 }

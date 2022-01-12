@@ -1,7 +1,0 @@
-package Day15_excercise06;
-
-public class Location {
-	private String 도시;
-	private int 위도;
-	private int 경도;
-}

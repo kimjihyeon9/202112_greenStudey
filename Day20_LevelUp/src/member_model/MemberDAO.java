@@ -7,10 +7,19 @@ import java.util.Vector;
 
 public class MemberDAO {
 	private static final Vector<MemberDTO> memList = new Vector<MemberDTO>();
+	public static int sequence = 1;
+	static {
+		memList.add(new MemberDTO(sequence++, "홍길동", "hong@a.com", "010-1111-1111"));
+		memList.add(new MemberDTO(sequence++, "이순신", "lee@a.com", "010-2222-2222"));
+		memList.add(new MemberDTO(sequence++, "일지매", "il@a.com", "010-3333-3333"));
+		memList.add(new MemberDTO(sequence++, "이순신", "lee2@a.com", "010-3333-3434"));
+	}
 	
 	public List<MemberDTO> selectAll() {
 		List<MemberDTO> list = new ArrayList<MemberDTO>();
-		Collections.copy(list, memList);
+		for(MemberDTO mem : memList) {
+			list.add((MemberDTO)mem.clone());
+		}
 		return list;
 	}
 	
@@ -32,6 +41,11 @@ public class MemberDAO {
 			}
 		}
 		return list;
+	}
+
+	public void insert(MemberDTO memberDTO) {
+		memberDTO.setIdx(sequence++);
+		memList.add(memberDTO);
 	}
 	
 	public boolean delete(MemberDTO dto) {
