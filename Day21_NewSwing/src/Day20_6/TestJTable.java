@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Vector;
 
+import javax.sound.midi.Sequence;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -29,6 +30,8 @@ public class TestJTable extends MyJFrame {
 		colNames.add("NAME");
 		colNames.add("EMAIL");
 		colNames.add("PHONE");
+		
+		// Object[][] 배열을 대체하는 코드
 		data = dao.selectAll();
 //				new Object[][] {
 //			{1, "hong", "hong@naver.com", "010-1234-5678"},
@@ -90,7 +93,21 @@ public class TestJTable extends MyJFrame {
 				System.out.println("phone => " + phone);
 				
 				// TableModel에 반영해주기
-				tbModel.addRow(new Object[] {sequence++, name, email, phone});
+//				tbModel.addRow(new Object[] {sequence++, name, email, phone});
+				// 이제는 바로 넣어주는게 아니라 dao에 저장 후
+				dao.insert(new SaramDTO(0, name, email, phone));
+				
+				// list를 다시 그려준다
+				displayList();
+			}
+
+			private void displayList() {
+				tbModel.setDataVector(null, colNames);
+				Vector<Vector> saramList = dao.selectAll();
+				for(Vector vector : saramList) {
+					tbModel.addRow(vector);
+				}
+//				tbModel.addRow(new Object[] {4, "aaa", "aaa@naver.com", "010-4444-4444"});
 			}
 		});
 		
@@ -99,7 +116,13 @@ public class TestJTable extends MyJFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(">>> Search Button 클릭!");
+//				JOptionPane.showMessageDialog(TestJTable.this, "찾는 이름을 입력하세요");
+				String name = txtFld2.getText();
+				Vector vector = dao.search(new SaramDTO(0, name, null, null));
+				tbModel.setDataVector(null, colNames);
+				tbModel.addRow(vector);
 				
+//				dao.search(new SaramDTO(sequence, null,null,null));
 			}
 		});
 		

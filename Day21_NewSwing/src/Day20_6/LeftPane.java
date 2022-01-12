@@ -32,7 +32,6 @@ public class LeftPane extends JPanel {
 		gridPan.add(rowPan4);
 
 		this.add(gridPan);
-
 	}
 
 	public static void main(String[] args) {

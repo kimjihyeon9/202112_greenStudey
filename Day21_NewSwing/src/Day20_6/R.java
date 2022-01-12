@@ -28,5 +28,7 @@ public abstract class R {
 	public static final JButton deletebtn = new JButton("Delete");
 	public static final JButton finishbtn = new JButton("Finish");
 
-	public static int sequence = 4;
+//	public static int sequence = 4;
+	
+	public static final SaramDAO dao = new SaramDAO();
 }
