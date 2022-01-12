@@ -1,6 +1,7 @@
 package Day20_6;
 
 import java.util.Objects;
+import java.util.Vector;
 
 public class SaramDTO {
 	private int idx;
@@ -71,6 +72,15 @@ public class SaramDTO {
 			return false;
 		SaramDTO other = (SaramDTO) obj;
 		return idx == other.idx;
+	}
+
+	public Vector toVector() {
+		Vector vector = new Vector();
+		vector.add(idx);
+		vector.add(name);
+		vector.add(email);
+		vector.add(phone);
+		return vector;
 	}
 	
 }
