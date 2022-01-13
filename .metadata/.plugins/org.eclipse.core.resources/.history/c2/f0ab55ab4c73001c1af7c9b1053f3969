@@ -1,0 +1,44 @@
+package Day20_6;
+
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LeftPane extends JPanel {
+	JTextField txtFld1 = new JTextField(6);
+	JTextField txtFld2 = new JTextField(6);
+	JTextField txtFld3 = new JTextField(6);
+	JTextField txtFld4 = new JTextField(6);
+
+	public LeftPane() {
+//		this.add(new Label("::: Input Panel :::"));
+
+		JPanel rowPan1 = new JPanel();
+		rowPan1.add(new JLabel("ID :    "));
+		rowPan1.add(txtFld1);
+		JPanel rowPan2 = new JPanel();
+		rowPan2.add(new JLabel("Name : "));
+		rowPan2.add(txtFld2);
+		JPanel rowPan3 = new JPanel();
+		rowPan3.add(new JLabel("Email : "));
+		rowPan3.add(txtFld3);
+		JPanel rowPan4 = new JPanel();
+		rowPan4.add(new JLabel("Phone : "));
+		rowPan4.add(txtFld4);
+
+		JPanel gridPan = new JPanel(new GridLayout(5, 1));
+		gridPan.add(rowPan1);
+		gridPan.add(rowPan2);
+		gridPan.add(rowPan3);
+		gridPan.add(rowPan4);
+
+		this.add(gridPan);
+
+	}
+
+	public static void main(String[] args) {
+		new LeftPane().setVisible(true);
+	}
+}

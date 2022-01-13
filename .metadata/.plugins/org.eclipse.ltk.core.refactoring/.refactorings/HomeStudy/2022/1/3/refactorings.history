@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;실습문제5번.java&apos; to &apos;Ch07_2.실습문제5번.java&apos;&#x0D;&#x0A;- Original project: &apos;HomeStudy&apos;&#x0D;&#x0A;- Destination element: &apos;Ch07_2.실습문제5번.java&apos;&#x0D;&#x0A;- Original element: &apos;Ch07_2.실습문제5번.java&apos;" description="Copy compilation unit" destination="/src&lt;Ch07_2{실습문제5번.java" element1="/src&lt;Ch07_2{실습문제5번.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1641695483642" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,11 @@
+package member_controller;
+
+import member_view.MemberView;
+
+public class DispatcherController {
+	MemberView view = null;
+	
+	public void run() {
+		view = new InputController().handlerMapping();
+	}
+}

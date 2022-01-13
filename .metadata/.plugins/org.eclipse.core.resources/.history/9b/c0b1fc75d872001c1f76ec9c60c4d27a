@@ -1,0 +1,27 @@
+package member_test;
+
+import member_model.MemberDTO;
+import member_resource.R;
+import member_view.List;
+
+public class TestAppMain extends R {
+	
+	public TestAppMain() {
+//		viewTest();
+		daoTest();
+	}
+
+	private void daoTest() {
+		List<MemberDTO> list = memDao.selectAll();
+		
+	}
+
+	private void viewTest() {
+		mainActivity.setContentView(list);
+	}
+
+	public static void main(String[] args) {
+		new TestAppMain();
+	}
+
+}

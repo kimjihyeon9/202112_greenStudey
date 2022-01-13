@@ -1,0 +1,7 @@
+package member_view;
+
+public abstract class MainActivity {
+	public void onCreate() {
+		
+	}
+}

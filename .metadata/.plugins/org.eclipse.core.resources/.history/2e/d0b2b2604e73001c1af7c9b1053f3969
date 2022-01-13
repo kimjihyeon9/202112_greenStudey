@@ -1,0 +1,14 @@
+package Day20_6;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public abstract class R {
+	public static JTable table;
+	public static DefaultTableModel tbModel;
+	public static JScrollPane scrollPane;
+	
+	public static Object[][] data;
+	public static Object[] colNames;
+}

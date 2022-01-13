@@ -1,0 +1,31 @@
+package Day20_4;
+
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import gui_myframe.MyJFrame;
+
+public class Ex04_ListSelectionEx extends MyJFrame implements ListSelectionListener {
+
+	public static void main(String[] args) {
+		
+	}
+
+	@Override
+	protected void displayLayer() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void actionEvt() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		
+	}
+
+}

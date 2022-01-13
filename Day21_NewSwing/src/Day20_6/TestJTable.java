@@ -214,6 +214,10 @@ public class TestJTable extends MyJFrame {
 				txtFld2.setText(name);
 				txtFld3.setText(email);
 				txtFld4.setText(phone);
+				
+				// 버튼 이벤트 핸들러 추가
+//				allBtn.setBorderPainted(false); --> 보더 지우기
+//				allBtn.setContentAreaFilled(false); --> area지우기
 			}
 				
 		});

@@ -1,0 +1,171 @@
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+class CalculatorButton {
+	
+	JFrame frm = new JFrame("Calculator!!!");
+	Container c = frm.getContentPane();
+	
+	JButton[] bt = new JButton[16];
+	JTextField lb = new JTextField(10);
+	ActionListener bar = new ButtonAction(lb);
+	
+	public CalculatorButton( ){
+		frm.setBounds(120,120,230,180);
+		frm.setLayout(new GridLayout(4,2));
+		c.setLayout(new BorderLayout());
+		JPanel p = new JPanel();
+		JPanel p2 = new JPanel();
+		p.setLayout(new BorderLayout());
+		p2.setLayout(new GridLayout(4,2));
+		
+		System.out.println("��ư����!!!!!!");
+		bt[0] = new JButton("0");
+		bt[1] = new JButton("1");
+		bt[2] = new JButton("2");
+		bt[3] = new JButton("3");
+		bt[4] = new JButton("4");
+		bt[5] = new JButton("5");
+		bt[6] = new JButton("6");
+		bt[7] = new JButton("7");
+		bt[8] = new JButton("8");
+		bt[9] = new JButton("9");
+		bt[10] = new JButton("+");
+		bt[11] = new JButton("-");
+		bt[12] = new JButton("*");
+		bt[13] = new JButton("/");
+		bt[14] = new JButton("C");
+		bt[15] = new JButton("=");
+		
+		p.add(lb);
+		
+		p2.add(bt[7]);p2.add(bt[8]);p2.add(bt[9]);p2.add(bt[13]);
+		p2.add(bt[4]);p2.add(bt[5]);p2.add(bt[6]);p2.add(bt[12]);
+		p2.add(bt[1]);p2.add(bt[2]);p2.add(bt[3]);p2.add(bt[11]);
+		p2.add(bt[14]);p2.add(bt[0]);p2.add(bt[15]);p2.add(bt[10]);
+		
+		
+		c.add(p,BorderLayout.NORTH);
+		c.add(p2,BorderLayout.SOUTH);
+		for ( int index = 0 ; index < bt.length ; index ++ ){
+			bt[index].addActionListener(bar);
+		}
+		frm.setVisible(true);
+	}
+	
+
+}
+
+class ButtonAction implements ActionListener{
+	private String tempOP = null; // null�̸� ������ �ѹ��� �Է� ������
+	private String tempstr;
+	private long tempval = 0;
+	private long tempval2 = 0;
+	private boolean bl = true ;
+	private JTextField lb;
+	
+	public ButtonAction (JTextField lb){
+		this.lb = lb;
+	}
+	
+	
+	public void actionPerformed(ActionEvent ae) {
+		tempstr = ae.getActionCommand();
+		
+		
+		if ( tempstr == "/" || tempstr == "*" ||tempstr == "-" || tempstr == "+")
+		{
+			if( bl == true )
+			{
+				tempOP = tempstr;
+				System.out.println("OP----------------:"+tempOP);
+				bl=false;
+			}
+			else 
+			{
+				if( tempOP.equals("+")){
+					tempval = tempval + tempval2 ;
+				}
+					
+				else if( tempOP.equals("-")){
+					tempval = tempval - tempval2 ;
+				}
+					
+				else if( tempOP.equals("*")){
+					tempval = tempval * tempval2 ;
+				}
+					
+				else if( tempOP.equals("/"))
+				{
+					tempval = tempval / tempval2 ;
+				}	
+				tempval2=0;
+				tempOP = tempstr;
+				
+				System.out.println("OP----------------:"+tempOP);
+				
+			}
+		}
+		else if ( tempstr == "=" || tempstr == "C" )
+		{
+			if(tempstr == "="){
+				if( tempOP.equals("+"))
+					tempval = tempval + tempval2 ;
+				if( tempOP.equals("-"))
+					tempval = tempval - tempval2 ;
+				if( tempOP.equals("*"))
+					tempval = tempval * tempval2 ;
+				if( tempOP.equals("/"))
+					tempval = tempval / tempval2 ;
+				
+				
+				tempval2=0;
+				tempstr=Long.toString(tempval);
+				lb.setText(tempstr);
+				System.out.println("�����----------------"+tempval);
+
+			}
+			if(tempstr == "C"){
+				lb.setText("0");
+				tempOP=null;
+				bl=true;
+				tempval=0;
+				tempval2=0;
+				System.out.println("���� �ʱ�ȭ�˴ϴ�.!!!");
+				System.out.println("tempval:"+tempval);
+				System.out.println("tempval2:"+tempval2);
+			}
+			
+		}
+		else 
+		{
+			lb.setText(tempstr);
+			if(bl==true){
+				tempval =Long.parseLong(tempstr);
+				System.out.println("tempval:"+tempval);
+			}
+			else if( bl==false )
+			{
+				tempval2 =Long.parseLong(tempstr);
+				System.out.println("tempval2:"+tempval2);	
+			}
+		}
+	}
+}
+
+class Caculator {
+	public void run(){
+		CalculatorButton bt = new CalculatorButton();
+	}
+}
+
+
+public class CaculatorMain {
+	public static void main(String[] args) {
+		Caculator cal = new Caculator();
+		cal.run();	
+	}
+
+}

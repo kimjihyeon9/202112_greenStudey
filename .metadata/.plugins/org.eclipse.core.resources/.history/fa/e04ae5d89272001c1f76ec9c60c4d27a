@@ -1,0 +1,12 @@
+package Day20_2;
+
+import javax.swing.JFrame;
+
+public class Ex02_1 extends JFrame { // 상속을 받았다 = 그것이 되었다
+	
+
+	public static void main(String[] args) {
+		new Ex02_1();
+	}
+
+}

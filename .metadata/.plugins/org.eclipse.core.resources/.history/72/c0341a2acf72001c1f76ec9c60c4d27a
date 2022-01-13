@@ -1,0 +1,5 @@
+package member_model;
+
+public class MemberDTO {
+
+}

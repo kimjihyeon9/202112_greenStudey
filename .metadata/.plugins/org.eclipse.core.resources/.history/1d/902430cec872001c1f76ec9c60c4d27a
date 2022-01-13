@@ -1,0 +1,5 @@
+package member_view;
+
+public abstract class MainActivity {
+	public abstract void display();
+}

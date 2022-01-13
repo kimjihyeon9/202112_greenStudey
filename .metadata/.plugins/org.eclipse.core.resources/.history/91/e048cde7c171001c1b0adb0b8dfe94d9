@@ -1,0 +1,100 @@
+package guiEx02;
+
+import java.awt.Frame;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+class MyWindowListener implements WindowListener {
+	FrameEvent target;
+	
+	public MyWindowListener() {
+		this.target = target;
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.out.println(">>> 닫기 버튼 누름 ... 프로세스 종료!");
+		target.dispose();
+		System.exit(0);
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {}
+
+	@Override
+	public void windowIconified(WindowEvent e) {}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {}
+
+	@Override
+	public void windowActivated(WindowEvent e) {}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {}
+	
+}
+
+public class FrameEvent extends Frame implements WindowListener {
+	public static final int WIDTH = 600, HEIGHT = 400;
+	
+	public FrameEvent() {
+		setTitle("이벤트 리스트 실습");
+		setSize(WIDTH, HEIGHT);
+		setVisible(true);
+		
+		WindowListener l = new MyWindowListener();
+		addWindowListener(l);
+	}
+
+	public static void main(String[] args) {
+		new FrameEvent();
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.out.println(">> 닫기 버튼을 눌려씨 때문에 프로세스가 종료된다!");
+		dispose();
+		System.exit(0);
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

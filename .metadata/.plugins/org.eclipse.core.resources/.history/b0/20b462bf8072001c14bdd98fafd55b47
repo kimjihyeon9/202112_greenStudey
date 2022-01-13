@@ -1,0 +1,33 @@
+package Day20;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Panel;
+
+import gui_myframe.MyFrame;
+
+public class Ex01_BtnEvt extends MyFrame {
+	private Button[] btnArr = new Button[2];
+	{ // 초기화 블럭 - 필드를 초기화 하는 구역, 메서드에서 실행문쓰기 
+		btnArr[0] = new Button("Button1");
+		btnArr[1] = new Button("Button2");
+	}
+	
+	public Ex01_BtnEvt() {
+		super("Button Event Ex", 400, 150);
+		start();
+	}
+
+	public void start() {
+		Panel southPan = new Panel();
+		// Panel의 Default Layout은 FlowLayout
+		southPan.add(btnArr[0]); // 어디다가 붙이는지 꼭 알려주기(southPan)
+		southPan.add(btnArr[1]);
+		this.add(BorderLayout.SOUTH, southPan);
+	}
+
+	public static void main(String[] args) {
+		new Ex01_BtnEvt().setVisible(true);;
+	}
+
+}

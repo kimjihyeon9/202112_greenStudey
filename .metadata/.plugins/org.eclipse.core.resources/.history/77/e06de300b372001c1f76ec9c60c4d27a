@@ -1,0 +1,56 @@
+package Day20_3;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import gui_myframe.MyJFrame;
+
+public class Ex03_JOptionPan extends MyJFrame {
+	JButton openBtn, btn2, btn3, btn4;
+	
+	public Ex03_JOptionPan() {
+		super("show dialog example", 400, 400);
+	}
+	
+	protected void init() {
+		openBtn = new JButton("message 열기");
+		btn2 = new JButton("input Dialog 열기");
+		btn3 = new JButton("confirm Dialog 열기");
+		btn4 = new JButton("Option 창 열기");
+	}
+
+	public static void test01(String[] args) {
+		JOptionPane.showMessageDialog(null, "Hello world!");
+	}
+	
+	public static void main(String[] args) {
+		new Ex03_JOptionPan().setVisible(true);
+	}
+
+	@Override
+	protected void displayLayer() {
+		init();
+		contentPan = getContentPane();
+		contentPan.setLayout(new GridLayout(4,1, 5, 5));
+		contentPan.add(openBtn);
+		contentPan.add(btn2);
+		contentPan.add(btn3);
+		contentPan.add(btn4);
+	}
+
+	@Override
+	protected void actionEvt() {
+		openBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 버튼을 클릭하면 다이얼로그창 보이게 하기
+				JOptionPane.showMessageDialog(Ex03_JOptionPan.this, "환영합니다!");
+			}
+		});
+	}
+}

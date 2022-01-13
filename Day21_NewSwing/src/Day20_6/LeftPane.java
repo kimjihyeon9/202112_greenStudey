@@ -4,6 +4,7 @@ import static Day20_6.R.*;
 
 import java.awt.GridLayout;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -24,12 +25,18 @@ public class LeftPane extends JPanel {
 		JPanel rowPan4 = new JPanel();
 		rowPan4.add(new JLabel("핸드폰 : "));
 		rowPan4.add(txtFld4);
+		
+		JPanel rowPan5 = new JPanel();
+		rowPan5.add(new JLabel("성별 : "));
+		rowPan5.add(rb1);
+		rowPan5.add(rb2);
 
-		JPanel gridPan = new JPanel(new GridLayout(5, 1));
+		JPanel gridPan = new JPanel(new GridLayout(6, 1));
 		gridPan.add(rowPan1);
 		gridPan.add(rowPan2);
 		gridPan.add(rowPan3);
 		gridPan.add(rowPan4);
+		gridPan.add(rowPan5);
 
 		this.add(gridPan);
 	}

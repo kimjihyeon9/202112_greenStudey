@@ -1,0 +1,48 @@
+package Day20_2;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import gui_myframe.MyJFrame;
+
+public class Ex02_MyJFrameTest extends MyJFrame {
+	public Ex02_MyJFrameTest() {
+		super("Member management system", 300, 300);
+	}
+	
+	public static void main(String[] args) {
+		new Ex02_MyJFrameTest().setVisible(true);
+	}
+
+	// 누군가가 MyJFrame을 상속 받으면 자동으로 displayLayer(), actionEvt()를 구현해야한다
+	
+	@Override
+	protected void displayLayer() {
+		// MyJFrame에 필드로 선언 되었다. Container contenPan
+		contentPan = getContentPane();
+		
+		GridLayout grid = new GridLayout(7, 2, 20, 20);
+		contentPan.setLayout(grid);
+		contentPan.add(new JLabel("이        름 : "));
+		contentPan.add(new JTextField("", 20));
+		contentPan.add(new JLabel("아  이  디 : "));
+		contentPan.add(new JTextField(""));
+		contentPan.add(new JLabel("패스워드 : "));
+		contentPan.add(new JTextField(""));
+		contentPan.add(new JLabel("나        이 : "));
+		contentPan.add(new JTextField(""));
+		
+		contentPan.add(new JButton("Add"), BorderLayout.SOUTH);
+		contentPan.add(new JButton("Again"), BorderLayout.SOUTH);
+	}
+
+	@Override
+	protected void actionEvt() {
+		
+	}
+
+}

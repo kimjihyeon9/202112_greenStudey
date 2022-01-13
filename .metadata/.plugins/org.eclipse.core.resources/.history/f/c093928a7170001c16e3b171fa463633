@@ -1,0 +1,49 @@
+package Ch07_ex03;
+
+class Location {
+	private String c;
+	private int g;
+	private int w;
+	
+	public Location() {
+		this("", 0, 0);
+	}
+	
+	public Location(String c, int g, int w) {
+		this.c = c;
+		this.g = g;
+		this.w = w;
+	}
+	
+	
+}
+
+public class Ch07_실습문제_6번 {
+	public static void main(String[] args) {
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

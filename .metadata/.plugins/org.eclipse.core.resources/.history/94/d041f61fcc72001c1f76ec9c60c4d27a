@@ -1,0 +1,15 @@
+package member_test;
+
+import member_resource.R;
+
+public class TestAppMain extends R {
+	
+	public TestAppMain() {
+		
+	}
+
+	public static void main(String[] args) {
+		new TestAppMain();
+	}
+
+}

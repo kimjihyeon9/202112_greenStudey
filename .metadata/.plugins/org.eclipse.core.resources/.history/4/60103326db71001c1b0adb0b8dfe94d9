@@ -1,0 +1,21 @@
+package layout_Ex01;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+
+import gui_myframe.MyFrame;
+
+public class LayoutEx01 extends MyFrame {
+	public Button btn1 = new Button("OK");
+	
+	public LayoutEx01() {
+		super("Layout manager 연습", 640, 480);
+		// Window를 상속받은 Frame은 디폴츠 레이아웃이 BorderLayout
+		add(BorderLayout.NORTH, btn1);
+	}
+
+	public static void main(String[] args) {
+		new LayoutEx01().setVisible(true);
+	}
+
+}

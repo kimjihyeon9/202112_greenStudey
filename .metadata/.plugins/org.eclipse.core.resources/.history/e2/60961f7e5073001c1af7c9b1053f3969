@@ -1,0 +1,18 @@
+package Day20_6;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import static Day20_6.R.*;
+
+public class BottomPane extends JPanel {
+	
+	
+	public BottomPane() {
+		this.add(allbtn);
+		this.add(inputbtn);
+		this.add(searchbtn);
+		this.add(modifybtn);
+		this.add(deletebtn);
+	}
+}

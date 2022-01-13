@@ -1,0 +1,16 @@
+package Day20_6;
+
+import java.awt.Label;
+
+import javax.swing.JPanel;
+
+public class LeftPane extends JPanel {
+
+	public LeftPane() {
+		this.add(new Label("::: Left Panel :::"));
+	}
+
+	public static void main(String[] args) {
+		new LeftPane().setVisible(true);
+	}
+}

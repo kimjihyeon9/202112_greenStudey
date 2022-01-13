@@ -1,0 +1,14 @@
+package guiEx03;
+
+import java.awt.Frame;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+public class FrameEvent extends Frame {
+	public 
+
+	public static void main(String[] args) {
+		new FrameEvent();
+	}
+
+}

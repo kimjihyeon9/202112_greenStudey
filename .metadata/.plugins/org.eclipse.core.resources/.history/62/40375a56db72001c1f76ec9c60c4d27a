@@ -1,0 +1,7 @@
+package member_controller;
+
+import member_view.MemberView;
+
+public abstract class Controller {
+	public abstract MemberView handlerMapping();
+}

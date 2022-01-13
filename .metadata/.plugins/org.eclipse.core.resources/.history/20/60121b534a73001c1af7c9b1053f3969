@@ -1,0 +1,21 @@
+package Day20_6;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextField;
+
+public class LeftPane extends JPanel {
+
+	public LeftPane() {
+		
+	}
+
+	public static void main(String[] args) {
+		new LeftPane().setVisible(true);
+	}
+}

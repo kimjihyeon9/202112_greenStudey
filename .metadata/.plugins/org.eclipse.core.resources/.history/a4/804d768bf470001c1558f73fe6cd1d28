@@ -1,0 +1,25 @@
+package Ch07_2;
+
+// 이름 - String --> key
+// 포인트 - int  -- value
+public class 실습문제8번 {
+	public static void main(String[] args) {
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

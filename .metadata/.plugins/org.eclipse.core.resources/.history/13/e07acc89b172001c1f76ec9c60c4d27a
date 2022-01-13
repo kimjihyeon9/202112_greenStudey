@@ -1,0 +1,36 @@
+package Day20_3;
+
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import gui_myframe.MyJFrame;
+
+public class Ex03_JOptionPan extends MyJFrame {
+	JButton openBtn;
+	
+	protected void init() {
+		openBtn = new JButton("message 열기");
+	}
+
+	public static void test01(String[] args) {
+		JOptionPane.showMessageDialog(null, "Hello world!");
+	}
+	
+	public static void main(String[] args) {
+		new Ex03_JOptionPan().setVisible(true);
+	}
+
+	@Override
+	protected void displayLayer() {
+		contentPan = getContentPane();
+		contentPan.setLayout(new GridLayout());
+	}
+
+	@Override
+	protected void actionEvt() {
+		// TODO Auto-generated method stub
+		
+	}
+}

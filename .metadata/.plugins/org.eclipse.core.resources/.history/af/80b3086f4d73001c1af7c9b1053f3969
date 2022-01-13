@@ -1,0 +1,12 @@
+package Day20_6;
+
+public class SaramDTO {
+	private int idx;
+	private String name;
+	private String email;
+	private String phone;
+	
+	public SaramDTO() {
+		this(0, "", "", "");
+	}
+}

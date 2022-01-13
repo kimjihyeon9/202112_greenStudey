@@ -1,0 +1,14 @@
+package layout_Ex01;
+
+import gui_myframe.MyFrame;
+
+public class LayoutEx01 extends MyFrame {
+	public LayoutEx01() {
+		super("Layout manager 연습", 640, 480);
+	}
+
+	public static void main(String[] args) {
+		new LayoutEx01().setVisible(true);
+	}
+
+}
