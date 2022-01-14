@@ -19,6 +19,16 @@ public class SaramDAO {
 		}
 		return vector;
 	}
+	
+	public Vector selectList(SaramDTO saramDTO) {
+		Vector vector = new Vector();
+		for(int i = 0; i < saramList.size(); i++) {
+			if(saramDTO.getName().equals(saramList.get(i).getName())) {
+				vector.add(saramList.get(i).toVector());
+			}
+		}
+		return vector;
+	}
 
 	public void insert(SaramDTO saramDTO) {
 		if(saramDTO != null) {

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="gui_myframe.MyJFrame"/>
-    <fullyQualifiedTypeName name="javax.swing.event.ListSelectionListener"/>
-    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
-    <fullyQualifiedTypeName name="Day20_4.Ex04_ListSelectionEx"/>
-    <fullyQualifiedTypeName name="javax.swing.JList"/>
-    <fullyQualifiedTypeName name="java.awt.Container"/>
     <fullyQualifiedTypeName name="Day20_5.JTable_Ex01"/>
     <fullyQualifiedTypeName name="member_view.Input"/>
     <fullyQualifiedTypeName name="member_view.MainActivity"/>
@@ -24,7 +18,6 @@
     <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
     <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
     <fullyQualifiedTypeName name="gui_myframe.MyFrame"/>
-    <fullyQualifiedTypeName name="java.awt.Label"/>
     <fullyQualifiedTypeName name="Day20_6.LeftPane"/>
     <fullyQualifiedTypeName name="javax.swing.JTextField"/>
     <fullyQualifiedTypeName name="Day20_6.BottomPane"/>
@@ -55,9 +48,16 @@
     <fullyQualifiedTypeName name="Day22_1_ch13.ThreadTimerEx"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="Day22_1_ch13.TimerTread"/>
-    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
-    <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="java.awt.GridBagLayout"/>
-    <fullyQualifiedTypeName name="javax.swing.JButton"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="java.awt.Container"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="java.awt.Label"/>
+    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+    <fullyQualifiedTypeName name="Day23_1.Ex01_ImgIO"/>
+    <fullyQualifiedTypeName name="java.awt.Toolkit"/>
+    <fullyQualifiedTypeName name="java.awt.Graphics"/>
+    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
 </qualifiedTypeNameHistroy>

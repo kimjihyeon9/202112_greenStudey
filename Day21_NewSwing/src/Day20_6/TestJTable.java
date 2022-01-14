@@ -120,9 +120,11 @@ public class TestJTable extends MyJFrame {
 				System.out.println(">>> Search Button 클릭!");
 //				JOptionPane.showMessageDialog(TestJTable.this, "찾는 이름을 입력하세요");
 				String name = txtFld2.getText();
-				Vector vector = dao.search(new SaramDTO(0, name, null, null));
+				Vector<Vector> saramList = dao.selectList(new SaramDTO(0, name, null, null));
 				tbModel.setDataVector(null, colNames);
-				tbModel.addRow(vector);
+				for(Vector vector : saramList) {
+					tbModel.addRow(vector);
+				}
 				
 //				dao.search(new SaramDTO(sequence, null,null,null));
 			}

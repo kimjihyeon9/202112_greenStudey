@@ -1,9 +1,0 @@
-package Address_view;
-
-public class EditView extends AddrView {
-	@Override
-	public void display() {
-		// TODO Auto-generated method stub
-		super.display();
-	}
-}

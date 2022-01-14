@@ -30,6 +30,8 @@ public class LeftPane extends JPanel {
 		rowPan5.add(new JLabel("성별 : "));
 		rowPan5.add(rb1);
 		rowPan5.add(rb2);
+		rbbox.add(rb1);
+		rbbox.add(rb2);
 
 		JPanel gridPan = new JPanel(new GridLayout(6, 1));
 		gridPan.add(rowPan1);
