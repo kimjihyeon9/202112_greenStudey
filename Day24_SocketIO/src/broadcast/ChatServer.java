@@ -61,9 +61,9 @@ class ChatThread extends Thread {
 		try {
 			String line = null;
 			while ((line = br.readLine()) != null) {
-				if (line.equals("/quit"))
+				if (line.equals("/quit")) // /quit 입력시 종료
 					break;
-				if (line.indexOf("/to") == 0) {
+				if (line.indexOf("/to") == 0) { // /to 입력시 귀속말
 					sendmsg(line);
 				} else {
 					broadcast(id + " : " + line);
