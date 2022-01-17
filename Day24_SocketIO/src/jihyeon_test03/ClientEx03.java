@@ -46,7 +46,7 @@ public class ClientEx03 extends Thread {
 
 			// 클라이언트 생성 성공이면 메세지 입력 대기 상태
 			while (true) {
-				System.out.print("입력: ");
+//				System.out.print("입력: ");
 				String line = scan.nextLine();
 				pw.println(line);
 				pw.flush();

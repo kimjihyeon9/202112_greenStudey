@@ -89,13 +89,13 @@ public class ServerEx03 extends Thread {
 				try {
 					if (br != null)
 						br.close();
-					System.out.println("클라이언트 연결이 끊어졌습니다.");
+					System.out.println(userId + "클라이언트 연결이 끊어졌습니다.");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 				break;
 			} catch (IOException e) {
-				System.out.println("클라이언트 연결이 끊어졌습니다.");
+				System.out.println(userId + "클라이언트 연결이 끊어졌습니다.");
 				break;
 			}
 		}
