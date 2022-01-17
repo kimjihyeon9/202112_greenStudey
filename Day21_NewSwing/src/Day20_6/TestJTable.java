@@ -48,6 +48,7 @@ public class TestJTable extends MyJFrame {
 		
 		contentPan.add(BorderLayout.WEST, new LeftPane());
 		contentPan.add(BorderLayout.SOUTH, new BottomPane());
+//		contentPan.add(BorderLayout.NORTH, new CheckBoxEvent());
 		
 		tbModel = new DefaultTableModel(data, colNames);
 		table = new JTable(tbModel);

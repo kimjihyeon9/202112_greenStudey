@@ -50,8 +50,12 @@ public abstract class R {
 	public static final JRadioButton rb1 = new JRadioButton("남자", true);
 	public static final JRadioButton rb2 = new JRadioButton("여자", false);
 	
-	public static final JCheckBox ch1 = new JCheckBox("회원", true);
-	public static final JCheckBox ch2 = new JCheckBox("비회원", false);
+	public static final ImageIcon[] img = {new ImageIcon("F:\\buttonImg\\Input.png"), new ImageIcon("F:\\buttonImg\\Modify.png"), new ImageIcon("F:\\buttonImg\\Search.png")};
+	public static final JCheckBox[] ch = new JCheckBox[3];
+	public static final String[] chTxt = {"강아지", "고양이","호랑이"};
+//	public static final JCheckBox ch1 = new JCheckBox("강아지", false);
+//	public static final JCheckBox ch2 = new JCheckBox("고양이", false);
+//	public static final JCheckBox ch3 = new JCheckBox("호랑이", false);
 
 //	public static int sequence = 4;
 	
