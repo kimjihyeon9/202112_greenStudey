@@ -1,4 +1,4 @@
-package ex03_socketIO;
+package ex04_socketIO;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,16 +11,14 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-import ex03_socketIO.ServerEx03.ReceiveThread;
-
-public class ClientEx03 {
+public class ClientEx04 {
 	Socket socket;
 	BufferedReader br;
 	BufferedWriter bw;
 	Scanner scan = new Scanner(System.in);
 	static String[] fieldArgs;
 
-	public ClientEx03() {
+	public ClientEx04() {
 		try {
 			// 서버 소켓과 연결 - Socket생성 즉시 서버와 연결 됨.
 			socket = new Socket(InetAddress.getLocalHost(), 9000);
@@ -66,7 +64,7 @@ public class ClientEx03 {
 
 	public static void main(String[] args) {
 		fieldArgs = args;
-		new ClientEx03();
+		new ClientEx04();
 	}
 
 	// 메세지를 받은 쓰레드 선언
