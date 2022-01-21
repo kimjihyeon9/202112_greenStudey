@@ -35,6 +35,7 @@ class Puzzle extends JFrame implements ActionListener {
 
 // 행은 가변적, 열개수는 3. 2, 2는 격자사이 간격
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 		buttons = new MyButton[9];// 배열크기가 9 버튼 배열생성
 
 		for (int i = 0; i < 8; i++) {
@@ -50,6 +51,7 @@ class Puzzle extends JFrame implements ActionListener {
 		for (int i = 0; i < 9; i++) {// 9개의 버튼 이벤트 등록
 			buttons[i].addActionListener(this);
 		} // for
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		add(panel, BorderLayout.CENTER);// 패널을 프레임 중앙에 배치
 		reset = new MyButton("reset");
@@ -68,17 +70,17 @@ class Puzzle extends JFrame implements ActionListener {
 		MyButton b = (MyButton) e.getSource();
 		if (b.getText().equals(" ") == true) {// 빈 버튼 누르면 아무 동작 안함
 			return;// 이벤트 종료
-// getText()메서드는 버튼위 캡션문자열을 가져옴.
-// equals()는 객체주소가 다르고 내용물만 같아도 true를 반환
+			// getText()메서드는 버튼위 캡션문자열을 가져옴.
+			// equals()는 객체주소가 다르고 내용물만 같아도 true를 반환
 		} // if
 
 		if (b.index == 0) {// 1번 버튼 눌렀을 때
 			if (buttons[1].getText().equals(" ")) {// 2번 자리 캡션이 비어 있다면
-// ==true가 생략 됨
+				// ==true가 생략 됨
 				buttons[1].setText(b.getText());
-// 2번쨰 버튼 캡션문자열을 첫번쨰 버튼캡션문자열로 설정
+				// 2번쨰 버튼 캡션문자열을 첫번쨰 버튼캡션문자열로 설정
 				b.setText(" ");
-// 첫번째 버튼 캡션문자열을 빈공백으로 처리
+				// 첫번째 버튼 캡션문자열을 빈공백으로 처리
 			} // if
 
 			if (buttons[3].getText().equals(" ")) {

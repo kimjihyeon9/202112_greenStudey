@@ -1,7 +1,0 @@
-package member_model;
-
-import java.util.Vector;
-
-public class MemberDAO {
-	private static final Vector<MemberDTO> mamberList = new Vector<MemberDTO>();
-}

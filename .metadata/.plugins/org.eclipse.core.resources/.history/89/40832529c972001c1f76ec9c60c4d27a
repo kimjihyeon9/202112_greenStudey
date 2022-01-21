@@ -1,5 +1,0 @@
-package member_view;
-
-public abstract class MemberView {
-	public abstract void display();
-}

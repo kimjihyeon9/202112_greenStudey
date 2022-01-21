@@ -1,9 +1,0 @@
-package member_test;
-
-public class TestAppMain {
-
-	public static void main(String[] args) {
-		
-	}
-
-}
