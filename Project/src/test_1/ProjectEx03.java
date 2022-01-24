@@ -13,10 +13,11 @@ public class ProjectEx03 {
 	static String[] cs = { "RED", "BLUE", "YELLOW", "ORANGE" };
 	
 	// 색의 배열
-	static int[] arr1 = new int[4]; // 버튼의 배열
-	static int[] arr2 = new int[4]; // 글자의 배열
+	static int[] arrBtn = new int[4]; // 버튼의 배열
+	static int[] arrTxt = new int[4]; // 글자의 배열
 
 	static int ansColor; // 정답(글자와 버튼색이 같음)
+	static int ansLoc; // 정답위치(정답위치가 일정함을 방지하기위해서)
 	
 	// 색배열, 글자배열 => 일단 4개로 해서 테스트 하기(나중에는 7개정도)
 	
@@ -32,26 +33,27 @@ public class ProjectEx03 {
 	// 랜덤으로 뽑은 글씨를 같은 색의 버튼으로 지정, 2개만 랜덤으로 돌리기
 	// 글자색은 정답인 색이 아니면 들어갈수있게
 	
-	public ProjectEx03() {
-		
-	}
-	
 	// 글자
 	public static void colorTxt() {
 		for(int i = 0; i < 1; i++) {
-			arr2[i] = (int)(Math.random() * 4);
-			System.out.println(arr2[i]);
-			ansColor = arr2[i]; 
+			arrTxt[i] = (int)(Math.random() * 4);
+			System.out.println(arrTxt[i]);
+			ansColor = arrTxt[i]; 
 		}
 	}
 	
 	// 버튼 2개의 색 랜덤으로 돌리기
 	public static void button() {
+		ansLoc = (int)(Math.random() * 3);
+		System.out.println("ansLoc : " + ansLoc);
+
 		for(int i = 0; i < 2; i++) {
-			arr1[i] = (int)(Math.random() * 4); // 0~3 
-			System.out.print(arr1[i] + " ");
+			if(ansLoc == i) {
+				arrBtn[i] = ansColor;
+			}
+			arrBtn[i] = (int)(Math.random() * 4); // 0~3 
+			System.out.print(arrBtn[i] + " ");
 		}
-		System.out.print(ansColor);
 		System.out.println();
 	}
 	
@@ -65,7 +67,7 @@ public class ProjectEx03 {
 		
 		while(true) {
 			// 버튼의 중복 처리
-			if((ansColor == arr1[0]) || (ansColor == arr1[1]) || (arr1[0] == arr1[1])) {
+			if((ansColor == arrBtn[0]) || (ansColor == arrBtn[1]) || (arrBtn[0] == arrBtn[1])) {
 				button();
 			} else {
 				break;
