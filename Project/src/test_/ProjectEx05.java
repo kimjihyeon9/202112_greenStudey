@@ -1,4 +1,4 @@
-package test_인지능력2;
+package test_;
 
 import java.awt.Color;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 // 호윤님이 공유해주신거
 
-public class ProjectEx04 {
+public class ProjectEx05 {
    static Color[] c = { Color.red, Color.blue, Color.yellow, Color.orange };
    
    static String[] cs = { "RED", "BLUE", "YELLOW", "ORANGE" }; // 정답 Color
@@ -14,7 +14,7 @@ public class ProjectEx04 {
    Scanner sc= null;
    int[] arr = new int[3];
    
-   public ProjectEx04() {
+   public ProjectEx05() {
       sc = new Scanner(System.in);
       
       // 보기로 쓸 배열 뽑기
@@ -69,6 +69,6 @@ public class ProjectEx04 {
    }
    
    public static void main(String[] args) {
-      new ProjectEx04();
+      new ProjectEx05();
    }
 }

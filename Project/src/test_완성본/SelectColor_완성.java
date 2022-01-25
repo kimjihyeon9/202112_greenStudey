@@ -1,9 +1,9 @@
-package test_인지능력2;
+package test_완성본;
 
 import java.awt.Color;
 import java.util.Scanner;
 
-public class ProjectEx03_완성 {
+public class SelectColor_완성 {
 	// 색깔 상수
 //	private static final int RED = 0;
 //	private static final int BLUE = 1;

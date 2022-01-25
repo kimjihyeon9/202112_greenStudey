@@ -1,6 +1,6 @@
-package test_인지능력1;
+package test_완성본;
 
-public class ProjectEx02_완성 {
+public class MaxColor_완성 {
 	// 색깔 상수
 	private static final int RED = 0;
 	private static final int BLUE = 1;
