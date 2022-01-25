@@ -50,14 +50,14 @@ public class ProjectEx03 {
 	public static void location() {
 		ansLoc = (int) (Math.random() * 3); // 저장위치 랜덤 돌리기
 		System.out.println("ansLoc : " + ansLoc); // 저장위치 확인 용도
-		
-		for (int i = 0; i < arrBtn.length; i++) {
+		arrBtn[ansLoc] = ansColor;
+		for (int i = 0; i < arrBtn.length-1; i++) {
 			// 정답의 위치를 선정하기위한 부분
 			if (ansLoc == i) {
-				arrBtn[i] = ansColor; // 정답위치 설정
-				a = i;
+				continue;
+				
 			} else {
-//				System.out.println("else arrBtn");
+				System.out.println("else arrBtn");
 			}
 		}
 	}

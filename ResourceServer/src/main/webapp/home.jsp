@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<h1>길동이의 홈페이지</h1>
+<h1>홈페이지입니다!</h1>
+링크 : <a href="index.jsp">index page</a>
 
 </body>
 </html>
