@@ -47,7 +47,7 @@ public class SaramController extends HttpServlet {
 				System.out.println("내용이 없습니다!");
 			}
 		} else if("list".equals(endPoint)) {
-			pw.write(SaramDao.selectAllJSONArray().toString(2));
+			pw.write(SaramDao.selectAllJSONArr().toString(2));
 		} else if("search".equals(endPoint)) {
 			
 		} else if("update".equals(endPoint)) {
@@ -55,7 +55,7 @@ public class SaramController extends HttpServlet {
 		} else if("delete".equals(endPoint)) {
 			
 		} else {
-			pw.write(SaramDao.selectAllJSONArray().toString(2));
+			pw.write(SaramDao.selectAllJSONArr().toString(2));
 		}
 
 		pw.close();
@@ -68,7 +68,7 @@ public class SaramController extends HttpServlet {
 
 		PrintWriter pw = resp.getWriter();
 
-		pw.write(SaramDao.selectAllJSONArray().toString(2));
+		pw.write(SaramDao.selectAllJSONArr().toString(2));
 
 		pw.close();
 

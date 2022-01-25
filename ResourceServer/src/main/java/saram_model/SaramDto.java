@@ -11,7 +11,7 @@ public class SaramDto {
    public SaramDto() {
       this(0,"","",0);
    }
-
+   
    public SaramDto(int no, String id, String name, int age) {
       this.no = no;
       this.id = id;
@@ -53,19 +53,19 @@ public class SaramDto {
 
    @Override
    public String toString() {
-      return String.format("%-4d%-10s%-15s%-10d",no, id, name, age);
+      return String.format("%-4d%-10s%-15s%-10d", no, id, name, age);
    }
    
-   public JSONObject toJSONJsonObject() {
+   public JSONObject toJSONObject() {
       JSONObject obj = new JSONObject();
-      JSONObject saram = new JSONObject();
-      saram.put("no", no);
-      saram.put("id", id);
-      saram.put("name", name);
-      saram.put("age", age);
-      return saram;
+      obj.put("no", no);
+      obj.put("id", id);
+      obj.put("name", name);
+      obj.put("age", age);
+      
+      return obj;
    }
-
+   
    @Override
    public int hashCode() {
       final int prime = 31;
@@ -87,4 +87,6 @@ public class SaramDto {
          return false;
       return true;
    }
+   
+   
 }
