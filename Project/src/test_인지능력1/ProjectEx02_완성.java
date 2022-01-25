@@ -1,4 +1,4 @@
-package test_1;
+package test_인지능력1;
 
 public class ProjectEx02_완성 {
 	// 색깔 상수

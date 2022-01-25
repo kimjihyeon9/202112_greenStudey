@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="ex01_socketIO.ClientEx01"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="ex01_socketIO_1.ServerEx01"/>
     <fullyQualifiedTypeName name="java.net.ServerSocket"/>
     <fullyQualifiedTypeName name="ex01_socketIO_1.ClientEx01"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="test_1.ProjectEx03"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="saram_model.SaramDao"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

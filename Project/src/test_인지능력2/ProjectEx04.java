@@ -1,4 +1,4 @@
-package test_1;
+package test_인지능력2;
 
 import java.awt.Color;
 import java.util.Arrays;
