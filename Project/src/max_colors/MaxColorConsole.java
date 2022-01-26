@@ -1,20 +1,26 @@
 package max_colors;
 
+import java.awt.Color;
+
 public class MaxColorConsole {
 	// 색깔 상수
-	private static final int RED = 0;
-	private static final int BLUE = 1;
-	private static final int YELLOW = 2;
+	private final int RED = 0;
+	private final int BLUE = 1;
+	private final int YELLOW = 2;
+	
+	Color[] col = { Color.red, Color.blue, Color.yellow};
 
 	// 색이 콘솔창에 찍힌 수 (= count)
-	static int c0 = 0;
-	static int c1 = 0;
-	static int c2 = 0;
+	int c0 = 0;
+	int c1 = 0;
+	int c2 = 0;
+	
+	Color color;
 	
 	// 색의 배열 (3X3)
-	static int[][] arr = new int[3][3];
+	int[][] arr = new int[3][3];
 
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		// 3*3인 2차원 배열을 만들고
 		// 변수를 선언후 색깔변수 갯수 세기
 		// 정수를 랜덤하게 생성해 저장
@@ -58,7 +64,7 @@ public class MaxColorConsole {
 	}
 
 	// 배열 만들고 갯수 세기
-	public static void setArr() {
+	public void setArr() {
 		// 초기화 해주기
 		c0 = 0;
 		c1 = 0;
@@ -70,6 +76,7 @@ public class MaxColorConsole {
 				arr[i][j] = (int) (Math.random() * 3);
 
 				if (arr[i][j] == 0) {
+					color = col[0];
 					c0++;
 				} else if (arr[i][j] == 1) {
 					c1++;

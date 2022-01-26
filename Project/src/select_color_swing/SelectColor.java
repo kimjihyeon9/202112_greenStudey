@@ -39,7 +39,6 @@ public class SelectColor extends JPanel implements ActionListener {
 
 	public SelectColor() {
 		scc = new SelectColorConsole();
-		System.out.println(scc.arrBtn[0]);
 		this.setLayout(null);
 
 		bgImg = new ImageIcon("images/gamebg.png");
