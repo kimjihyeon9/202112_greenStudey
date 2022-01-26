@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 // select color의 mainJFrame
 
 public class MainJFrame extends JFrame {
-	public static SelectColorPanel selectpan;
+	public static SelectColor selectpan;
 	Container c;
 
 	public MainJFrame() {
@@ -16,7 +16,7 @@ public class MainJFrame extends JFrame {
 		setSize(1024, 768);
 		
 		c = getContentPane();
-		selectpan = new SelectColorPanel();
+		selectpan = new SelectColor();
 		
 		c.add(selectpan);
 	}
