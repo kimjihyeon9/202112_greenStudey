@@ -1,4 +1,4 @@
-package test_;
+package select_color_swing;
 
 import java.awt.Container;
 

@@ -1,4 +1,4 @@
-package test_;
+package test;
 
 import java.awt.Color;
 import java.util.Scanner;

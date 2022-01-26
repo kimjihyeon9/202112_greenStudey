@@ -1,9 +1,9 @@
-package test_완성본;
+package select_color;
 
 import java.awt.Color;
 import java.util.Scanner;
 
-public class SelectColor_완성 {
+public class SelectColorConsole {
 	// 색깔 상수
 //	private static final int RED = 0;
 //	private static final int BLUE = 1;

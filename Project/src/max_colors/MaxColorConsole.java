@@ -1,6 +1,6 @@
-package test_완성본;
+package max_colors;
 
-public class MaxColor_완성 {
+public class MaxColorConsole {
 	// 색깔 상수
 	private static final int RED = 0;
 	private static final int BLUE = 1;
