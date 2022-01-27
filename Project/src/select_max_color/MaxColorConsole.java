@@ -1,4 +1,4 @@
-package select_color;
+package select_max_color;
 
 import java.awt.Color;
 
