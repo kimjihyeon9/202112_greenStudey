@@ -33,12 +33,6 @@ public class MaxColorPanel extends GameContainer {
 
 	MaxColorConsole mcc = new MaxColorConsole();
 
-	public void nineArr() {
-		for (int i = 0; i < 9; i++) {
-//		JLabel arr[i] = new JLabel();
-		}
-	}
-
 	public MaxColorPanel() {
 		this.setLayout(null);
 
@@ -66,56 +60,9 @@ public class MaxColorPanel extends GameContainer {
 		colorPan.setLayout(new GridLayout(3, 3));
 		colorPan.setBounds(100, 150, 300, 200);
 
-		colorPan.setOpaque(true);
-		JLabel arr0 = new JLabel();
-		colorPan.add(arr0);
-		JLabel arr1 = new JLabel();
-		colorPan.add(arr1);
-		JLabel arr2 = new JLabel();
-		colorPan.add(arr2);
-		JLabel arr3 = new JLabel();
-		colorPan.add(arr3);
-		JLabel arr4 = new JLabel();
-		colorPan.add(arr4);
-		JLabel arr5 = new JLabel();
-		colorPan.add(arr5);
-		JLabel arr6 = new JLabel();
-		colorPan.add(arr6);
-		JLabel arr7 = new JLabel();
-		colorPan.add(arr7);
-		JLabel arr8 = new JLabel();
-		colorPan.add(arr8);
-
-		Color[] col = { Color.red, Color.blue, Color.yellow };
-
-//		for (int i = 0; i < 9; i++) {
-//			if (mcc.setArr() == mcc.col[0]) {
-//				colorPan.setBackground(Color.red);
-//			} else if (mcc.setArr() == mcc.col[1]) {
-//				colorPan.setBackground(Color.blue);
-//			} else if (mcc.setArr() == mcc.col[2]) {
-//				colorPan.setBackground(Color.yellow);
-//			}
-//			colorPan.add(new JLabel(i + ""));
-//		}
-//		colorPan.add(new JLabel());
-//		colorPan.setOpaque(true);
-
-//		for (int i = 0; i < 3; i++) {
-//			nineArr();
-//		}
-
-		for (int i = 0; i < 3; i++) {
-			JLabel b = new JLabel();
-			b.setOpaque(true);
-			if (mcc.setArr() == mcc.col[0]) {
-				b.setBackground(mcc.col[0]);
-			} else if (mcc.setArr() == mcc.col[1]) {
-				b.setBackground(Color.blue);
-			} else if (mcc.setArr() == mcc.col[2]) {
-				b.setBackground(Color.yellow);
-			}
-//			b.setBackground(col[i]);
+		for (int i = 0; i < 9; i++) {
+			JPanel b = new JPanel();
+			b.setBackground(mcc.col[mcc.arr[i]]);
 			colorPan.add(b);
 		}
 
@@ -150,7 +97,7 @@ public class MaxColorPanel extends GameContainer {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btn1) {
-			if (mcc.max == mcc.c0) {
+			if ("RED".equals(mcc.ans)) {
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -161,7 +108,8 @@ public class MaxColorPanel extends GameContainer {
 			}
 		}
 		if (e.getSource() == btn2) {
-			if (mcc.max == mcc.c1) {
+			System.out.println(mcc.ans);
+			if ("BLUE".equals(mcc.ans)) {
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -172,7 +120,7 @@ public class MaxColorPanel extends GameContainer {
 			}
 		}
 		if (e.getSource() == btn3) {
-			if (mcc.max == mcc.c2) {
+			if ("YELLOW".equals(mcc.ans)) {
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();

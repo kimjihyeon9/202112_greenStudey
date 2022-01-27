@@ -23,7 +23,11 @@ public class MaxColorConsole {
 	// 색의 배열 (3X3)
 	int[] arr = new int[9];
 
-	public void main(String[] args) {
+	public MaxColorConsole() {
+		run();
+	}
+	
+	public void run() {
 		// 3*3인 2차원 배열을 만들고
 		// 변수를 선언후 색깔변수 갯수 세기
 		// 정수를 랜덤하게 생성해 저장
@@ -44,6 +48,8 @@ public class MaxColorConsole {
 			// 다시 arr 만든다.
 			setArr();
 		}
+		
+		MaxAns();
 
 		// 갯수 확인
 		System.out.println("RED의 개수 : " + c0);
@@ -70,7 +76,7 @@ public class MaxColorConsole {
 	}
 
 	// 배열 만들고 갯수 세기
-	public Color setArr() {
+	public void setArr() {
 		// 초기화 해주기
 		c0 = 0;
 		c1 = 0;
@@ -95,7 +101,7 @@ public class MaxColorConsole {
 //			}
 //			System.out.println(" ");
 		}
-		return color;
+//		return color;
 	}
 
 }

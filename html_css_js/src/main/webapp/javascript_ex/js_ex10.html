@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+a항 : <input type = "text" size="3" name="a" value="*"><br/>
+b항 : <input type = "text" size="3" name="b" value="*"><br/>
+연산 : <input type = "text" size="3" name="oper" value="*"><br/>
+<button id = "resyltBtn">결과확인</button><br/>
+<div class ="result">결과 : </div>
+
+<script>
+var a = document.querySelector("input[name=a]");
+var b = document.querySelector("input[name=b]");
+var oper = document.querySelector("input[name=oper]");
+// 1. DOM을 생성
+// 2. 이벤트 핸드러 추가
+// 3. 버튼을 클릭하면 계산기
+var resultBtn = document.getElementById("resultBtn");
+var resultDiv = document.getElementsByClassName("result")[0];
+console.dir(resultBtn);
+resultBtn.onclock = function(){
+	var a = aInput.value;
+	var b = bInput.value;
+	var oper = operInput.value;
+	var result = 0;
+	switch(oper){
+	case "+" : result = a+b; break;
+	case "-" : result = a-b; break;
+	case "*" : result = a*b; break;
+	case "/" : result = a/b; break;
+	}
+	console.log(a, b, oper);
+}
+</script>
+</body>
+</html>
