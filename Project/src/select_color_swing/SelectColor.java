@@ -3,15 +3,14 @@ package select_color_swing;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
-public class SelectColor extends JPanel implements ActionListener {
+import gameContainer.GameContainer;
+
+public class SelectColor extends GameContainer {
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
@@ -66,6 +65,13 @@ public class SelectColor extends JPanel implements ActionListener {
 		checkLabel = new JLabel(checkIcon);
 		ImageIcon xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
+		
+		checkLabel.setBounds(670, 65, 150, 150);
+		this.add(checkLabel);
+		checkLabel.setVisible(false);
+		xLabel.setBounds(670, 65, 150, 150);
+		this.add(xLabel);
+		xLabel.setVisible(false);
 
 		if (scc.ansColor == 0) {
 			txtColor = new JLabel("빨간색");
@@ -93,13 +99,6 @@ public class SelectColor extends JPanel implements ActionListener {
 		txtTitle.setForeground(Color.black);
 		txtTitle.setBounds(250, 20, 500, 100);
 		
-		checkLabel.setBounds(670, 65, 150, 150);
-		this.add(checkLabel);
-		checkLabel.setVisible(false);
-		xLabel.setBounds(670, 65, 150, 150);
-		this.add(xLabel);
-		xLabel.setVisible(false);
-
 		bgSKPan.add(txtTitle);
 		bgSKPan.add(txtColor);
 		bgSKPan.add(btn1);
@@ -152,6 +151,11 @@ public class SelectColor extends JPanel implements ActionListener {
 				repaint();
 			}
 		}
+	}
+
+	@Override
+	public void gamePlay() {
+		
 	}
 
 }

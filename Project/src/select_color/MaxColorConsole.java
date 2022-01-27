@@ -1,4 +1,4 @@
-package max_colors;
+package select_color;
 
 import java.awt.Color;
 
@@ -15,13 +15,10 @@ public class MaxColorConsole {
 	int c1 = 0;
 	int c2 = 0;
 	
-	int max;
-	String ans;
-	
 	Color color;
 	
 	// 색의 배열 (3X3)
-	int[] arr = new int[9];
+	int[][] arr = new int[3][3];
 
 	public void main(String[] args) {
 		// 3*3인 2차원 배열을 만들고
@@ -50,27 +47,24 @@ public class MaxColorConsole {
 		System.out.println("BLUE의 개수 : " + c1);
 		System.out.println("YELLOW의 개수 : " + c2);
 
-	}
-	
-	public void MaxAns() {
 		// 정답 출력
-		max = c0;
-		
-		ans = "RED";
+		int max = c0;
+		String ans = "RED";
 		if (max < c1) {
 			max = c1;
 			ans = "BLUE";
 		}
-		
+
 		if (max < c2) {
 			max = c2;
 			ans = "YELLOW";
 		}
-//		System.out.println("정답 : " + ans);
+
+		System.out.println("정답 : " + ans);
 	}
 
 	// 배열 만들고 갯수 세기
-	public Color setArr() {
+	public void setArr() {
 		// 초기화 해주기
 		c0 = 0;
 		c1 = 0;
@@ -78,24 +72,23 @@ public class MaxColorConsole {
 		
 		// 배열 랜덤수 받기
 		for (int i = 0; i < arr.length; i++) {
-//			for (int j = 0; j < arr[i].length; j++) {
-				arr[i] = (int) (Math.random() * 3);
+			for (int j = 0; j < arr[i].length; j++) {
+				arr[i][j] = (int) (Math.random() * 3);
 
-				if (arr[i] == 0) {
+				if (arr[i][j] == 0) {
 					color = col[0];
 					c0++;
-				} else if (arr[i] == 1) {
+				} else if (arr[i][j] == 1) {
 					color = col[1];
 					c1++;
 				} else {
-					color = col[2];
+					color = col[0];
 					c2++;
 				}
-//				System.out.print(arr[i]);
-//			}
-//			System.out.println(" ");
+				System.out.print(arr[i][j]);
+			}
+			System.out.println(" ");
 		}
-		return color;
 	}
 
 }
