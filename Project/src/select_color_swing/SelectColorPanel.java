@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 
 import gameContainer.GameContainer;
 
-public class SelectColor extends GameContainer {
+public class SelectColorPanel extends GameContainer {
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
@@ -24,6 +24,12 @@ public class SelectColor extends GameContainer {
 	private JButton btn1;
 	private JButton btn2;
 	private JButton btn3;
+	
+	private Color color;
+	private EmptyBorder b1;
+	
+	private ImageIcon checkIcon;
+	private ImageIcon xIcon;
 
 	private Font font1;
 	private Font font2;
@@ -40,7 +46,7 @@ public class SelectColor extends GameContainer {
 
 	SelectColorConsole scc;
 
-	public SelectColor() {
+	public SelectColorPanel() {
 		scc = new SelectColorConsole();
 		this.setLayout(null);
 
@@ -58,12 +64,12 @@ public class SelectColor extends GameContainer {
 //		btn1.setForeground(scc.col[scc.arrBtn[0]]); // 버튼색과 버튼 텍스트 같게 하기
 //		btn2.setForeground(scc.col[scc.arrBtn[1]]);
 //		btn3.setForeground(scc.col[scc.arrBtn[2]]);
-		Color color = new Color(0,0,0,0);
+		color = new Color(0,0,0,0);
 		btn1.setForeground(color);
 		btn2.setForeground(color);
 		btn3.setForeground(color);
 //		btn1.setOpaque(false);
-		EmptyBorder b1 = new EmptyBorder(5, 3, 5, 0);
+		b1 = new EmptyBorder(5, 3, 5, 0);
 		btn1.setBorder(b1);
 		btn2.setBorder(b1);
 		btn3.setBorder(b1);
@@ -81,9 +87,9 @@ public class SelectColor extends GameContainer {
 		btn2.addMouseListener(listener);
 		btn3.addMouseListener(listener);
 
-		ImageIcon checkIcon = new ImageIcon("images/o.png");
+		checkIcon = new ImageIcon("images/o.png");
 		checkLabel = new JLabel(checkIcon);
-		ImageIcon xIcon = new ImageIcon("images/x.png");
+		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
 
 		checkLabel.setBounds(670, 65, 150, 150);

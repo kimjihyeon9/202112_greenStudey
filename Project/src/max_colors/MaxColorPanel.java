@@ -22,22 +22,25 @@ public class MaxColorPanel extends GameContainer {
 
 	private ImageIcon bgSK;
 	private JLabel bgSKPan;
+	
+	private ImageIcon checkIcon;
+	private ImageIcon xIcon;
+	private JLabel checkLabel;
+	private JLabel xLabel;
 
 	private JPanel colorPan;
 
 	private JButton btn1;
 	private JButton btn2;
 	private JButton btn3;
+	
+	private Color color;
+	private EmptyBorder b1;
 
 	private JLabel txtTitle;
 	private Font font;
 
-	private JLabel checkLabel;
-	private JLabel xLabel;
-
 	MaxColorConsole mcc;
-
-	
 
 	public MaxColorPanel() {
 		mcc = new MaxColorConsole();
@@ -51,9 +54,9 @@ public class MaxColorPanel extends GameContainer {
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
 
-		ImageIcon checkIcon = new ImageIcon("images/o.png");
+		checkIcon = new ImageIcon("images/o.png");
 		checkLabel = new JLabel(checkIcon);
-		ImageIcon xIcon = new ImageIcon("images/x.png");
+		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
 
 		checkLabel.setBounds(670, 65, 150, 150);
@@ -78,11 +81,11 @@ public class MaxColorPanel extends GameContainer {
 		btn1 = new JButton("btn1");
 		btn2 = new JButton("btn2");
 		btn3 = new JButton("btn3");
-		Color color = new Color(0,0,0,0);
+		color = new Color(0,0,0,0);
 		btn1.setForeground(color);
 		btn2.setForeground(color);
 		btn3.setForeground(color);
-		EmptyBorder b1 = new EmptyBorder(5, 3, 5, 0);
+		b1 = new EmptyBorder(5, 3, 5, 0);
 		btn1.setBorder(b1);
 		btn2.setBorder(b1);
 		btn3.setBorder(b1);

@@ -1,6 +1,6 @@
 package Life_game;
 
-public class LifeGame {
+public class LifeGameConsole {
 	String[][] Arr = { { "전자레인지를 킨다", "전자레인지에 음식을 넣는다", "동작 버튼을 누른다", "음식을 꺼낸다" },
 			{ "TV의 전원을 킨다", "리모컨 빨간버튼을 누른다", "원하는 채널로 이동한다", "전원을 끈다" }, 
 			{ "선풍기의 코드를 꼽는다", "전원을 킨다", "선풍기의 풍속을 조절한다", "전원을 끈다" },
@@ -16,7 +16,7 @@ public class LifeGame {
 	String[] a = new String[4];
 	int r;
 
-	public LifeGame() {
+	public LifeGameConsole() {
 		run();
 	}
 
@@ -78,7 +78,7 @@ public class LifeGame {
 	}
 
 	public static void main(String[] args) {
-		new LifeGame();
+		new LifeGameConsole();
 	}
 
 }
