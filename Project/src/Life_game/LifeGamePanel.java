@@ -10,13 +10,10 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-import gameContainer.GameContainer;
-
-public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
-	// JComponent
+public class LifeGamePanel extends JComponent implements MouseListener, MouseMotionListener {
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
@@ -28,9 +25,18 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	LifeGameConsole lgc;
 
 	// 드래그 앤 드롭
-	Rectangle box;
-	boolean isDragged;
-	int X, Y;
+	Rectangle box1;
+	Rectangle box2;
+	Rectangle box3;
+	Rectangle box4;
+	boolean isDragged1;
+	boolean isDragged2;
+	boolean isDragged3;
+	boolean isDragged4;
+	int X1, Y1;
+	int X2, Y2;
+	int X3, Y3;
+	int X4, Y4;
 
 	public LifeGamePanel() {
 		lgc = new LifeGameConsole();
@@ -50,36 +56,47 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		xLabel.setBounds(670, 65, 150, 150);
 		this.add(xLabel);
 		xLabel.setVisible(false);
+		
+		this.add(bgImgPan);
 
 		// 드래그 앤 드롭
-		box = new Rectangle(0, 0, 100, 100);
-		isDragged = false;
+		box1 = new Rectangle(0, 0, 100, 100);
+		box2 = new Rectangle(150, 0, 100, 100);
+		box3 = new Rectangle(300, 0, 100, 100);
+		box4 = new Rectangle(450, 0, 100, 100);
+		isDragged1 = false;
+		isDragged2 = false;
 		addMouseListener(this);
 		addMouseMotionListener(this);
-	}
-
-	@Override
-	public void gamePlay() {
-
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
 	}
 
 	// 드래그 앤 드롭
 	// 사각형 색
 	public void paint(Graphics g) {
 		g.setColor(Color.black);
-		g.drawRect(box.x, box.y, box.width, box.height); // 이동하기 위해 사각형 좌표와 마우스 좌표 필요!!
+		g.drawRect(box1.x, box1.y, box1.width, box1.height); // 이동하기 위해 사각형 좌표와 마우스 좌표 필요!!
+		g.drawRect(box2.x, box2.y, box2.width, box2.height); 
+		g.drawRect(box3.x, box3.y, box3.width, box3.height); 
+		g.drawRect(box4.x, box4.y, box4.width, box4.height); 
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		if (isDragged) {
-			box.x = e.getX() - X;
-			box.y = e.getY() - Y;
+		if (isDragged1) {
+			box1.x = e.getX() - X1;
+			box1.y = e.getY() - Y1;
+		}
+		if (isDragged2) {
+			box2.x = e.getX() - X2;
+			box2.y = e.getY() - Y2;
+		}
+		if (isDragged3) {
+			box3.x = e.getX() - X3;
+			box3.y = e.getY() - Y3;
+		}
+		if (isDragged4) {
+			box4.x = e.getX() - X4;
+			box4.y = e.getY() - Y4;
 		}
 		repaint();
 	}
@@ -93,16 +110,34 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	// 사각형 안에서 클릭시 움직이게
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (box.contains(new Point(e.getX(), e.getY()))) {
-			X = e.getX() - box.x;
-			Y = e.getY() - box.y;
-			isDragged = true;
+		if (box1.contains(new Point(e.getX(), e.getY()))) {
+			X1 = e.getX() - box1.x;
+			Y1 = e.getY() - box1.y;
+			isDragged1 = true;
+		}
+		if (box2.contains(new Point(e.getX(), e.getY()))) {
+			X2 = e.getX() - box2.x;
+			Y2 = e.getY() - box2.y;
+			isDragged2 = true;
+		}
+		if (box3.contains(new Point(e.getX(), e.getY()))) {
+			X3 = e.getX() - box3.x;
+			Y3 = e.getY() - box3.y;
+			isDragged3 = true;
+		}
+		if (box4.contains(new Point(e.getX(), e.getY()))) {
+			X4 = e.getX() - box4.x;
+			Y4 = e.getY() - box4.y;
+			isDragged4 = true;
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		isDragged = false;
+		isDragged1 = false;
+		isDragged2 = false;
+		isDragged3 = false;
+		isDragged4 = false;
 	}
 
 	@Override
