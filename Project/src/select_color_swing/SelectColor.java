@@ -52,13 +52,17 @@ public class SelectColor extends GameContainer {
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
 
-		btn1 = new JButton();
-		btn2 = new JButton();
-		btn3 = new JButton();
-//		MyMouseListener listener = new MyMouseListener();
-//		btn1.addMouseListener(listener);
-//		btn2.addMouseListener(listener);
-//		btn3.addMouseListener(listener);
+		btn1 = new JButton("btn1");
+		btn2 = new JButton("btn2");
+		btn3 = new JButton("btn3");
+//		btn1.setForeground(scc.col[scc.arrBtn[0]]); // 버튼색과 버튼 텍스트 같게 하기
+//		btn2.setForeground(scc.col[scc.arrBtn[1]]);
+//		btn3.setForeground(scc.col[scc.arrBtn[2]]);
+		Color color = new Color(0,0,0,0);
+		btn1.setForeground(color);
+		btn2.setForeground(color);
+		btn3.setForeground(color);
+//		btn1.setOpaque(false);
 		EmptyBorder b1 = new EmptyBorder(5, 3, 5, 0);
 		btn1.setBorder(b1);
 		btn2.setBorder(b1);
@@ -72,6 +76,10 @@ public class SelectColor extends GameContainer {
 		btn1.addActionListener(this);
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
+		MyMouseListener listener = new MyMouseListener();
+		btn1.addMouseListener(listener);
+		btn2.addMouseListener(listener);
+		btn3.addMouseListener(listener);
 
 		ImageIcon checkIcon = new ImageIcon("images/o.png");
 		checkLabel = new JLabel(checkIcon);
@@ -122,7 +130,8 @@ public class SelectColor extends GameContainer {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btn1) {
+		JButton btn = (JButton)e.getSource();
+		if ("btn1".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[0]) {
 				checkLabel.setVisible(true);
 				revalidate();
@@ -134,7 +143,7 @@ public class SelectColor extends GameContainer {
 			}
 		}
 
-		if (e.getSource() == btn2) {
+		if ("btn2".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[1]) {
 				checkLabel.setVisible(true);
 				revalidate();
@@ -146,7 +155,7 @@ public class SelectColor extends GameContainer {
 			}
 		}
 
-		if (e.getSource() == btn3) {
+		if ("btn3".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[2]) {
 				checkLabel.setVisible(true);
 				revalidate();

@@ -3,7 +3,7 @@ package Life_game;
 public class LifeGame {
 	String[][] Arr = { { "전자레인지를 킨다", "전자레인지에 음식을 넣는다", "동작 버튼을 누른다", "음식을 꺼낸다" },
 			{ "TV의 전원을 킨다", "리모컨 빨간버튼을 누른다", "원하는 채널로 이동한다", "전원을 끈다" }, 
-			{ "2번 0", "2번 1", "2번 2", "2번 3" },
+			{ "선풍기의 코드를 꼽는다", "전원을 킨다", "선풍기의 풍속을 조절한다", "전원을 끈다" },
 			{ "3번 0", "3번 1", "3번 2", "3번 3" } }; // 답 순서를 담아놓은 배열
 
 	// 문항을 담는 변수
@@ -21,9 +21,21 @@ public class LifeGame {
 	}
 
 	public void run() {
-		answer();
-
 		quiz();
+
+		answer();
+	}
+	
+	public void answerArr() { // 정답를 뽑기위한 함수
+		// 이중 for문을 쓴 이유
+		// Arr[][]가 이차원 배열이여서
+		for (int i = k; i < k + 1; i++) { // 문항뽑기
+			for (int j = 0; j < 4; j++) { // 문항안 정답 뽑기
+				a[count++] = Arr[i][j]; // 문항 정답을 차례대로 보여준다
+				System.out.println(a[j]);
+			}
+			System.out.println();
+		}
 	}
 
 	public void answer() {
@@ -44,18 +56,6 @@ public class LifeGame {
 			answerArr();
 			answer[3] = a[3];
 			break;
-		}
-	}
-
-	public void answerArr() { // 정답를 뽑기위한 함수
-		// 이중 for문을 쓴 이유
-		// Arr[][]가 이차원 배열이여서
-		for (int i = k; i < k + 1; i++) { // 문항뽑기
-			for (int j = 0; j < 4; j++) { // 문항안 정답 뽑기
-				a[count++] = Arr[i][j]; // 문항 정답을 차례대로 보여준다
-				System.out.println(a[j]);
-			}
-			System.out.println();
 		}
 	}
 
