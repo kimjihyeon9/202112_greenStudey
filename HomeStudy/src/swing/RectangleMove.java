@@ -61,7 +61,7 @@ class RectangleMove extends JComponent implements MouseListener, MouseMotionList
 
 	// 프로그램 실행
 	public static void main(String[] args) {
-		JFrame f = new JFrame("http://sexy.pe.kr");
+		JFrame f = new JFrame();
 		f.setBounds(0, 0, 300, 300);
 		f.add(new RectangleMove());
 		f.setVisible(true);
