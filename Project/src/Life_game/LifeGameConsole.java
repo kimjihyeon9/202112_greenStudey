@@ -21,9 +21,9 @@ public class LifeGameConsole {
 	}
 
 	public void run() {
-		quiz();
-
 		answer();
+
+		quiz();
 	}
 	
 	public void answerArr() { // 정답를 뽑기위한 함수

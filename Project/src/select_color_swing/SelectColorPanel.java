@@ -68,7 +68,6 @@ public class SelectColorPanel extends GameContainer {
 		btn1.setForeground(color);
 		btn2.setForeground(color);
 		btn3.setForeground(color);
-//		btn1.setOpaque(false);
 		b1 = new EmptyBorder(5, 3, 5, 0);
 		btn1.setBorder(b1);
 		btn2.setBorder(b1);

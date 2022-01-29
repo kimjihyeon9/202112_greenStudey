@@ -2,9 +2,9 @@ package Life_game;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Label;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -12,6 +12,14 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+// 해결해야하는 부분
+// 드래그앤드롭 사각형에 문제지문이 들어갈수있게 하기
+// 드래그앤드롭 드래그하면 오답일시 제자리로 돌리기
+// 배경보이기
+// 정답칸에 근처로 가면 딱붙는 기능 넣기(충돌검사)
+// 정답칸에 숫자(1, 2, 3, 4) 넣기 - 순서 보여주기용도
 
 public class LifeGamePanel extends JComponent implements MouseListener, MouseMotionListener {
 	private ImageIcon bgImg;
@@ -22,7 +30,7 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 	private JLabel checkLabel;
 	private JLabel xLabel;
 
-	LifeGameConsole lgc;
+//	LifeGameConsole lgc; // 잠시 필요가 없어서 주석처리!!
 
 	// 드래그 앤 드롭
 	Rectangle box1;
@@ -39,9 +47,10 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 	int X4, Y4;
 
 	public LifeGamePanel() {
-		lgc = new LifeGameConsole();
+//		lgc = new LifeGameConsole();
 		this.setLayout(null);
 
+		// 배경을 선언하고 add까지 했지만 들어가지 않음...
 		bgImg = new ImageIcon("images/gamebg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
@@ -57,13 +66,33 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 		this.add(xLabel);
 		xLabel.setVisible(false);
 		
+		// 정답칸 만들기
+		// 문제점 : 문제의 지문의 길이가 길면 정답칸도 길어져서 순서를 맞출때 크기가 애매해질수있다
+		// 		어떻게 해결할지 고민하기
+		// bgImgPan이 보이지 않아서 ans1~4도 보이지 않음
+		JPanel ans1 = new JPanel();
+		JPanel ans2 = new JPanel();
+		JPanel ans3 = new JPanel();
+		JPanel ans4 = new JPanel();
+		ans1.setBounds(100, 650, 100, 100);
+		ans2.setBounds(100, 650, 100, 100);
+		ans3.setBounds(100, 650, 100, 100);
+		ans4.setBounds(100, 650, 100, 100);
+		
+		bgImgPan.add(ans1);
+		bgImgPan.add(ans2);
+		bgImgPan.add(ans3);
+		bgImgPan.add(ans4);
+		
 		this.add(bgImgPan);
 
 		// 드래그 앤 드롭
-		box1 = new Rectangle(0, 0, 100, 100);
-		box2 = new Rectangle(150, 0, 100, 100);
-		box3 = new Rectangle(300, 0, 100, 100);
-		box4 = new Rectangle(450, 0, 100, 100);
+		box1 = new Rectangle(362, 130, 300, 80);
+		box2 = new Rectangle(362, 220, 300, 80);
+		box3 = new Rectangle(362, 310, 300, 80);
+		box4 = new Rectangle(362, 400, 300, 80);
+//		Label a = new Label("문제");
+//		box1.add(a);
 		isDragged1 = false;
 		isDragged2 = false;
 		addMouseListener(this);
