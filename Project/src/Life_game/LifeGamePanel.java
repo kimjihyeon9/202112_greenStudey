@@ -1,8 +1,7 @@
 package Life_game;
 
-import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Label;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
@@ -74,10 +73,10 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 		JPanel ans2 = new JPanel();
 		JPanel ans3 = new JPanel();
 		JPanel ans4 = new JPanel();
-		ans1.setBounds(100, 650, 100, 100);
-		ans2.setBounds(100, 650, 100, 100);
-		ans3.setBounds(100, 650, 100, 100);
-		ans4.setBounds(100, 650, 100, 100);
+		ans1.setBounds(150, 550, 100, 100);
+		ans2.setBounds(350, 550, 100, 100);
+		ans3.setBounds(550, 550, 100, 100);
+		ans4.setBounds(750, 550, 100, 100);
 		
 		bgImgPan.add(ans1);
 		bgImgPan.add(ans2);
@@ -97,17 +96,24 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 		isDragged2 = false;
 		addMouseListener(this);
 		addMouseMotionListener(this);
+		
+		JPanel Rec = new JPanel() {
+			// 사각형 색
+			public void paint(Graphics g) {
+//				g.setColor(Color.black);
+				g.drawRoundRect(box1.x, box1.y, box1.width, box1.height, 10, 10); // 이동하기 위해 사각형 좌표와 마우스 좌표 필요!!
+				g.drawRoundRect(box2.x, box2.y, box2.width, box2.height, 10, 10); 
+				g.drawRoundRect(box3.x, box3.y, box3.width, box3.height, 10, 10); 
+				g.drawRoundRect(box4.x, box4.y, box4.width, box4.height, 10, 10); 
+				add(bgImgPan);
+			}
+		};
+		
+		
 	}
 
 	// 드래그 앤 드롭
-	// 사각형 색
-	public void paint(Graphics g) {
-		g.setColor(Color.black);
-		g.drawRect(box1.x, box1.y, box1.width, box1.height); // 이동하기 위해 사각형 좌표와 마우스 좌표 필요!!
-		g.drawRect(box2.x, box2.y, box2.width, box2.height); 
-		g.drawRect(box3.x, box3.y, box3.width, box3.height); 
-		g.drawRect(box4.x, box4.y, box4.width, box4.height); 
-	}
+	
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
