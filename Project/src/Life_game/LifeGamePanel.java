@@ -1,9 +1,11 @@
 package Life_game;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -13,6 +15,8 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import gameContainer.GameContainer;
+
 // 해결해야하는 부분
 // 드래그앤드롭 사각형에 문제지문이 들어갈수있게 하기
 // 드래그앤드롭 드래그하면 오답일시 제자리로 돌리기
@@ -20,7 +24,7 @@ import javax.swing.JPanel;
 // 정답칸에 근처로 가면 딱붙는 기능 넣기(충돌검사)
 // 정답칸에 숫자(1, 2, 3, 4) 넣기 - 순서 보여주기용도
 
-public class LifeGamePanel extends JComponent implements MouseListener, MouseMotionListener {
+public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
@@ -32,19 +36,16 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 //	LifeGameConsole lgc; // 잠시 필요가 없어서 주석처리!!
 
 	// 드래그 앤 드롭
-	Rectangle box1;
-	Rectangle box2;
-	Rectangle box3;
-	Rectangle box4;
-	boolean isDragged1;
-	boolean isDragged2;
-	boolean isDragged3;
-	boolean isDragged4;
-	int X1, Y1;
-	int X2, Y2;
-	int X3, Y3;
-	int X4, Y4;
-
+	private JLabel a1;
+	private JLabel a2;
+	private JLabel a3;
+	private JLabel a4;
+	
+	private boolean drag1;
+	private boolean drag2;
+	private boolean drag3;
+	private boolean drag4;
+	
 	public LifeGamePanel() {
 //		lgc = new LifeGameConsole();
 		this.setLayout(null);
@@ -86,52 +87,67 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 		this.add(bgImgPan);
 
 		// 드래그 앤 드롭
-		box1 = new Rectangle(362, 130, 300, 80);
-		box2 = new Rectangle(362, 220, 300, 80);
-		box3 = new Rectangle(362, 310, 300, 80);
-		box4 = new Rectangle(362, 400, 300, 80);
-//		Label a = new Label("문제");
-//		box1.add(a);
-		isDragged1 = false;
-		isDragged2 = false;
-		addMouseListener(this);
-		addMouseMotionListener(this);
+		a1 = new JLabel();
+		a2 = new JLabel();
+		a3 = new JLabel();
+		a4 = new JLabel();
+//		int mouseX1 = 480;
+//		int mouseX2 = 480;
+//		int mouseX3 = 480;
+//		int mouseX4 = 480;
+//		int mouseY1 = 100;
+//		int mouseY2 = 200;
+//		int mouseY3 = 300;
+//		int mouseY4 = 400;
+		drag1 = false;
+		drag2 = false;
+		drag3 = false;
+		drag4 = false;
 		
-		JPanel Rec = new JPanel() {
-			// 사각형 색
-			public void paint(Graphics g) {
-//				g.setColor(Color.black);
-				g.drawRoundRect(box1.x, box1.y, box1.width, box1.height, 10, 10); // 이동하기 위해 사각형 좌표와 마우스 좌표 필요!!
-				g.drawRoundRect(box2.x, box2.y, box2.width, box2.height, 10, 10); 
-				g.drawRoundRect(box3.x, box3.y, box3.width, box3.height, 10, 10); 
-				g.drawRoundRect(box4.x, box4.y, box4.width, box4.height, 10, 10); 
-				add(bgImgPan);
-			}
-		};
-		
-		
+		a1.setOpaque(true);
+		a2.setOpaque(true);
+		a3.setOpaque(true);
+		a4.setOpaque(true);
+		a1.setBackground(new Color(233,23,22));
+		a2.setBackground(new Color(254,228,55));
+		a3.setBackground(new Color(33,139,34));
+		a4.setBackground(new Color(81,107,254));
+		a1.setBounds(362, 130, 300, 80);
+		a2.setBounds(362, 220, 300, 80);
+		a3.setBounds(362, 310, 300, 80);
+		a4.setBounds(362, 400, 300, 80);
+		a1.addMouseMotionListener(this);
+		a2.addMouseMotionListener(this);
+		a3.addMouseMotionListener(this);
+		a4.addMouseMotionListener(this);
+		a1.addMouseListener(this);
+		a2.addMouseListener(this);
+		a3.addMouseListener(this);
+		a4.addMouseListener(this);
+		bgImgPan.add(a1);
+		bgImgPan.add(a2);
+		bgImgPan.add(a3);
+		bgImgPan.add(a4);
 	}
 
 	// 드래그 앤 드롭
-	
-
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		if (isDragged1) {
-			box1.x = e.getX() - X1;
-			box1.y = e.getY() - Y1;
+		if (drag1 == true) {
+			JComponent jc = (JComponent) e.getSource();
+			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
 		}
-		if (isDragged2) {
-			box2.x = e.getX() - X2;
-			box2.y = e.getY() - Y2;
+		if (drag2 == true) {
+			JComponent jc = (JComponent) e.getSource();
+			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
 		}
-		if (isDragged3) {
-			box3.x = e.getX() - X3;
-			box3.y = e.getY() - Y3;
+		if (drag3 == true) {
+			JComponent jc = (JComponent) e.getSource();
+			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
 		}
-		if (isDragged4) {
-			box4.x = e.getX() - X4;
-			box4.y = e.getY() - Y4;
+		if (drag4 == true) {
+			JComponent jc = (JComponent) e.getSource();
+			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
 		}
 		repaint();
 	}
@@ -145,34 +161,26 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 	// 사각형 안에서 클릭시 움직이게
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (box1.contains(new Point(e.getX(), e.getY()))) {
-			X1 = e.getX() - box1.x;
-			Y1 = e.getY() - box1.y;
-			isDragged1 = true;
+		if (e.getSource() == a1) {
+			drag1 = true;
 		}
-		if (box2.contains(new Point(e.getX(), e.getY()))) {
-			X2 = e.getX() - box2.x;
-			Y2 = e.getY() - box2.y;
-			isDragged2 = true;
+		if (e.getSource() == a2) {
+			drag2 = true;
 		}
-		if (box3.contains(new Point(e.getX(), e.getY()))) {
-			X3 = e.getX() - box3.x;
-			Y3 = e.getY() - box3.y;
-			isDragged3 = true;
+		if (e.getSource() == a3) {
+			drag3 = true;
 		}
-		if (box4.contains(new Point(e.getX(), e.getY()))) {
-			X4 = e.getX() - box4.x;
-			Y4 = e.getY() - box4.y;
-			isDragged4 = true;
+		if (e.getSource() == a4) {
+			drag4 = true;
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		isDragged1 = false;
-		isDragged2 = false;
-		isDragged3 = false;
-		isDragged4 = false;
+		drag1 = false;
+		drag2 = false;
+		drag3 = false;
+		drag4 = false;
 	}
 
 	@Override
@@ -180,5 +188,15 @@ public class LifeGamePanel extends JComponent implements MouseListener, MouseMot
 
 	@Override
 	public void mouseExited(MouseEvent e) {}
+
+	@Override
+	public void gamePlay() {
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+	}
 
 }
