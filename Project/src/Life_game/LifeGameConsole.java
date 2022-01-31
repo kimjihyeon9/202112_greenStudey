@@ -39,6 +39,7 @@ public class LifeGameConsole {
 	public void answerArr() { // 정답를 뽑기위한 함수
 		// 이중 for문을 쓴 이유
 		// Arr[][]가 이차원 배열이여서
+		int n = 0;
 		for (int i = k; i < k + 1; i++) { // 문항뽑기
 			for (int j = 0; j < 4; j++) { // 문항안 정답 뽑기
 				a[count++] = Arr[i][j]; // 문항 정답을 차례대로 보여준다

@@ -42,6 +42,8 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	private JLabel a2;
 	private JLabel a3;
 	private JLabel a4;
+	
+	private Font font1;
 
 	private boolean drag1;
 	private boolean drag2;
@@ -82,6 +84,15 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		a2 = new JLabel(lgc.a[lgc.b[1]]);
 		a3 = new JLabel(lgc.a[lgc.b[2]]);
 		a4 = new JLabel(lgc.a[lgc.b[3]]);
+		a1.setHorizontalAlignment(JLabel.CENTER);
+		a2.setHorizontalAlignment(JLabel.CENTER);
+		a3.setHorizontalAlignment(JLabel.CENTER);
+		a4.setHorizontalAlignment(JLabel.CENTER);
+		font1 = new Font("맑은 고딕", Font.BOLD, 24);
+		a1.setFont(font1);
+		a2.setFont(font1);
+		a3.setFont(font1);
+		a4.setFont(font1);
 		drag1 = false;
 		drag2 = false;
 		drag3 = false;
@@ -119,7 +130,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		JPanel ans2 = new JPanel();
 		JPanel ans3 = new JPanel();
 		JPanel ans4 = new JPanel();
-		JLabel num1 = new JLabel(lgc.a[0]);
+		JLabel num1 = new JLabel(lgc.a[0]); // 정답부분 : lgc.a[0] -> 이걸로 정답찾기
 		JLabel num2 = new JLabel(lgc.a[1]);
 		JLabel num3 = new JLabel(lgc.a[2]);
 		JLabel num4 = new JLabel(lgc.a[3]);
