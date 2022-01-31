@@ -2115,3 +2115,8 @@ java.nio.file.NoSuchFileException: C:\Users\Happy\Downloads\objectaid-1.2.4.zip
 
 !ENTRY org.eclipse.equinox.p2.repository 2 0 2022-01-30 18:29:57.763
 !MESSAGE Using unsafe http transport to retrieve http://www.objectaid.net/update, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.core.resources 4 1 2022-01-31 16:17:34.224
+!MESSAGE Problems occurred refreshing resources
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2022-01-31 16:17:34.224
+!MESSAGE Problem finding next change, code: 1006
