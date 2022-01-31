@@ -7,16 +7,23 @@ public class LifeGameConsole {
 			{ "선풍기의 코드를 꼽는다", "전원을 킨다", "선풍기의 풍속을 조절한다", "전원을 끈다" },
 			{ "가스레인지 벨브를 연다", "가스를 킨다", "가스를 끈다", "벨브를 잠근다" },
 			{ "청소기의 전원을 킨다", "청소기로 청소를 한다", "청소를 마친 후 먼지를 비운다", "청소기를 원래 자리로 돌려 놓는다" },
-			{ "세탁기의 전원을 킨다", "빨래를 집어 넣는다", "빨래 시작을 누른다", "다 된 빨래를 널어 말린다"}}; // 6개
+			{ "세탁기의 전원을 킨다", "빨래를 집어 넣는다", "빨래 시작을 누른다", "다 된 빨래를 널어 말린다" },
+			{ "드라이어기의 전원을 킨다", "드라이어기의 풍속을 조절한다", "머리를 말린다", "드라이어기의 전원을 끈다" },
+			{ "다리미의 전원을 킨다", "분무기로 물을 뿌린다", "다리미로 옷을 다린다", "다리미의 전원을 끈다" },
+			{ "믹서기 안에 재료를 넣는다", "믹서기의 전원을 킨다", "음식을 간다", "믹서기의 전원을 끈다" }, 
+			{ "선풍기의 전원을 킨다", "선풍기의 풍속과 풍향을 선택한다", "선풍기의 전원을 끈다", "선풍기의 플러그를 뺀다" },
+			{ "식기세척기 1", "식기세척기 2", "식기세척기 3", "식기세척기 4" },
+			{ "변기의 뚜껑을 연다", " 볼일을 본다", "레버로 물을 내린다", "뚜껑을 닫는다/손을 씻는다"}}; // 12개
 
 	// 문항을 담는 변수
-	String[] answer = new String[4];
+	String[] answer = new String[10];
 
-	int k = (int) (Math.random() * 4); // 문항을 랜덤으로 뽑는다.
 	// int k = 1; // 문항 번호을 결정하는 변수(랜덤으로 돌면 될거같다)
+	int k = (int) (Math.random() * 10); // 문항을 랜덤으로 뽑는다.
 	int count = 0;
 	// 중복 체크 - 만약 Arr[0]이 나왔는데 다음 문제도 Arr[0]이 나오는 경우 생각하기
-	String[] a = new String[4];
+	String[] a = new String[10];
+	int[] b = new int[4];
 	int r;
 
 	public LifeGameConsole() {
@@ -59,11 +66,39 @@ public class LifeGameConsole {
 			answerArr();
 			answer[3] = a[3];
 			break;
+		case 4:
+			answerArr();
+			answer[4] = a[4];
+			break;
+		case 5:
+			answerArr();
+			answer[5] = a[5];
+			break;
+		case 6:
+			answerArr();
+			answer[6] = a[6];
+			break;
+		case 7:
+			answerArr();
+			answer[7] = a[7];
+			break;
+		case 8:
+			answerArr();
+			answer[8] = a[8];
+			break;
+		case 9:
+			answerArr();
+			answer[9] = a[9];
+			break;
+		case 10:
+			answerArr();
+			answer[10] = a[10];
+			break;
 		}
 	}
 
 	public void quiz() {
-		int[] b = new int[4];
+//		int[] b = new int[4];
 
 		for (int i = 0; i < 4; i++) {
 			r = (int) (Math.random() * 4);

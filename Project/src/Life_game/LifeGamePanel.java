@@ -18,13 +18,13 @@ import javax.swing.JPanel;
 import gameContainer.GameContainer;
 
 // 해결해야하는 부분
-// 드래그앤드롭 사각형에 문제지문이 들어갈수있게 하기
 // 드래그앤드롭 드래그하면 오답일시 제자리로 돌리기
-// 배경보이기 - 해결
 // 정답칸에 근처로 가면 딱붙는 기능 넣기(충돌검사)
-// 정답칸에 숫자(1, 2, 3, 4) 넣기 - 순서 보여주기용도
-
-// 마우스 가운데로 맞추기
+// 문제 지문 가운데정렬하기 
+// 배경보이기 - 해결
+// 드래그앤드롭 사각형에 문제지문이 들어갈수있게 하기 - 해결
+// 정답칸에 숫자(1, 2, 3, 4) 넣기 - 순서 보여주기용도 - 해결
+// 마우스 가운데로 맞추기 - 해결
 
 public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
 	private ImageIcon bgImg;
@@ -35,7 +35,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	private JLabel checkLabel;
 	private JLabel xLabel;
 
-//	LifeGameConsole lgc; // 잠시 필요가 없어서 주석처리!!
+	LifeGameConsole lgc;
 
 	// 드래그 앤 드롭
 	private JLabel a1;
@@ -47,9 +47,18 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	private boolean drag2;
 	private boolean drag3;
 	private boolean drag4;
+	
+	int mouseX1 = 0;
+	int mouseX2 = 0;
+	int mouseX3 = 0;
+	int mouseX4 = 0;
+	int mouseY1 = 0;
+	int mouseY2 = 0;
+	int mouseY3 = 0;
+	int mouseY4 = 0;
 
 	public LifeGamePanel() {
-//		lgc = new LifeGameConsole();
+		lgc = new LifeGameConsole();
 		this.setLayout(null);
 
 		// 배경을 선언하고 add까지 했지만 들어가지 않음...
@@ -69,18 +78,10 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		xLabel.setVisible(false);
 
 		// 드래그 앤 드롭
-		a1 = new JLabel();
-		a2 = new JLabel();
-		a3 = new JLabel();
-		a4 = new JLabel();
-//		int mouseX1 = 480;
-//		int mouseX2 = 480;
-//		int mouseX3 = 480;
-//		int mouseX4 = 480;
-//		int mouseY1 = 100;
-//		int mouseY2 = 200;
-//		int mouseY3 = 300;
-//		int mouseY4 = 400;
+		a1 = new JLabel(lgc.a[lgc.b[0]]);
+		a2 = new JLabel(lgc.a[lgc.b[1]]);
+		a3 = new JLabel(lgc.a[lgc.b[2]]);
+		a4 = new JLabel(lgc.a[lgc.b[3]]);
 		drag1 = false;
 		drag2 = false;
 		drag3 = false;
@@ -118,11 +119,19 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		JPanel ans2 = new JPanel();
 		JPanel ans3 = new JPanel();
 		JPanel ans4 = new JPanel();
+		JLabel num1 = new JLabel(lgc.a[0]);
+		JLabel num2 = new JLabel(lgc.a[1]);
+		JLabel num3 = new JLabel(lgc.a[2]);
+		JLabel num4 = new JLabel(lgc.a[3]);
 		ans1.setBounds(150, 550, 100, 100);
 		ans2.setBounds(350, 550, 100, 100);
 		ans3.setBounds(550, 550, 100, 100);
 		ans4.setBounds(750, 550, 100, 100);
 
+		ans1.add(num1);
+		ans2.add(num2);
+		ans3.add(num3);
+		ans4.add(num4);
 		bgImgPan.add(ans1);
 		bgImgPan.add(ans2);
 		bgImgPan.add(ans3);
@@ -136,19 +145,19 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	public void mouseDragged(MouseEvent e) {
 		if (drag1 == true) {
 			JComponent jc = (JComponent) e.getSource();
-			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
+			jc.setLocation(jc.getX() + e.getX() - mouseX1, jc.getY() + e.getY() - mouseY1);
 		}
 		if (drag2 == true) {
 			JComponent jc = (JComponent) e.getSource();
-			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
+			jc.setLocation(jc.getX() + e.getX() - mouseX2, jc.getY() + e.getY() - mouseY2);
 		}
 		if (drag3 == true) {
 			JComponent jc = (JComponent) e.getSource();
-			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
+			jc.setLocation(jc.getX() + e.getX() - mouseX3, jc.getY() + e.getY() - mouseY3);
 		}
 		if (drag4 == true) {
 			JComponent jc = (JComponent) e.getSource();
-			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
+			jc.setLocation(jc.getX() + e.getX() - mouseX4, jc.getY() + e.getY() - mouseY4);
 		}
 		repaint();
 	}
@@ -166,15 +175,23 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == a1) {
 			drag1 = true;
+			mouseX1 = e.getX();
+			mouseY1 = e.getY();
 		}
 		if (e.getSource() == a2) {
 			drag2 = true;
+			mouseX2 = e.getX();
+			mouseY2 = e.getY();
 		}
 		if (e.getSource() == a3) {
 			drag3 = true;
+			mouseX3 = e.getX();
+			mouseY3 = e.getY();
 		}
 		if (e.getSource() == a4) {
 			drag4 = true;
+			mouseX4 = e.getX();
+			mouseY4 = e.getY();
 		}
 	}
 

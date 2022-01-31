@@ -22,6 +22,25 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 	
+	int mouseX1 = 0;
+	int mouseX2 = 0;
+	int mouseY1 = 0;
+	int mouseY2 = 0;
+	
+	private JPanel ans1;
+	
+	int x = 150;
+	int x1 = 362;
+	int y = 550;
+	int y1 = 130;
+	int w = 100;
+	int w1 = 80;
+	int h = 100;
+	int h1 = 80;
+	
+	private int b1 = x1 + w/2;
+	private int b2 = y1 + h/2;
+	
 	public crushTest() {
 		this.setLayout(null);
 		
@@ -38,8 +57,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 		a2.setOpaque(true);
 		a1.setBackground(new Color(233, 23, 22));
 		a2.setBackground(new Color(254, 228, 55));
-		a1.setBounds(362, 130, 300, 80);
-		a2.setBounds(362, 220, 300, 80);
+		a1.setBounds(x1, y1, w1, h1);
+		a2.setBounds(362, 220, 80, 80);
 		a1.addMouseMotionListener(this);
 		a2.addMouseMotionListener(this);
 		a1.addMouseListener(this);
@@ -47,8 +66,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 		bgImgPan.add(a1);
 		bgImgPan.add(a2);
 		
-		JPanel ans1 = new JPanel();
-		ans1.setBounds(150, 550, 100, 100);
+		ans1 = new JPanel();
+		ans1.setBounds(x, y, w, h);
 		bgImgPan.add(ans1);
 		
 		this.add(bgImgPan);
@@ -65,11 +84,17 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 	public void mouseDragged(MouseEvent e) {
 		if (drag1 == true) {
 			JComponent jc = (JComponent) e.getSource();
-			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
+			jc.setLocation(jc.getX() + e.getX() - mouseX1, jc.getY() + e.getY() - mouseY1);
+			
+			if(x < b1 && (x + w) > b1) {
+				if(y < b2 && (y + h) > b2){
+					ans1.setBackground(Color.black);
+				}
+			}
 		}
 		if (drag2 == true) {
 			JComponent jc = (JComponent) e.getSource();
-			jc.setLocation(jc.getX() + e.getX(), jc.getY() + e.getY());
+			jc.setLocation(jc.getX() + e.getX() - mouseX2, jc.getY() + e.getY() - mouseY2);
 		}
 		repaint();
 	}
@@ -88,9 +113,14 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == a1) {
 			drag1 = true;
+			mouseX1 = e.getX();
+			mouseY1 = e.getY();
+			
 		}
 		if (e.getSource() == a2) {
 			drag2 = true;
+			mouseX2 = e.getX();
+			mouseY2 = e.getY();
 		}
 	}
 
@@ -102,7 +132,12 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		
+		if(x < b1 && (x + w) > b1) {
+			if(y < b2 && (y + h) > b2){
+				ans1 = (JPanel) e.getSource();
+				ans1.setBackground(Color.black);
+			}
+		}
 	}
 
 	@Override

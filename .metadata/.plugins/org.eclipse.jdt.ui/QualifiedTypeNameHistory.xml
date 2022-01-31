@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="dbcp.jdbcUtil"/>
-    <fullyQualifiedTypeName name="saram_model.SaramDto"/>
-    <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
-    <fullyQualifiedTypeName name="swing.MouseDragged"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
     <fullyQualifiedTypeName name="java.util.Timer"/>
@@ -34,7 +30,6 @@
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="saram_model.SaramDao"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="javax.swing.text.AbstractDocument.Content"/>
     <fullyQualifiedTypeName name="test_.SelectColorPanel"/>
     <fullyQualifiedTypeName name="java.awt.Graphics"/>
@@ -45,13 +40,11 @@
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
     <fullyQualifiedTypeName name="max_colors.MaxColorConsole"/>
-    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.Vector"/>
     <fullyQualifiedTypeName name="Life_game.LifeGame"/>
-    <fullyQualifiedTypeName name="gameContainer.GameContainer"/>
     <fullyQualifiedTypeName name="Life_game.LifeGameConsole"/>
     <fullyQualifiedTypeName name="java.awt.Rectangle"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
@@ -60,4 +53,11 @@
     <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
     <fullyQualifiedTypeName name="java.awt.Label"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="javax.swing.JComponent"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseMotionListener"/>
+    <fullyQualifiedTypeName name="gameContainer.GameContainer"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="select_color_swing.GamePlayMain"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 </qualifiedTypeNameHistroy>
