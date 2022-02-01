@@ -34,6 +34,7 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 	int y = 550;
 	int w = 100;
 	int h = 100;
+	
 	int x0 = 350;
 	int y0 = 550;
 	int w0 = 100;
@@ -97,6 +98,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans) {
 		if (centerX > x && centerX < x + w) {
 			if (centerY > y && centerY < y + h) {
+				a1.setBounds(x+10, y+10, 80, 80);
+				a1.setHorizontalAlignment(JLabel.CENTER);
 				ans.setBackground(Color.black);
 				revalidate();
 				repaint();
@@ -131,6 +134,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 			
 			crush(centerX, centerY, x, y, w, h, ans1);
 			crush(centerX, centerY, x0, y0, w0, h0, ans2);
+			
+			
 
 //			if (centerX > x && centerX < x + w) {
 //				if (centerY > y && centerY < y + h) {
