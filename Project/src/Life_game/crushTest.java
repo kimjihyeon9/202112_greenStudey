@@ -15,43 +15,51 @@ import javax.swing.JPanel;
 import gameContainer.GameContainer;
 
 public class crushTest extends GameContainer implements MouseListener, MouseMotionListener {
+	// 빨간색(빨간색과 팥죽색)
 	private JLabel a1;
 	private JLabel a2;
+	
+	// 드래그앤드롭
 	private boolean drag1;
 	private boolean drag2;
-	private ImageIcon bgImg;
-	private JLabel bgImgPan;
-	
 	int mouseX1 = 0;
 	int mouseX2 = 0;
 	int mouseY1 = 0;
 	int mouseY2 = 0;
+	
+	// 배경
+	private ImageIcon bgImg;
+	private JLabel bgImgPan;
 
+	// 흰색 부분 (정답)
 	private JPanel ans1;
 	private JPanel ans2;
 
+	// 흰색1
 	int x = 150;
 	int y = 550;
 	int w = 100;
 	int h = 100;
 	
+	// 흰색2
 	int x0 = 350;
 	int y0 = 550;
 	int w0 = 100;
 	int h0 = 100;
 
+	// 빨간색
 	int x1 = 362;
 	int y1 = 130;
-	int w1 = 80;
-	int h1 = 80;
+	int w1 = 100;
+	int h1 = 100;
 
+	// 팥죽색
 	int x2 = 402;
 	int y2 = 130;
-	int w2 = 80;
-	int h2 = 80;
+	int w2 = 100;
+	int h2 = 100;
 
-//	private int b1 = x1 + w / 2;
-//	private int b2 = y1 + h / 2;
+	boolean flag = false;
 
 	public crushTest() {
 		this.setLayout(null);
@@ -95,12 +103,14 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 		f.setVisible(true);
 	}
 	
-	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans) {
+	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans, JLabel a) {
 		if (centerX > x && centerX < x + w) {
 			if (centerY > y && centerY < y + h) {
-				a1.setBounds(x+10, y+10, 80, 80);
-				a1.setHorizontalAlignment(JLabel.CENTER);
-				ans.setBackground(Color.black);
+				a.setBounds(x, y, w, h); // 흰색에 딱붙어라
+				flag = true;
+				if(flag == true) {
+					System.out.println("나가");
+				}
 				revalidate();
 				repaint();
 			}
@@ -132,8 +142,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 			int centerX = x1 + w1 / 2;
 			int centerY = y1 + h1 / 2;
 			
-			crush(centerX, centerY, x, y, w, h, ans1);
-			crush(centerX, centerY, x0, y0, w0, h0, ans2);
+			crush(centerX, centerY, x, y, w, h, ans1, a1);
+			crush(centerX, centerY, x0, y0, w0, h0, ans2, a1);
 			
 			
 
@@ -159,8 +169,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 			int centerX = x2 + w2 / 2;
 			int centerY = y2 + h2 / 2;
 			
-			crush(centerX, centerY, x, y, w, h, ans1);
-			crush(centerX, centerY, x0, y0, w0, h0, ans2);
+			crush(centerX, centerY, x, y, w, h, ans1, a2);
+			crush(centerX, centerY, x0, y0, w0, h0, ans2, a2);
 		}
 	}
 
