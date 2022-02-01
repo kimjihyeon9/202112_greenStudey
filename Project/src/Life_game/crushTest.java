@@ -26,50 +26,64 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 	int mouseX2 = 0;
 	int mouseY1 = 0;
 	int mouseY2 = 0;
-	
+
 	private JPanel ans1;
-	
+	private JPanel ans2;
+
 	int x = 150;
-	int x1 = 362;
 	int y = 550;
-	int y1 = 130;
 	int w = 100;
-	int w1 = 80;
 	int h = 100;
+	int x0 = 350;
+	int y0 = 550;
+	int w0 = 100;
+	int h0 = 100;
+
+	int x1 = 362;
+	int y1 = 130;
+	int w1 = 80;
 	int h1 = 80;
-	
-	private int b1 = x1 + w/2;
-	private int b2 = y1 + h/2;
-	
+
+	int x2 = 402;
+	int y2 = 130;
+	int w2 = 80;
+	int h2 = 80;
+
+//	private int b1 = x1 + w / 2;
+//	private int b2 = y1 + h / 2;
+
 	public crushTest() {
 		this.setLayout(null);
-		
+
 		bgImg = new ImageIcon("images/gamebg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
-		
+
 		a1 = new JLabel();
-		a2 = new JLabel();
 		drag1 = false;
+		a2 = new JLabel();
 		drag2 = false;
-		
+
 		a1.setOpaque(true);
-		a2.setOpaque(true);
 		a1.setBackground(new Color(233, 23, 22));
-		a2.setBackground(new Color(254, 228, 55));
 		a1.setBounds(x1, y1, w1, h1);
-		a2.setBounds(362, 220, 80, 80);
 		a1.addMouseMotionListener(this);
-		a2.addMouseMotionListener(this);
 		a1.addMouseListener(this);
-		a2.addMouseListener(this);
 		bgImgPan.add(a1);
+		a2.setOpaque(true);
+		a2.setBackground(new Color(133, 23, 22));
+		a2.setBounds(x2, y2, w2, h2);
+		a2.addMouseMotionListener(this);
+		a2.addMouseListener(this);
 		bgImgPan.add(a2);
-		
+
 		ans1 = new JPanel();
 		ans1.setBounds(x, y, w, h);
 		bgImgPan.add(ans1);
-		
+		ans2 = new JPanel();
+		ans2.setBounds(x0, y0, w0, h0);
+		bgImgPan.add(ans2);
+
 		this.add(bgImgPan);
 	}
 
@@ -79,34 +93,78 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 		f.add(new crushTest());
 		f.setVisible(true);
 	}
+	
+	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans) {
+		if (centerX > x && centerX < x + w) {
+			if (centerY > y && centerY < y + h) {
+				ans.setBackground(Color.black);
+				revalidate();
+				repaint();
+			}
+		} else {
+			ans.setBackground(Color.white);
+			revalidate();
+			repaint();
+		}
+	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		if (drag1 == true) {
 			JComponent jc = (JComponent) e.getSource();
 			jc.setLocation(jc.getX() + e.getX() - mouseX1, jc.getY() + e.getY() - mouseY1);
+
+//			x = jc.getX();
+//			y = jc.getY();
+//			
+//			if(x < b1 && (x + w) > b1) {
+//				if(y < b2 && (y + h) > b2){
+//					ans1.setBackground(Color.black);
+//					System.out.println("충돌했습니다");
+//				}
+//			}
+			x1 = jc.getX();
+			y1 = jc.getY();
 			
-			if(x < b1 && (x + w) > b1) {
-				if(y < b2 && (y + h) > b2){
-					ans1.setBackground(Color.black);
-				}
-			}
+			int centerX = x1 + w1 / 2;
+			int centerY = y1 + h1 / 2;
+			
+			crush(centerX, centerY, x, y, w, h, ans1);
+			crush(centerX, centerY, x0, y0, w0, h0, ans2);
+
+//			if (centerX > x && centerX < x + w) {
+//				if (centerY > y && centerY < y + h) {
+//					ans1.setBackground(Color.black);
+//					revalidate();
+//					repaint();
+//				}
+//			} else {
+//				ans1.setBackground(Color.white);
+//				revalidate();
+//				repaint();
+//			}
 		}
 		if (drag2 == true) {
 			JComponent jc = (JComponent) e.getSource();
 			jc.setLocation(jc.getX() + e.getX() - mouseX2, jc.getY() + e.getY() - mouseY2);
+			
+			x2 = jc.getX();
+			y2 = jc.getY();
+			
+			int centerX = x2 + w2 / 2;
+			int centerY = y2 + h2 / 2;
+			
+			crush(centerX, centerY, x, y, w, h, ans1);
+			crush(centerX, centerY, x0, y0, w0, h0, ans2);
 		}
-		repaint();
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
 	}
 
 	@Override
@@ -115,7 +173,6 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 			drag1 = true;
 			mouseX1 = e.getX();
 			mouseY1 = e.getY();
-			
 		}
 		if (e.getSource() == a2) {
 			drag2 = true;
@@ -132,27 +189,18 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if(x < b1 && (x + w) > b1) {
-			if(y < b2 && (y + h) > b2){
-				ans1 = (JPanel) e.getSource();
-				ans1.setBackground(Color.black);
-			}
-		}
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		
 	}
 
 	@Override
 	public void gamePlay() {
-		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 	}
 
 }
