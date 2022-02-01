@@ -16,8 +16,11 @@ import gameContainer.GameContainer;
 
 public class crushTest extends GameContainer implements MouseListener, MouseMotionListener {
 	// 빨간색(빨간색과 팥죽색)
-	private JLabel a1;
+//	private JLabel a1;
 	private JLabel a2;
+	
+	private JPanel b1;
+	private JPanel b2;
 	
 	// 드래그앤드롭
 	private boolean drag1;
@@ -68,17 +71,25 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
 
-		a1 = new JLabel();
+//		a1 = new JLabel();
 		drag1 = false;
 		a2 = new JLabel();
 		drag2 = false;
 
-		a1.setOpaque(true);
-		a1.setBackground(new Color(233, 23, 22));
-		a1.setBounds(x1, y1, w1, h1);
-		a1.addMouseMotionListener(this);
-		a1.addMouseListener(this);
-		bgImgPan.add(a1);
+		b1 = new JPanel();
+		drag1 = false;
+		b1.setBounds(x1, y1, w1, h1);
+		bgImgPan.add(b1);
+//		b2.setBounds(x2, y2, w2, h2);
+		b1.addMouseMotionListener(this);
+		b1.addMouseListener(this);
+		b1.setOpaque(true);
+
+//		a1.setBackground(new Color(233, 23, 22));
+//		a1.setBounds(x1, y1, w1, h1);
+//		a1.addMouseMotionListener(this);
+//		a1.addMouseListener(this);
+//		bgImgPan.add(a1);
 		a2.setOpaque(true);
 		a2.setBackground(new Color(133, 23, 22));
 		a2.setBounds(x2, y2, w2, h2);
@@ -103,18 +114,23 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 		f.setVisible(true);
 	}
 	
-	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans, JLabel a) {
+	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans, JPanel b) {
 		if (centerX > x && centerX < x + w) {
 			if (centerY > y && centerY < y + h) {
-				a.setBounds(x, y, w, h); // 흰색에 딱붙어라
-				flag = true;
-				if(flag == true) {
-					System.out.println("나가");
-				}
+				b.setBounds(x, y, w, h); // 흰색에 딱붙어라
+//				b = b.setBounds(x, y, w, h);
+//				if(ans == ) {
+//					
+//				}
+//				flag = true;
+//				if(flag == true) {
+//					System.out.println("나가");
+//				}
 				revalidate();
 				repaint();
 			}
 		} else {
+			flag = false;
 			ans.setBackground(Color.white);
 			revalidate();
 			repaint();
@@ -142,8 +158,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 			int centerX = x1 + w1 / 2;
 			int centerY = y1 + h1 / 2;
 			
-			crush(centerX, centerY, x, y, w, h, ans1, a1);
-			crush(centerX, centerY, x0, y0, w0, h0, ans2, a1);
+			crush(centerX, centerY, x, y, w, h, ans1, b1);
+			crush(centerX, centerY, x0, y0, w0, h0, ans2, b1); 
 			
 			
 
@@ -169,8 +185,8 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 			int centerX = x2 + w2 / 2;
 			int centerY = y2 + h2 / 2;
 			
-			crush(centerX, centerY, x, y, w, h, ans1, a2);
-			crush(centerX, centerY, x0, y0, w0, h0, ans2, a2);
+			crush(centerX, centerY, x, y, w, h, ans1, b2);
+			crush(centerX, centerY, x0, y0, w0, h0, ans2, b2);
 		}
 	}
 
@@ -184,11 +200,16 @@ public class crushTest extends GameContainer implements MouseListener, MouseMoti
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource() == a1) {
+		if (e.getSource() == b1) {
 			drag1 = true;
 			mouseX1 = e.getX();
 			mouseY1 = e.getY();
 		}
+//		if (e.getSource() == a1) {
+//			drag1 = true;
+//			mouseX1 = e.getX();
+//			mouseY1 = e.getY();
+//		}
 		if (e.getSource() == a2) {
 			drag2 = true;
 			mouseX2 = e.getX();
