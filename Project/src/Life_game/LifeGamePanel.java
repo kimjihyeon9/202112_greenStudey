@@ -42,7 +42,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	private JLabel a2;
 	private JLabel a3;
 	private JLabel a4;
-	
+
 	// 문제의 폰트
 	private Font font1;
 
@@ -51,7 +51,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	private boolean drag2;
 	private boolean drag3;
 	private boolean drag4;
-	
+
 	// 문제의 드래그의 좌표(x,y)
 	int mouseX1 = 0;
 	int mouseX2 = 0;
@@ -61,37 +61,37 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	int mouseY2 = 0;
 	int mouseY3 = 0;
 	int mouseY4 = 0;
-	
+
 	// 정답 칸
 	JPanel ans1;
 	JPanel ans2;
 	JPanel ans3;
 	JPanel ans4;
-	
+
 	// 정답 칸의 글씨
 	JLabel num1;
 	JLabel num2;
 	JLabel num3;
 	JLabel num4;
-	
+
 	// ans1의 좌표
 	int x1 = 600;
 	int y1 = 130;
 	int w1 = 300;
 	int h1 = 80;
-	
+
 	// ans2의 좌표
 	int x2 = 600;
 	int y2 = 270;
 	int w2 = 300;
 	int h2 = 80;
-	
+
 	// ans3의 좌표
 	int x3 = 600;
 	int y3 = 410;
 	int w3 = 300;
 	int h3 = 80;
-	
+
 	// ans4의 좌표
 	int x4 = 600;
 	int y4 = 550;
@@ -99,35 +99,41 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	int h4 = 80;
 
 	////////////////////////////////////
-	// 빨간색 a1의 좌표
+	// 노란색 a1의 좌표
 	int x11 = 100;
 	int y11 = 130;
 	int w11 = 300;
 	int h11 = 80;
-	
+
 	// 노란색 a2의 좌표
 	int x22 = 100;
 	int y22 = 270;
 	int w22 = 300;
 	int h22 = 80;
-	
-	// 초록색 a3의 좌표
+
+	// 노란색 a3의 좌표
 	int x33 = 100;
 	int y33 = 410;
 	int w33 = 300;
 	int h33 = 80;
-	
-	// 파란색 a4의 좌표
+
+	// 노란색 a4의 좌표
 	int x44 = 100;
 	int y44 = 550;
 	int w44 = 300;
 	int h44 = 80;
 
+	int a1num = 0;
+	int a2num = 0;
+	int a3num = 0;
+	int a4num = 0;
+	Color gray = new Color(248, 248, 248);
+
 	public LifeGamePanel() {
 		lgc = new LifeGameConsole();
 		this.setLayout(null);
 
-		// 배경을 선언하고 add까지 했지만 들어가지 않음...
+		// 배경
 		bgImg = new ImageIcon("images/gamebg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
@@ -187,9 +193,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		bgImgPan.add(a3);
 		bgImgPan.add(a4);
 
-		// 정답칸 만들기
-		// 문제점 : 문제의 지문의 길이가 길면 정답칸도 길어져서 순서를 맞출때 크기가 애매해질수있다
-		// 어떻게 해결할지 고민하기
+		// 정답칸
 		ans1 = new JPanel();
 		ans2 = new JPanel();
 		ans3 = new JPanel();
@@ -214,22 +218,21 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 
 		this.add(bgImgPan);
 	}
-	
+
 	// 충돌검사
-	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans, JLabel a) {
-		if (centerX > x && centerX < x + w) {
-			if (centerY > y && centerY < y + h) {
-				a.setBounds(x, y, w, h);
-//				ans.setBackground(new Color(255,127,0));
-				revalidate();
-				repaint();
-			}
-		} else {
-			ans.setBackground(Color.white);
-			revalidate();
-			repaint();
-		}
-	}
+//	public void crush(int centerX, int centerY, int x, int y, int w, int h, JPanel ans, JLabel a) {
+//		if (centerX > x && centerX < x + w) {
+//			if (centerY > y && centerY < y + h) {
+//				a.setBounds(x, y, w, h);
+//				revalidate();
+//				repaint();
+//			}
+//		} else {
+//			ans.setBackground(Color.white);
+//			revalidate();
+//			repaint();
+//		}
+//	}
 
 	// 드래그 앤 드롭
 	@Override
@@ -237,62 +240,310 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		if (drag1 == true) {
 			JComponent jc = (JComponent) e.getSource();
 			jc.setLocation(jc.getX() + e.getX() - mouseX1, jc.getY() + e.getY() - mouseY1);
-			
+
 			x11 = jc.getX();
 			y11 = jc.getY();
-			
+
 			int centerX = x11 + w11 / 2;
 			int centerY = y11 + h11 / 2;
-			
-			crush(centerX, centerY, x1, y1, w1, h1, ans1, a1);
-			crush(centerX, centerY, x2, y2, w2, h2, ans2, a1);
-			crush(centerX, centerY, x3, y3, w3, h3, ans3, a1);
-			crush(centerX, centerY, x4, y4, w4, h4, ans4, a1);
+
+//			crush(centerX, centerY, x1, y1, w1, h1, ans1, a1);
+//			crush(centerX, centerY, x2, y2, w2, h2, ans2, a1);
+//			crush(centerX, centerY, x3, y3, w3, h3, ans3, a1);
+//			crush(centerX, centerY, x4, y4, w4, h4, ans4, a1);
+
+			if ((centerX > x1 && centerX < x1 + w1) && (centerY > y1 && centerY < y1 + h1)) {
+				if (!(ans1.getBackground() == Color.white)) {
+					ans1.setEnabled(false);
+					ans1.setBackground(Color.white);
+					a1.setBounds(x1, y1, w1, h1);
+					a1num = 1;
+					drag1 = false;
+					revalidate();
+					repaint();
+				} else {
+					a1.setBounds(100, 130, w1, h1);
+				}
+			} else if ((centerX > x2 && centerX < x2 + w2) && (centerY > y2 && centerY < y2 + h2)) {
+				if (!(ans2.getBackground() == Color.white)) {
+
+					ans2.setBackground(Color.white);
+					a1.setBounds(x2, y2, w2, h2);
+					drag1 = false;
+					a1num = 2;
+					revalidate();
+					repaint();
+				} else {
+					a1.setBounds(100, 130, w1, h1);
+				}
+			} else if ((centerX > x3 && centerX < x3 + w3) && (centerY > y3 && centerY < y3 + h3)) {
+				if (!(ans3.getBackground() == Color.white)) {
+					ans3.setBackground(Color.white);
+					a1.setBounds(x3, y3, w3, h3);
+					drag1 = false;
+					a1num = 3;
+					revalidate();
+					repaint();
+				} else {
+					a1.setBounds(100, 130, w1, h1);
+				}
+			} else if ((centerX > x4 && centerX < x4 + w4) && (centerY > y4 && centerY < y4 + h4)) {
+				if (!(ans4.getBackground() == Color.white)) {
+
+					ans4.setBackground(Color.white);
+					a1.setBounds(x4, y4, w4, h4);
+					drag1 = false;
+					a1num = 4;
+					revalidate();
+					repaint();
+				} else {
+					a1.setBounds(100, 130, w1, h1);
+				}
+			} else {
+				if (a1num == 1) {
+					ans1.setBackground(gray);
+				} else if (a1num == 2) {
+					ans2.setBackground(gray);
+				} else if (a1num == 3) {
+					ans3.setBackground(gray);
+				} else if (a1num == 4) {
+					ans4.setBackground(gray);
+				}
+				revalidate();
+				repaint();
+				a1num = 0;
+			}
 		}
 		if (drag2 == true) {
 			JComponent jc = (JComponent) e.getSource();
 			jc.setLocation(jc.getX() + e.getX() - mouseX2, jc.getY() + e.getY() - mouseY2);
-			
+
 			x22 = jc.getX();
 			y22 = jc.getY();
-			
+
 			int centerX = x22 + w22 / 2;
 			int centerY = y22 + h22 / 2;
-			
-			crush(centerX, centerY, x1, y1, w1, h1, ans1, a2);
-			crush(centerX, centerY, x2, y2, w2, h2, ans2, a2);
-			crush(centerX, centerY, x3, y3, w3, h3, ans3, a2);
-			crush(centerX, centerY, x4, y4, w4, h4, ans4, a2);
+
+//			crush(centerX, centerY, x1, y1, w1, h1, ans1, a2);
+//			crush(centerX, centerY, x2, y2, w2, h2, ans2, a2);
+//			crush(centerX, centerY, x3, y3, w3, h3, ans3, a2);
+//			crush(centerX, centerY, x4, y4, w4, h4, ans4, a2);
+
+			if ((centerX > x1 && centerX < x1 + w1) && (centerY > y1 && centerY < y1 + h1)) {
+				if (!(ans1.getBackground() == Color.white)) {
+
+					ans1.setBackground(Color.white);
+					a2.setBounds(x1, y1, w1, h1);
+					drag2 = false;
+					a2num = 1;
+					revalidate();
+					repaint();
+				} else {
+					a2.setBounds(100, 270, w1, h1);
+				}
+			} else if ((centerX > x2 && centerX < x2 + w2) && (centerY > y2 && centerY < y2 + h2)) {
+				if (!(ans2.getBackground() == Color.white)) {
+
+					ans2.setBackground(Color.white);
+					a2.setBounds(x2, y2, w2, h2);
+					drag2 = false;
+					a2num = 2;
+					revalidate();
+					repaint();
+				} else {
+					a2.setBounds(100, 270, w1, h1);
+				}
+			} else if ((centerX > x3 && centerX < x3 + w3) && (centerY > y3 && centerY < y3 + h3)) {
+				if (!(ans3.getBackground() == Color.white)) {
+					ans3.setBackground(Color.white);
+					a2.setBounds(x3, y3, w3, h3);
+					drag2 = false;
+					a2num = 3;
+					revalidate();
+					repaint();
+				} else {
+					a2.setBounds(100, 270, w1, h1);
+				}
+			} else if ((centerX > x4 && centerX < x4 + w4) && (centerY > y4 && centerY < y4 + h4)) {
+				if (!(ans4.getBackground() == Color.white)) {
+
+					ans4.setBackground(Color.white);
+					a2.setBounds(x4, y4, w4, h4);
+					drag2 = false;
+					a2num = 4;
+					revalidate();
+					repaint();
+				} else {
+					a2.setBounds(100, 270, w1, h1);
+				}
+			} else {
+				if (a2num == 1) {
+					ans1.setBackground(gray);
+				} else if (a2num == 2) {
+					ans2.setBackground(gray);
+				} else if (a2num == 3) {
+					ans3.setBackground(gray);
+				} else if (a2num == 4) {
+					ans4.setBackground(gray);
+				}
+				revalidate();
+				repaint();
+				a2num = 0;
+			}
 		}
 		if (drag3 == true) {
 			JComponent jc = (JComponent) e.getSource();
 			jc.setLocation(jc.getX() + e.getX() - mouseX3, jc.getY() + e.getY() - mouseY3);
-			
+
 			x33 = jc.getX();
 			y33 = jc.getY();
-			
+
 			int centerX = x33 + w33 / 2;
 			int centerY = y33 + h33 / 2;
-			
-			crush(centerX, centerY, x1, y1, w1, h1, ans1, a3);
-			crush(centerX, centerY, x2, y2, w2, h2, ans2, a3);
-			crush(centerX, centerY, x3, y3, w3, h3, ans3, a3);
-			crush(centerX, centerY, x4, y4, w4, h4, ans4, a3);
+
+//			crush(centerX, centerY, x1, y1, w1, h1, ans1, a3);
+//			crush(centerX, centerY, x2, y2, w2, h2, ans2, a3);
+//			crush(centerX, centerY, x3, y3, w3, h3, ans3, a3);
+//			crush(centerX, centerY, x4, y4, w4, h4, ans4, a3);
+
+			if ((centerX > x1 && centerX < x1 + w1) && (centerY > y1 && centerY < y1 + h1)) {
+				if (!(ans1.getBackground() == Color.white)) {
+
+					ans1.setBackground(Color.white);
+					a3.setBounds(x1, y1, w1, h1);
+					drag3 = false;
+					a3num = 1;
+					revalidate();
+					repaint();
+				} else {
+					a3.setBounds(100, 410, w1, h1);
+				}
+			} else if ((centerX > x2 && centerX < x2 + w2) && (centerY > y2 && centerY < y2 + h2)) {
+				if (!(ans2.getBackground() == Color.white)) {
+
+					ans2.setBackground(Color.white);
+					a3.setBounds(x2, y2, w2, h2);
+					drag3 = false;
+					a3num = 2;
+					revalidate();
+					repaint();
+				} else {
+					a3.setBounds(100, 410, w1, h1);
+				}
+			} else if ((centerX > x3 && centerX < x3 + w3) && (centerY > y3 && centerY < y3 + h3)) {
+				if (!(ans3.getBackground() == Color.white)) {
+					ans3.setBackground(Color.white);
+					a3.setBounds(x3, y3, w3, h3);
+					drag3 = false;
+					a3num = 3;
+					revalidate();
+					repaint();
+				} else {
+					a3.setBounds(100, 410, w1, h1);
+				}
+			} else if ((centerX > x4 && centerX < x4 + w4) && (centerY > y4 && centerY < y4 + h4)) {
+				if (!(ans4.getBackground() == Color.white)) {
+
+					ans4.setBackground(Color.white);
+					a3.setBounds(x4, y4, w4, h4);
+					drag3 = false;
+					a3num = 4;
+					revalidate();
+					repaint();
+				} else {
+					a3.setBounds(100, 410, w1, h1);
+				}
+			} else {
+				if (a3num == 1) {
+					ans1.setBackground(gray);
+				} else if (a3num == 2) {
+					ans2.setBackground(gray);
+				} else if (a3num == 3) {
+					ans3.setBackground(gray);
+				} else if (a3num == 4) {
+					ans4.setBackground(gray);
+				}
+				revalidate();
+				repaint();
+				a3num = 0;
+			}
 		}
 		if (drag4 == true) {
 			JComponent jc = (JComponent) e.getSource();
 			jc.setLocation(jc.getX() + e.getX() - mouseX4, jc.getY() + e.getY() - mouseY4);
-			
+
 			x44 = jc.getX();
 			y44 = jc.getY();
-			
+
 			int centerX = x44 + w44 / 2;
 			int centerY = y44 + h44 / 2;
-			
-			crush(centerX, centerY, x1, y1, w1, h1, ans1, a4);
-			crush(centerX, centerY, x2, y2, w2, h2, ans2, a4);
-			crush(centerX, centerY, x3, y3, w3, h3, ans3, a4);
-			crush(centerX, centerY, x4, y4, w4, h4, ans4, a4);
+
+//			crush(centerX, centerY, x1, y1, w1, h1, ans1, a4);
+//			crush(centerX, centerY, x2, y2, w2, h2, ans2, a4);
+//			crush(centerX, centerY, x3, y3, w3, h3, ans3, a4);
+//			crush(centerX, centerY, x4, y4, w4, h4, ans4, a4);
+
+			if ((centerX > x1 && centerX < x1 + w1) && (centerY > y1 && centerY < y1 + h1)) {
+				if (!(ans1.getBackground() == Color.white)) {
+
+					ans1.setBackground(Color.white);
+					a4.setBounds(x1, y1, w1, h1);
+					drag4 = false;
+					a4num = 1;
+					revalidate();
+					repaint();
+				} else {
+					a4.setBounds(100, 550, w1, h1);
+				}
+			} else if ((centerX > x2 && centerX < x2 + w2) && (centerY > y2 && centerY < y2 + h2)) {
+				if (!(ans2.getBackground() == Color.white)) {
+
+					ans2.setBackground(Color.white);
+					a4.setBounds(x2, y2, w2, h2);
+					drag4 = false;
+					a4num = 2;
+					revalidate();
+					repaint();
+				} else {
+					a4.setBounds(100, 550, w1, h1);
+				}
+			} else if ((centerX > x3 && centerX < x3 + w3) && (centerY > y3 && centerY < y3 + h3)) {
+				if (!(ans3.getBackground() == Color.white)) {
+					ans3.setBackground(Color.white);
+					a4.setBounds(x3, y3, w3, h3);
+					drag4 = false;
+					a4num = 3;
+					revalidate();
+					repaint();
+				} else {
+					a4.setBounds(100, 550, w1, h1);
+				}
+			} else if ((centerX > x4 && centerX < x4 + w4) && (centerY > y4 && centerY < y4 + h4)) {
+				if (!(ans4.getBackground() == Color.white)) {
+					ans4.setBackground(Color.white);
+					a4.setBounds(x4, y4, w4, h4);
+					drag4 = false;
+					a4num = 4;
+					revalidate();
+					repaint();
+				} else {
+					a4.setBounds(100, 550, w1, h1);
+				}
+			} else {
+				if (a4num == 1) {
+					ans1.setBackground(gray);
+				} else if (a4num == 2) {
+					ans2.setBackground(gray);
+				} else if (a4num == 3) {
+					ans3.setBackground(gray);
+				} else if (a4num == 4) {
+					ans4.setBackground(gray);
+				}
+
+				a4num = 0;
+				revalidate();
+				repaint();
+			}
 		}
 		repaint();
 	}
