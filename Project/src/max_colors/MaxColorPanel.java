@@ -71,10 +71,10 @@ public class MaxColorPanel extends GameContainer {
 		checkLabel = new JLabel(checkIcon);
 		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
-		checkLabel.setBounds(670, 65, 150, 150);
+		checkLabel.setBounds(765, 105, 150, 150);
 		this.add(checkLabel);
 		checkLabel.setVisible(false);
-		xLabel.setBounds(670, 65, 150, 150);
+		xLabel.setBounds(765, 105, 150, 150);
 		this.add(xLabel);
 		xLabel.setVisible(false);
 

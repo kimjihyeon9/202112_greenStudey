@@ -21,7 +21,6 @@ public class LifeGameConsole {
 	int k = (int) (Math.random() * 11); // 문제을 랜덤으로 뽑는다.
 	int count = 0;
 	
-	// 중복 체크 - 만약 Arr[0]이 나왔는데 다음 문제도 Arr[0]이 나오는 경우 생각하기
 	// 답이 2차원 배열이여서 한문제을 뽑아내기 위해 선언한 1차원배열 a
 	String[] a = new String[11];
 	// 랜덤으로 순서를 바꾸기 위한 b

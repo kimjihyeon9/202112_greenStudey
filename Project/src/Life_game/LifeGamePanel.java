@@ -8,11 +8,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.Border;
@@ -24,7 +24,7 @@ import gameContainer.GameContainer;
 // 정답칸에 4개가 다들어가는 오류 잡기 - 해결!!!!!!!!!!!!!!!!!!!!!!!!!
 // 드래그앤드롭 드래그하면 오답일시 제자리로 돌리기 (4개 다했을때 판별하기) - 해결
 // 드래그앤드롭 드래그하면 정답일시 체크표시 나오게하기 - 해결
-// 같은 문제가 연속으로 나오는 중복검사 하기
+// 같은 문제가 연속으로 나오는 중복검사 하기 -- 나중에 하기 (여기서 해결불가)
 
 public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
 	// 배경
@@ -53,6 +53,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	private Font font1; // 사이즈 : 24
 	private Font font2; // 사이즈 : 20
 	private Font font3; // 사이즈 : 28
+	private Font font4; // 사이즈 : 34
 
 	// 문제의 드래그를 개별적으로 주기위하여
 	private boolean drag1;
@@ -130,6 +131,8 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	// 제출 버튼
 	JButton submit;
 	
+	int lifeRemaining = 2;
+	
 	static Timer timer;
 
 	public void gamePlay() {} // 여기 수정하시면 됩니다^^
@@ -156,10 +159,10 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		checkLabel = new JLabel(checkIcon);
 		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
-		checkLabel.setBounds(670, 65, 150, 150);
+		checkLabel.setBounds(427, 284, 150, 150);
 		this.add(checkLabel);
 		checkLabel.setVisible(false);
-		xLabel.setBounds(670, 65, 150, 150);
+		xLabel.setBounds(427, 284, 150, 150);
 		this.add(xLabel);
 		xLabel.setVisible(false);
 
@@ -227,10 +230,19 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		ans2 = new JPanel();
 		ans3 = new JPanel();
 		ans4 = new JPanel();
-		num1 = new JLabel(lgc.a[0]); // 수정해야함
-		num2 = new JLabel(lgc.a[1]);
-		num3 = new JLabel(lgc.a[2]);
-		num4 = new JLabel(lgc.a[3]);
+		num1 = new JLabel("1"); 
+		num2 = new JLabel("2");
+		num3 = new JLabel("3");
+		num4 = new JLabel("4");
+		font4 = new Font("맑은 고딕", Font.BOLD, 50);
+		num1.setFont(font4);
+		num2.setFont(font4);
+		num3.setFont(font4);
+		num4.setFont(font4);
+//		num1 = new JLabel(lgc.a[0]);
+//		num2 = new JLabel(lgc.a[1]);
+//		num3 = new JLabel(lgc.a[2]);
+//		num4 = new JLabel(lgc.a[3]);
 		ans1.setBounds(x1, y1, width, height);
 		ans2.setBounds(x2, y2, width, height);
 		ans3.setBounds(x3, y3, width, height);
@@ -746,7 +758,13 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 			a3num = 0;
 			a4num = 0;
 		} else {
-			xLabel.setVisible(true);
+			lifeRemaining--;
+			if(lifeRemaining == 0) {
+//				JOptionPane.showMessageDialog(bgImgPan, "게임 종료합니다!");
+				xLabel.setVisible(true);
+			} else if(lifeRemaining == 1) {
+				JOptionPane.showMessageDialog(bgImgPan, "곰곰히 생각해보세요!");
+			}
 			a1num = 0;
 			a2num = 0;
 			a3num = 0;
@@ -765,7 +783,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		}
 
 		// 정답,오답 이미지 1.5초간 보이게하기
-		timer = new Timer(1500, new ActionListener() {
+		timer = new Timer(1000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (w == 4) {
