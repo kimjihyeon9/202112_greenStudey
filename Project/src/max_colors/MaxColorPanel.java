@@ -17,19 +17,24 @@ import javax.swing.border.LineBorder;
 import gameContainer.GameContainer;
 
 public class MaxColorPanel extends GameContainer {
+	// 배경
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
+	// 스케치북
 	private ImageIcon bgSK;
 	private JLabel bgSKPan;
 	
+	// 정답, 오답
 	private ImageIcon checkIcon;
 	private ImageIcon xIcon;
 	private JLabel checkLabel;
 	private JLabel xLabel;
 
+	// 3 x 3
 	private JPanel colorPan;
 
+	// 빨강, 파랑, 노랑
 	private JButton btn1;
 	private JButton btn2;
 	private JButton btn3;
@@ -37,28 +42,35 @@ public class MaxColorPanel extends GameContainer {
 	private Color color;
 	private EmptyBorder b1;
 
+	// 제목
 	private JLabel txtTitle;
+	
 	private Font font;
 
 	MaxColorConsole mcc;
+
+	@Override
+	public void gamePlay() {} // 여기 수정하시면 됩니다^^
 
 	public MaxColorPanel() {
 		mcc = new MaxColorConsole();
 		this.setLayout(null);
 
+		// 배경
 		bgImg = new ImageIcon("images/gamebg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
 
+		// 스케치북
 		bgSK = new ImageIcon("images/sk.png");
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
 
+		// 정답, 오답
 		checkIcon = new ImageIcon("images/o.png");
 		checkLabel = new JLabel(checkIcon);
 		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
-
 		checkLabel.setBounds(670, 65, 150, 150);
 		this.add(checkLabel);
 		checkLabel.setVisible(false);
@@ -66,10 +78,11 @@ public class MaxColorPanel extends GameContainer {
 		this.add(xLabel);
 		xLabel.setVisible(false);
 
+		// 3 x 3
 		colorPan = new JPanel();
 		colorPan.setLayout(new GridLayout(3, 3));
 		colorPan.setBounds(100, 150, 300, 200);
-
+		// 3 x 3 컬러 배열 출력
 		for (int i = 0; i < 9; i++) {
 			JPanel b = new JPanel();
 			LineBorder b2 = new LineBorder(new Color(248, 248, 248), 1);
@@ -78,6 +91,7 @@ public class MaxColorPanel extends GameContainer {
 			colorPan.add(b);
 		}
 		
+		// 버튼
 		btn1 = new JButton("btn1");
 		btn2 = new JButton("btn2");
 		btn3 = new JButton("btn3");
@@ -85,6 +99,9 @@ public class MaxColorPanel extends GameContainer {
 		btn1.setForeground(color);
 		btn2.setForeground(color);
 		btn3.setForeground(color);
+		btn1.setFocusPainted(false);
+		btn2.setFocusPainted(false);
+		btn3.setFocusPainted(false);
 		b1 = new EmptyBorder(5, 3, 5, 0);
 		btn1.setBorder(b1);
 		btn2.setBorder(b1);
@@ -103,12 +120,14 @@ public class MaxColorPanel extends GameContainer {
 		btn2.addMouseListener(listener);
 		btn3.addMouseListener(listener);
 
+		// 제목
 		txtTitle = new JLabel("가장 많은 색을 선택해주세요");
 		font = new Font("맑은 고딕", Font.BOLD, 25);
 		txtTitle.setFont(font);
 		txtTitle.setForeground(Color.black);
 		txtTitle.setBounds(215, 50, 500, 100);
 
+		// 판넬 붙이기
 		bgSKPan.add(colorPan);
 		bgSKPan.add(txtTitle);
 		bgSKPan.add(btn1);
@@ -120,12 +139,9 @@ public class MaxColorPanel extends GameContainer {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		// 버튼의 정답판별
 		JButton btn = (JButton)e.getSource();
-//		System.out.println("text => " + btn.getText());
-//		System.out.println(btn.equals(btn2));
 		if ("btn1".equals(btn.getText())) {
-//			System.out.println("btn1");
 			if ("RED".equals(mcc.ans)) {
 				checkLabel.setVisible(true);
 				revalidate();
@@ -136,7 +152,6 @@ public class MaxColorPanel extends GameContainer {
 				repaint();
 			}
 		}else if  ("btn2".equals(btn.getText())) {
-//			System.out.println("btn2");
 			if ("BLUE".equals(mcc.ans)) {
 				checkLabel.setVisible(true);
 				revalidate();
@@ -147,7 +162,6 @@ public class MaxColorPanel extends GameContainer {
 				repaint();
 			}
 		} else if   ("btn3".equals(btn.getText())){
-//			System.out.println("btn3");
 			if ("YELLOW".equals(mcc.ans)) {
 				checkLabel.setVisible(true);
 				revalidate();
@@ -160,11 +174,7 @@ public class MaxColorPanel extends GameContainer {
 		}
 	}
 
-	@Override
-	public void gamePlay() {
-
-	}
-
+	// 버튼 위에 마우스를 올리면 보더생기기
 	class MyMouseListener implements MouseListener {
 		@Override
 		public void mouseEntered(MouseEvent e) {

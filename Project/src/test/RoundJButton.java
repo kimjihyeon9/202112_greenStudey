@@ -1,4 +1,4 @@
-package Life_game;
+package test;
 
 import java.awt.FontMetrics;
 import java.awt.Graphics;

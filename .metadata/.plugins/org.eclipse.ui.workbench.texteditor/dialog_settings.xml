@@ -6,20 +6,30 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="4"/>
+		<item key="selection" value="color"/>
 		<list key="findhistory">
-			<item value="olorPan.setBackground(mcc.col[0]);"/>
-			<item value="1"/>
-			<item value="int[] arr = new int [10];"/>
-			<item value="math();"/>
-			<item value="2"/>
-			<item value="3"/>
-			<item value="c"/>
-			<item value="b"/>
-			<item value="a"/>
-			<item value="&#x09;&#x09;System.out.print(&quot;점 (x1, y2)의 좌표를 입력하시오&gt;&gt; &quot;);"/>
+			<item value="mcc.color"/>
+			<item value="w1"/>
+			<item value="w2"/>
+			<item value="w3"/>
+			<item value="w4"/>
+			<item value="w44"/>
+			<item value="w33"/>
+			<item value="w22"/>
+			<item value="w11"/>
+			<item value="h2"/>
+			<item value="h3"/>
+			<item value="h4"/>
+			<item value="h44"/>
+			<item value="h33"/>
+			<item value="h22"/>
 		</list>
 		<list key="replacehistory">
+			<item value="width"/>
+			<item value="height"/>
+			<item value="heigth"/>
+			<item value="title"/>
+			<item value="문제"/>
 			<item value="4"/>
 			<item value="3"/>
 			<item value="2"/>
@@ -29,8 +39,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="541"/>
-		<item key="DIALOG_Y_ORIGIN" value="222"/>
+		<item key="DIALOG_X_ORIGIN" value="834"/>
+		<item key="DIALOG_Y_ORIGIN" value="279"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

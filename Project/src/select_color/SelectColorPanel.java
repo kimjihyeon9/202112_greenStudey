@@ -15,12 +15,15 @@ import javax.swing.border.LineBorder;
 import gameContainer.GameContainer;
 
 public class SelectColorPanel extends GameContainer {
+	// 배경
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
+	// 스케치북
 	private ImageIcon bgSK;
 	private JLabel bgSKPan;
 
+	// 컬러버튼
 	private JButton btn1;
 	private JButton btn2;
 	private JButton btn3;
@@ -28,16 +31,18 @@ public class SelectColorPanel extends GameContainer {
 	private Color color;
 	private EmptyBorder b1;
 	
+	// 정답, 오답
 	private ImageIcon checkIcon;
 	private ImageIcon xIcon;
+	private JLabel checkLabel;
+	private JLabel xLabel;
 
 	private Font font1;
 	private Font font2;
+	
+	// 제목부분 글자와 색깔
 	private JLabel txtTitle;
 	private JLabel txtColor;
-
-	private JLabel checkLabel;
-	private JLabel xLabel;
 
 	private int w = 720;
 	private int h = 425;
@@ -45,25 +50,31 @@ public class SelectColorPanel extends GameContainer {
 	private int y = (int) (h / 2);
 
 	SelectColorConsole scc;
+	
+	@Override
+	public void gamePlay() {} // 여기 수정하시면 됩니다^^
 
 	public SelectColorPanel() {
 		scc = new SelectColorConsole();
 		this.setLayout(null);
 
+		// 배경
 		bgImg = new ImageIcon("images/gamebg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
 
+		// 스케치북
 		bgSK = new ImageIcon("images/sk.png");
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
 
+		// 버튼
 		btn1 = new JButton("btn1");
 		btn2 = new JButton("btn2");
 		btn3 = new JButton("btn3");
-//		btn1.setForeground(scc.col[scc.arrBtn[0]]); // 버튼색과 버튼 텍스트 같게 하기
-//		btn2.setForeground(scc.col[scc.arrBtn[1]]);
-//		btn3.setForeground(scc.col[scc.arrBtn[2]]);
+		btn1.setFocusPainted(false);
+		btn2.setFocusPainted(false);
+		btn3.setFocusPainted(false);
 		color = new Color(0,0,0,0);
 		btn1.setForeground(color);
 		btn2.setForeground(color);
@@ -81,17 +92,16 @@ public class SelectColorPanel extends GameContainer {
 		btn1.addActionListener(this);
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
-		
 		MyMouseListener listener = new MyMouseListener();
 		btn1.addMouseListener(listener);
 		btn2.addMouseListener(listener);
 		btn3.addMouseListener(listener);
 
+		// 정답, 오답
 		checkIcon = new ImageIcon("images/o.png");
 		checkLabel = new JLabel(checkIcon);
 		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
-
 		checkLabel.setBounds(670, 65, 150, 150);
 		this.add(checkLabel);
 		checkLabel.setVisible(false);
@@ -99,6 +109,7 @@ public class SelectColorPanel extends GameContainer {
 		this.add(xLabel);
 		xLabel.setVisible(false);
 
+		// 제목 글자 색깔정하기
 		if (scc.ansColor == 0) {
 			txtColor = new JLabel("빨간색");
 		} else if (scc.ansColor == 1) {
@@ -125,6 +136,7 @@ public class SelectColorPanel extends GameContainer {
 		txtTitle.setForeground(Color.black);
 		txtTitle.setBounds(220, 25, 500, 100);
 
+		// 판넬 붙이기
 		bgSKPan.add(txtTitle);
 		bgSKPan.add(txtColor);
 		bgSKPan.add(btn1);
@@ -134,6 +146,7 @@ public class SelectColorPanel extends GameContainer {
 		this.add(bgImgPan);
 	}
 
+	// 정답 판별하기
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton btn = (JButton)e.getSource();
@@ -174,11 +187,7 @@ public class SelectColorPanel extends GameContainer {
 		}
 	}
 
-	@Override
-	public void gamePlay() {
-
-	}
-
+	// 버튼 위에 마우스를 올리면 보더생기기
 	class MyMouseListener implements MouseListener {
 		@Override
 		public void mouseEntered(MouseEvent e) {

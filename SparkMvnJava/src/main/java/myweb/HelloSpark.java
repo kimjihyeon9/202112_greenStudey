@@ -2,6 +2,9 @@ package myweb;
 
 import static spark.Spark.*;
 
+// spark 자료
+// https://sparkjava.com/documentation#getting-started
+
 public class HelloSpark {
 
 	public static void main(String[] args) {
