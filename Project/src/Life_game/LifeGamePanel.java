@@ -82,7 +82,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	JLabel num2;
 	JLabel num3;
 	JLabel num4;
-	
+
 	// 불변의 사이즈(공통)
 	int width = 300;
 	int height = 80;
@@ -125,18 +125,19 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	int a2num = 0;
 	int a3num = 0;
 	int a4num = 0;
-	
+
 	Color gray = new Color(252, 252, 252);
 
 	// 제출 버튼
 	JButton submit;
-	
+
 	int lifeRemaining = 2;
-	
+
 	static Timer timer;
 
-	public void gamePlay() {} // 여기 수정하시면 됩니다^^
-	
+	public void gamePlay() {
+	} // 여기 수정하시면 됩니다^^
+
 	public LifeGamePanel() {
 		lgc = new LifeGameConsole();
 		this.setLayout(null);
@@ -230,7 +231,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		ans2 = new JPanel();
 		ans3 = new JPanel();
 		ans4 = new JPanel();
-		num1 = new JLabel("1"); 
+		num1 = new JLabel("1");
 		num2 = new JLabel("2");
 		num3 = new JLabel("3");
 		num4 = new JLabel("4");
@@ -304,7 +305,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 
 			x11 = jc.getX();
 			y11 = jc.getY();
-			
+
 			// 노란색의 중앙 좌표
 			int centerX = x11 + width / 2;
 			int centerY = y11 + height / 2;
@@ -615,21 +616,25 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 				a1.setBounds(100, 130, width, height);
 				drag1 = false;
 				a1num = 0;
+				s[0] = null;
 				ans1.setBackground(gray);
 			} else if (a1num == 2) {
 				a1.setBounds(100, 130, width, height);
 				drag1 = false;
 				a1num = 0;
+				s[1] = null;
 				ans2.setBackground(gray);
 			} else if (a1num == 3) {
 				a1.setBounds(100, 130, width, height);
 				drag1 = false;
 				a1num = 0;
+				s[2] = null;
 				ans3.setBackground(gray);
 			} else if (a1num == 4) {
 				a1.setBounds(100, 130, width, height);
 				drag4 = false;
 				a1num = 0;
+				s[3] = null;
 				ans4.setBackground(gray);
 			}
 			mouseX1 = e.getX();
@@ -641,21 +646,25 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 				a2.setBounds(100, 270, width, height);
 				drag2 = false;
 				a2num = 0;
+				s[0] = null;
 				ans1.setBackground(gray);
 			} else if (a2num == 2) {
 				a2.setBounds(100, 270, width, height);
 				drag2 = false;
 				a2num = 0;
+				s[1] = null;
 				ans2.setBackground(gray);
 			} else if (a2num == 3) {
 				a2.setBounds(100, 270, width, height);
 				drag2 = false;
 				a2num = 0;
+				s[2] = null;
 				ans3.setBackground(gray);
 			} else if (a2num == 4) {
 				a2.setBounds(100, 270, width, height);
 				drag2 = false;
 				a2num = 0;
+				s[3] = null;
 				ans4.setBackground(gray);
 			}
 			mouseX2 = e.getX();
@@ -667,21 +676,25 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 				a3.setBounds(100, 410, width, height);
 				drag3 = false;
 				a3num = 0;
+				s[0] = null;
 				ans1.setBackground(gray);
 			} else if (a3num == 2) {
 				a3.setBounds(100, 410, width, height);
 				drag3 = false;
 				a3num = 0;
+				s[1] = null;
 				ans2.setBackground(gray);
 			} else if (a3num == 3) {
 				a3.setBounds(100, 410, width, height);
 				drag3 = false;
 				a3num = 0;
+				s[2] = null;
 				ans3.setBackground(gray);
 			} else if (a3num == 4) {
 				a3.setBounds(100, 410, width, height);
 				drag3 = false;
 				a3num = 0;
+				s[3] = null;
 				ans4.setBackground(gray);
 			}
 			mouseX3 = e.getX();
@@ -693,21 +706,25 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 				a4.setBounds(100, 550, width, height);
 				drag4 = false;
 				a4num = 0;
+				s[0] = null;
 				ans1.setBackground(gray);
 			} else if (a4num == 2) {
 				a4.setBounds(100, 550, width, height);
 				drag4 = false;
 				a4num = 0;
+				s[1] = null;
 				ans2.setBackground(gray);
 			} else if (a4num == 3) {
 				a4.setBounds(100, 550, width, height);
 				drag4 = false;
 				a4num = 0;
+				s[2] = null;
 				ans3.setBackground(gray);
 			} else if (a4num == 4) {
 				a4.setBounds(100, 550, width, height);
 				drag4 = false;
 				a4num = 0;
+				s[3] = null;
 				ans4.setBackground(gray);
 			}
 			mouseX4 = e.getX();
@@ -738,16 +755,17 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		// 정답, 오답 판별
 		if (e.getSource() == submit) {
 			for (int i = 0; i < 4; i++) {
+				if (s[i] == null) {
+					JOptionPane.showMessageDialog(bgImgPan, "빈칸이 있어요!");
+					return;
+				}
+			}
+			for (int i = 0; i < 4; i++) {
 				if (s[i] == lgc.a[i]) {
-//					System.out.println("같습니다");
 					w++;
-				} else {
-//					System.out.println("다릅니다");
-//					return;
 				}
 			}
 		}
-//		System.out.println(w);
 		if (w == 4) {
 			checkLabel.setVisible(true);
 			revalidate();
@@ -759,10 +777,11 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 			a4num = 0;
 		} else {
 			lifeRemaining--;
-			if(lifeRemaining == 0) {
+			if (lifeRemaining == 0) {
 //				JOptionPane.showMessageDialog(bgImgPan, "게임 종료합니다!");
+				lifeRemaining = 2;
 				xLabel.setVisible(true);
-			} else if(lifeRemaining == 1) {
+			} else if (lifeRemaining == 1) {
 				JOptionPane.showMessageDialog(bgImgPan, "곰곰히 생각해보세요!");
 			}
 			a1num = 0;
