@@ -1,4 +1,4 @@
-package select_color_swing;
+package select_color;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -81,6 +81,7 @@ public class SelectColorPanel extends GameContainer {
 		btn1.addActionListener(this);
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
+		
 		MyMouseListener listener = new MyMouseListener();
 		btn1.addMouseListener(listener);
 		btn2.addMouseListener(listener);

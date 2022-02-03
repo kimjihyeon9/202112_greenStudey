@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -138,6 +137,8 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	JButton submit;
 	static Timer timer;
 	
+	JButton title1;
+	
 	public LifeGamePanel() {
 		lgc = new LifeGameConsole();
 		this.setLayout(null);
@@ -165,17 +166,27 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		this.add(xLabel);
 		xLabel.setVisible(false);
 		
-		title = new JLabel(lgc.ArrLabel[lgc.k]);
-		title.setBounds(350, 30, 300, 80);
+		MyMouseListener listener = new MyMouseListener();
+		title1 = new JButton(lgc.ArrLabel[lgc.k]);
+		title1.setBounds(350, 30, 300, 80);
 		font3 = new Font("맑은 고딕", Font.BOLD, 28);
-		title.setHorizontalAlignment(JLabel.CENTER);
-		LineBorder line = new LineBorder(new Color(254,178,55), 7); // 색깔 바꾸기(주황으로)
-		title.setBorder(line);
-		title.setFont(font3);
-		title.setOpaque(true);
-		title.setBackground(gray);
+		title1.setHorizontalAlignment(JLabel.CENTER);
+		title1.setFont(font3);
+		title1.setOpaque(true);
+		title1.setBackground(gray);
+		title1.addMouseListener(listener);
+		title1.setEnabled(false);
+		bgImgPan.add(title1);
+//		title = new JLabel(lgc.ArrLabel[lgc.k]);
+//		title.setBounds(350, 30, 300, 80);
+//		title.setHorizontalAlignment(JLabel.CENTER);
+//		LineBorder line = new LineBorder(new Color(254,178,55), 7); // 색깔 바꾸기(주황으로)
+//		title.setBorder(line);
+//		title.setFont(font3);
+//		title.setOpaque(true);
+//		title.setBackground(gray);
 //		title.setBackground(new Color(255, 255, 255));
-		bgImgPan.add(title);
+//		bgImgPan.add(title);
 
 		// 드래그 앤 드롭
 		a1 = new JLabel(lgc.a[lgc.b[0]]);
@@ -261,6 +272,35 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 //			repaint();
 //		}
 //	}
+	
+	class MyMouseListener implements MouseListener {
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			title1 = (JButton) e.getSource();
+			title1.setBorder(new LineBorder(Color.white, 0));
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			title1 = (JButton) e.getSource();
+			title1.setBorder(new LineBorder(Color.white, 0));
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+		}
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+			
+		}
+		
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			
+		}
+	}
 
 	String[] s = new String[4];
 

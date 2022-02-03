@@ -2,24 +2,24 @@ package Life_game;
 
 public class LifeGameConsole {
 	// 답 순서를 담아놓은 배열
-	String[][] Arr = { { "전자레인지를 킨다", "음식을 넣는다", "동작 버튼을 누른다", "음식을 꺼낸다" },
-			{ "TV의 플러그를 킨다", "리모컨으로 화면을 킨다", "원하는 채널로 이동한다", "전원을 끈다" }, 
-			{ "선풍기의 코드를 꼽는다", "전원을 킨다", "풍속을 조절한다", "전원을 끈다" },
-			{ "가스레인지 벨브를 연다", "가스를 킨다", "가스를 끈다", "벨브를 잠근다" },
-			{ "청소기의 전원을 킨다", "청소를 한다", "전원을 끈다", "원래 자리로 돌려 놓는다" },
-			{ "세탁기의 전원을 킨다", "빨래를 집어 넣는다", "빨래 시작을 누른다", "빨래를 말린다" },
-			{ "드라이어기의 전원을 킨다", "풍속을 조절한다", "머리를 말린다", "전원을 끈다" },
-			{ "다리미의 전원을 킨다", "분무기로 물을 뿌린다", "옷을 다린다", "전원을 끈다" },
-			{ "믹서기 안에 재료를 넣는다", "전원을 킨다", "음식을 간다", "전원을 끈다" }, 
-			{ "식기세척기안에 그릇을 넣는다", "전원을 누른다", "그릇을 뺀다", "제자리에 놓는다" },
-			{ "변기의 뚜껑을 연다", " 볼일을 본다", "레버로 물을 내린다", "손을 씻는다"} }; // 12개
+	String[][] Arr = { { "전원을 킨다", "음식을 넣는다", "동작 버튼을 누른다", "음식을 꺼낸다" },
+			{ "플러그를 꼽는다", "리모컨으로 화면을 킨다", "원하는 채널로 이동한다", "전원을 끈다" }, 
+			{ "코드를 꼽는다", "전원을 킨다", "풍속을 조절한다", "전원을 끈다" },
+			{ "벨브를 연다", "가스를 킨다", "가스를 끈다", "벨브를 잠근다" },
+			{ "전원을 킨다", "청소를 한다", "전원을 끈다", "원래 자리로 돌려 놓는다" },
+			{ "전원을 킨다", "빨래를 집어 넣는다", "빨래 시작을 누른다", "빨래를 말린다" },
+			{ "전원을 킨다", "풍속을 조절한다", "머리를 말린다", "전원을 끈다" },
+			{ "전원을 킨다", "분무기로 물을 뿌린다", "옷을 다린다", "전원을 끈다" },
+			{ "재료를 넣는다", "전원을 킨다", "음식을 간다", "전원을 끈다" }, 
+			{ "그릇을 넣는다", "전원을 누른다", "그릇을 뺀다", "제자리에 놓는다" },
+			{ "뚜껑을 연다", " 볼일을 본다", "레버로 물을 내린다", "손을 씻는다"} }; // 12개
 	
 	String[] ArrLabel = {"전자레인지", "TV", "선풍기", "가스레인지", "청소기", "세탁기", "드라이어기", "다리미", "믹서기", "식기세척기", "변기"};
 
 	// 문항을 담는 변수
-	String[] answer = new String[11];
+//	String[] answer = new String[11];
 
-	// int k = 1; // 문항 번호을 결정하는 변수(랜덤으로 돌면 될거같다)
+//	int k = 1; // 문항 번호을 결정하는 변수(랜덤으로 돌면 될거같다)
 	int k = (int) (Math.random() * 11); // 문항을 랜덤으로 뽑는다.
 	int count = 0;
 	
@@ -33,7 +33,7 @@ public class LifeGameConsole {
 	}
 
 	public void run() {
-		answer();
+		answerArr();
 
 		quiz();
 	}
@@ -51,58 +51,54 @@ public class LifeGameConsole {
 		}
 	}
 
-	public void answer() {
-		switch (k) {
-		case 0:
-			answerArr();
-			answer[0] = a[0];
-			break;
-		case 1:
-			answerArr();
-			answer[1] = a[1];
-			break;
-		case 2:
-			answerArr();
-			answer[2] = a[2];
-			break;
-		case 3:
-			answerArr();
-			answer[3] = a[3];
-			break;
-		case 4:
-			answerArr();
-			answer[4] = a[4];
-			break;
-		case 5:
-			answerArr();
-			answer[5] = a[5];
-			break;
-		case 6:
-			answerArr();
-			answer[6] = a[6];
-			break;
-		case 7:
-			answerArr();
-			answer[7] = a[7];
-			break;
-		case 8:
-			answerArr();
-			answer[8] = a[8];
-			break;
-		case 9:
-			answerArr();
-			answer[9] = a[9];
-			break;
-		case 10:
-			answerArr();
-			answer[10] = a[10];
-			break;
-		case 11:
-			answerArr();
-			answer[11] = a[11];
-			break;
-		}
-	}
+//	public void answer() {
+//		switch (k) {
+//		case 0:
+//			answerArr();
+//			answer[0] = a[0];
+//			break;
+//		case 1:
+//			answerArr();
+//			answer[1] = a[1];
+//			break;
+//		case 2:
+//			answerArr();
+//			answer[2] = a[2];
+//			break;
+//		case 3:
+//			answerArr();
+//			answer[3] = a[3];
+//			break;
+//		case 4:
+//			answerArr();
+//			answer[4] = a[4];
+//			break;
+//		case 5:
+//			answerArr();
+//			answer[5] = a[5];
+//			break;
+//		case 6:
+//			answerArr();
+//			answer[6] = a[6];
+//			break;
+//		case 7:
+//			answerArr();
+//			answer[7] = a[7];
+//			break;
+//		case 8:
+//			answerArr();
+//			answer[8] = a[8];
+//			break;
+//		case 9:
+//			answerArr();
+//			answer[9] = a[9];
+//			break;
+//		case 10:
+//			answerArr();
+//			answer[10] = a[10];
+//			break;
+//		}
+//	}
 
 	public void quiz() {
 //		int[] b = new int[4];
@@ -125,7 +121,5 @@ public class LifeGameConsole {
 
 	public static void main(String[] args) {
 		new LifeGameConsole();
-		
 	}
-
 }

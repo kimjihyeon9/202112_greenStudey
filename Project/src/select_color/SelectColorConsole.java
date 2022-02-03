@@ -1,4 +1,4 @@
-package select_color_swing;
+package select_color;
 
 import java.awt.Color;
 import java.util.Scanner;

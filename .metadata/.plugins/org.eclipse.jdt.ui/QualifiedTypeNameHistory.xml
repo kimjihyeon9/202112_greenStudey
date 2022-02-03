@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-    <fullyQualifiedTypeName name="java.util.Timer"/>
     <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
     <fullyQualifiedTypeName name="swing.MyFrame"/>
-    <fullyQualifiedTypeName name="javax.swing.Timer"/>
     <fullyQualifiedTypeName name="test_1.ProjectEx02"/>
     <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
@@ -46,7 +43,6 @@
     <fullyQualifiedTypeName name="Life_game.LifeGame"/>
     <fullyQualifiedTypeName name="Life_game.LifeGameConsole"/>
     <fullyQualifiedTypeName name="java.awt.Rectangle"/>
-    <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="Life_game.LifeGamePanel"/>
     <fullyQualifiedTypeName name="Life_game.DragAndDrop"/>
     <fullyQualifiedTypeName name="java.awt.Label"/>
@@ -58,6 +54,10 @@
     <fullyQualifiedTypeName name="select_color_swing.GamePlayMain"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
     <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
-    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="java.awt.Button"/>
+    <fullyQualifiedTypeName name="javax.swing.Timer"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="javax.swing.border.Border"/>
 </qualifiedTypeNameHistroy>
