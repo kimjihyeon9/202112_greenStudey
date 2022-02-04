@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="color"/>
+		<item key="selection" value="R"/>
 		<list key="findhistory">
+			<item value="r"/>
+			<item value="lgc.r"/>
+			<item value="count"/>
+			<item value="lgc.k"/>
 			<item value="mcc.color"/>
 			<item value="w1"/>
 			<item value="w2"/>
@@ -19,10 +23,6 @@
 			<item value="w11"/>
 			<item value="h2"/>
 			<item value="h3"/>
-			<item value="h4"/>
-			<item value="h44"/>
-			<item value="h33"/>
-			<item value="h22"/>
 		</list>
 		<list key="replacehistory">
 			<item value="width"/>

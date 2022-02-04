@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.io.DataInputStream"/>
-    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-    <fullyQualifiedTypeName name="java.io.DataOutputStream"/>
-    <fullyQualifiedTypeName name="ex01.Ex02Url"/>
     <fullyQualifiedTypeName name="ex02.Ex03JSoup"/>
     <fullyQualifiedTypeName name="org.jsoup.nodes.Document"/>
     <fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
@@ -27,7 +23,6 @@
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
     <fullyQualifiedTypeName name="max_colors.MaxColorConsole"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.Vector"/>
     <fullyQualifiedTypeName name="Life_game.LifeGame"/>
@@ -39,13 +34,11 @@
     <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
     <fullyQualifiedTypeName name="java.awt.event.MouseMotionListener"/>
     <fullyQualifiedTypeName name="gameContainer.GameContainer"/>
-    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="select_color_swing.GamePlayMain"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
     <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="java.awt.Button"/>
-    <fullyQualifiedTypeName name="javax.swing.JPanel"/>
     <fullyQualifiedTypeName name="javax.swing.JLabel"/>
     <fullyQualifiedTypeName name="javax.swing.border.Border"/>
     <fullyQualifiedTypeName name="javax.swing.JButton"/>
@@ -54,10 +47,17 @@
     <fullyQualifiedTypeName name="org.json.JSONArray"/>
     <fullyQualifiedTypeName name="spark.template.handlebars.HandlebarsTemplateEngine"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.swing.border.LineBorder"/>
     <fullyQualifiedTypeName name="Life_game.LifeGameConsole"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="javax.swing.Timer"/>
     <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="java.lang.Record"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="record.Test01"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+    <fullyQualifiedTypeName name="java.lang.ProcessHandle.Info"/>
 </qualifiedTypeNameHistroy>
