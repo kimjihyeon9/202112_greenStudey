@@ -44,11 +44,6 @@ public class SelectColorPanel extends GameContainer {
 	private JLabel txtTitle;
 	private JLabel txtColor;
 
-	private int w = 720;
-	private int h = 425;
-	private int x = (int) (w / 2);
-	private int y = (int) (h / 2);
-
 	SelectColorConsole scc;
 	
 	@Override

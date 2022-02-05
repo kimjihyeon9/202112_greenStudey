@@ -20,12 +20,6 @@ import javax.swing.border.LineBorder;
 
 import gameContainer.GameContainer;
 
-// 해결해야하는 부분
-// 정답칸에 4개가 다들어가는 오류 잡기 - 해결!!!!!!!!!!!!!!!!!!!!!!!!!
-// 드래그앤드롭 드래그하면 오답일시 제자리로 돌리기 (4개 다했을때 판별하기) - 해결
-// 드래그앤드롭 드래그하면 정답일시 체크표시 나오게하기 - 해결
-// 같은 문제가 연속으로 나오는 중복검사 하기 -- 나중에 하기 (여기서 해결불가)
-
 public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
 	// 배경
 	private ImageIcon bgImg;

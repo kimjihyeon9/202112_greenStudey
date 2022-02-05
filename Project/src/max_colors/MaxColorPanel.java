@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -15,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import gameContainer.GameContainer;
+import gameHowTo.GameHowTo;
 
 public class MaxColorPanel extends GameContainer {
 	// 배경
@@ -48,14 +50,15 @@ public class MaxColorPanel extends GameContainer {
 	private Font font;
 
 	MaxColorConsole mcc;
-
+	GameHowTo ght;
 	@Override
 	public void gamePlay() {} // 여기 수정하시면 됩니다^^
 
 	public MaxColorPanel() {
+		ght = new GameHowTo();
 		mcc = new MaxColorConsole();
 		this.setLayout(null);
-
+		this.setBounds(0, 0, 1024, 768);
 		// 배경
 		bgImg = new ImageIcon("images/gamebg.png");
 		bgImgPan = new JLabel(bgImg);
@@ -116,9 +119,9 @@ public class MaxColorPanel extends GameContainer {
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
 		MyMouseListener listener = new MyMouseListener();
-		btn1.addMouseListener(listener);
-		btn2.addMouseListener(listener);
-		btn3.addMouseListener(listener);
+//		btn1.addMouseListener(listener);
+//		btn2.addMouseListener(listener);
+//		btn3.addMouseListener(listener);
 
 		// 제목
 		txtTitle = new JLabel("가장 많은 색을 선택해주세요");
@@ -128,12 +131,30 @@ public class MaxColorPanel extends GameContainer {
 		txtTitle.setBounds(215, 50, 500, 100);
 
 		// 판넬 붙이기
+		this.add(ght);
 		bgSKPan.add(colorPan);
 		bgSKPan.add(txtTitle);
 		bgSKPan.add(btn1);
 		bgSKPan.add(btn2);
 		bgSKPan.add(btn3);
 		bgImgPan.add(bgSKPan);
+		btn1.setEnabled(false);
+		btn2.setEnabled(false);
+		btn3.setEnabled(false);
+		ght.exit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btn1.addMouseListener(listener);
+				btn2.addMouseListener(listener);
+				btn3.addMouseListener(listener);
+				btn1.setEnabled(true);
+				btn2.setEnabled(true);
+				btn3.setEnabled(true);
+				
+				ght.setVisible(false);
+			}
+		});
 		this.add(bgImgPan);
 	}
 
