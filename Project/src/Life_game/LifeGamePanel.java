@@ -20,6 +20,9 @@ import javax.swing.border.LineBorder;
 
 import gameContainer.GameContainer;
 
+// 수정
+// 259번줄 - 2월 7일 4시 30분 수정
+
 public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
 	// 배경
 	private ImageIcon bgImg;
@@ -253,12 +256,15 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		bgImgPan.add(ans3);
 		bgImgPan.add(ans4);
 
-		// 도전횟수
+		// 도전횟수 - 2월 7일 4시 30분 수정
 		life = new JLabel("도전횟수 : " + lifeRemaining);
 		life.setFont(font1);
-		life.setBounds(50, 30, 200, 80);
+		life.setBounds(100, 50, 150, 50);
+		life.setBackground(Color.white);
+		life.setOpaque(true);
+		life.setHorizontalAlignment(JLabel.CENTER);
 		bgImgPan.add(life);
-		
+
 		this.add(bgImgPan);
 	}
 
