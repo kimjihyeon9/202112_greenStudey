@@ -63,6 +63,7 @@ public class MaxColorPanel extends GameContainer {
 		bgImg = new ImageIcon("images/gamebg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
+		bgImgPan.setLayout(null);
 
 		// 스케치북
 		bgSK = new ImageIcon("images/sk.png");
@@ -131,7 +132,8 @@ public class MaxColorPanel extends GameContainer {
 		txtTitle.setBounds(215, 50, 500, 100);
 
 		// 판넬 붙이기
-		this.add(ght);
+		ght.setBounds(100, 100, 820, 530);
+		bgImgPan.add(ght);
 		bgSKPan.add(colorPan);
 		bgSKPan.add(txtTitle);
 		bgSKPan.add(btn1);

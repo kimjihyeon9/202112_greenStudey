@@ -125,7 +125,9 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	// 제출 버튼
 	JButton submit;
 
+	// 도전횟수
 	int lifeRemaining = 2;
+	JLabel life;
 
 	static Timer timer;
 
@@ -251,6 +253,12 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		bgImgPan.add(ans3);
 		bgImgPan.add(ans4);
 
+		// 도전횟수
+		life = new JLabel("도전횟수 : " + lifeRemaining);
+		life.setFont(font1);
+		life.setBounds(50, 30, 200, 80);
+		bgImgPan.add(life);
+		
 		this.add(bgImgPan);
 	}
 
@@ -769,13 +777,15 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 			a2num = 0;
 			a3num = 0;
 			a4num = 0;
-		} else {
+		} else { // 도전횟수가 보이는 곳
 			lifeRemaining--;
 			if (lifeRemaining == 0) {
 //				JOptionPane.showMessageDialog(bgImgPan, "게임 종료합니다!");
+				life.setText("도전횟수 : " + lifeRemaining);
 				lifeRemaining = 2;
 				xLabel.setVisible(true);
 			} else if (lifeRemaining == 1) {
+				life.setText("도전횟수 : " + lifeRemaining);
 				JOptionPane.showMessageDialog(bgImgPan, "곰곰히 생각해보세요!");
 			}
 			a1num = 0;
