@@ -17,7 +17,7 @@ import gameContainer.GameContainer;
 import gameHowTo.GameHowTo;
 
 // 수정
-// 53줄, 99줄, 151줄, 181줄, 230줄, 270줄
+// 2월 7일 - 53줄, 99줄, 151줄, 181줄, 230줄, 270줄
 
 public class SelectColorPanel extends GameContainer implements MouseListener {
 	// 배경
@@ -51,14 +51,14 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 
 	SelectColorConsole scc;
 	// 수정 (추가)
-	GameHowTo ght; // 수정끝
+	GameHowTo_sc ght; // 수정끝
 
 	@Override
 	public void gamePlay() {
 	} // 여기 수정하시면 됩니다^^
 
 	public SelectColorPanel() {
-		ght = new GameHowTo();
+		ght = new GameHowTo_sc(); // 수정 (추가)
 		scc = new SelectColorConsole();
 		this.setLayout(null);
 

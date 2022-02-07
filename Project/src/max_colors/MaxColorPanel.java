@@ -20,7 +20,7 @@ import gameHowTo.GameHowTo;
 
 
 // 수정
-// 125줄, 145줄, 189줄, 228줄
+// 2월 7일 - 125줄, 145줄, 189줄, 228줄
 
 public class MaxColorPanel extends GameContainer implements MouseListener {
 	// 배경
