@@ -22,6 +22,7 @@ import gameContainer.GameContainer;
 
 // 수정
 // 259번줄 - 2월 7일 4시 30분 수정
+// LifeGameConsole부분 오타수정 (6-7번째줄 수정)
 
 public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
 	// 배경
