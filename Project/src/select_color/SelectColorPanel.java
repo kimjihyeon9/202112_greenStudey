@@ -28,10 +28,10 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 	private ImageIcon bgSK;
 	private JLabel bgSKPan;
 
-	// 컬러버튼
-	private JButton btn1;
-	private JButton btn2;
-	private JButton btn3;
+	// 컬러버튼 - (수정)
+	public JButton btn1;
+	public JButton btn2;
+	public JButton btn3;
 
 	private Color color;
 	private EmptyBorder b1;
@@ -178,11 +178,11 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 	// 정답 판별하기
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// 수정 (추가)
+		// 수정 - 추가 및 삭제
 		if(e.getSource() == ght.exit) {
-				btn1.addMouseListener(this);
-				btn2.addMouseListener(this);
-				btn3.addMouseListener(this);
+				btn1.addMouseListener(SelectColorPanel.this);
+				btn2.addMouseListener(SelectColorPanel.this);
+				btn3.addMouseListener(SelectColorPanel.this);
 				btn1.setEnabled(true);
 				btn2.setEnabled(true);
 				btn3.setEnabled(true);
