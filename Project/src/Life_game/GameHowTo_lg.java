@@ -44,7 +44,7 @@ public class GameHowTo_lg extends JPanel implements ActionListener{
 	}
 
 	public void comm() {
-		bgSK = new ImageIcon("images/howtobg.png");
+		bgSK = new ImageIcon("images/HowTo_background.png");
 		bgSkPan = new JLabel(bgSK);
 		bgSkPan.setBounds(0, 0, 820, 525);
 		bgSkPan.setLayout(null);
@@ -67,10 +67,6 @@ public class GameHowTo_lg extends JPanel implements ActionListener{
 		exit.setContentAreaFilled(false);
 		exit.setBounds(720, 20, 80, 80);
 		
-//		next.setBackground(Color.orange);
-		prev.setBackground(Color.pink);
-		exit.setBackground(Color.red);
-
 		prev.setVisible(false); // 수정 (추가)
 		bgSkPan.add(next);
 		bgSkPan.add(prev);
@@ -83,11 +79,11 @@ public class GameHowTo_lg extends JPanel implements ActionListener{
 		pan1.setBounds(130, 50, 570, 440);
 		pan1.setBackground(Color.white);
 		
-		ImageIcon gameImg = new ImageIcon("images/m.png");
+		ImageIcon gameImg = new ImageIcon("images/HowTo_LifeGame_1.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 
-		JLabel text = new JLabel("게임 설명 주절주절1");
+		JLabel text = new JLabel("글자 상자를 클릭해주세요");
 		text.setFont(font1);
 		text.setHorizontalAlignment(JLabel.CENTER);
 		text.setBounds(10, 320, 550, 120);
@@ -106,11 +102,11 @@ public class GameHowTo_lg extends JPanel implements ActionListener{
 		pan2.setBounds(130, 50, 570, 440);
 		pan2.setBackground(Color.white);
 		
-		ImageIcon gameImg = new ImageIcon("images/m.png");
+		ImageIcon gameImg = new ImageIcon("images/HowTo_LifeGame_2.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 		
-		JLabel text = new JLabel("게임 설명 주절주2");
+		JLabel text = new JLabel("숫자 상자에 순서대로 넣어주세요");
 		text.setFont(font1);
 		text.setHorizontalAlignment(JLabel.CENTER);
 		text.setBounds(10, 320, 550, 120);
@@ -130,11 +126,11 @@ public class GameHowTo_lg extends JPanel implements ActionListener{
 		pan3.setBounds(130, 50, 570, 440);
 		pan3.setBackground(Color.white);
 
-		ImageIcon gameImg = new ImageIcon("images/m.png");
+		ImageIcon gameImg = new ImageIcon("images/HowTo_LifeGame_3.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 		
-		JLabel text = new JLabel("게임 설명 주절주3");
+		JLabel text = new JLabel("<html>제출을 눌러주세요.<br>기회는 두번입니다.</html>");
 		text.setFont(font1);
 		text.setHorizontalAlignment(JLabel.CENTER);
 		text.setBounds(10, 320, 550, 120);

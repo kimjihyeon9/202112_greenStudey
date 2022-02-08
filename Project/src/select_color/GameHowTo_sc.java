@@ -42,24 +42,29 @@ public class GameHowTo_sc extends JPanel implements ActionListener{
 	}
 
 	public void comm() {
-		bgSK = new ImageIcon("images/howtobg.png");
+		bgSK = new ImageIcon("images/HowTo_background.png");
 		bgSkPan = new JLabel(bgSK);
 		bgSkPan.setBounds(0, 0, 820, 525);
 		bgSkPan.setLayout(null);
 		
 		font1 = new Font("맑은 고딕", Font.PLAIN, 24);
 
-		next = new JButton("다음");
-		next.setBounds(720, 440, 80, 60);
-		prev = new JButton("이전");
-		prev.setBounds(25, 440, 80, 60);
-		exit = new JButton("종료");
-		exit.setBounds(720, 20, 80, 60);
+		next = new JButton(new ImageIcon("images/HowTo_right.png"));
+		next.setFocusPainted(false);
+		next.setBorderPainted(false); 
+		next.setContentAreaFilled(false);
+		next.setBounds(720, 230, 80, 80);
+		prev = new JButton(new ImageIcon("images/HowTo_left.png"));
+		prev.setFocusPainted(false);
+		prev.setBorderPainted(false); 
+		prev.setContentAreaFilled(false);
+		prev.setBounds(25, 230, 80, 80);
+		exit = new JButton(new ImageIcon("images/HowTo_exit.png"));
+		exit.setFocusPainted(false);
+		exit.setBorderPainted(false); 
+		exit.setContentAreaFilled(false);
+		exit.setBounds(720, 20, 80, 80);
 		
-		next.setBackground(Color.orange);
-		prev.setBackground(Color.pink);
-		exit.setBackground(Color.red);
-
 		prev.setVisible(false); // 수정 (추가) - 한줄만
 		bgSkPan.add(next);
 		bgSkPan.add(prev);
@@ -72,11 +77,11 @@ public class GameHowTo_sc extends JPanel implements ActionListener{
 		pan1.setBounds(130, 50, 570, 440);
 		pan1.setBackground(Color.white);
 		
-		ImageIcon gameImg = new ImageIcon("images/GameHowTo_sc_1번.png");
+		ImageIcon gameImg = new ImageIcon("images/HowTo_SelectColor_1.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 
-		JLabel text = new JLabel("글자의 색을 선택해주세요.");
+		JLabel text = new JLabel("'글자 의미'와 같은 색을 선택해주세요.");
 		text.setFont(font1);
 		text.setHorizontalAlignment(JLabel.CENTER);
 		text.setBounds(10, 320, 550, 120);
@@ -94,7 +99,7 @@ public class GameHowTo_sc extends JPanel implements ActionListener{
 		pan3.setBounds(130, 50, 570, 440);
 		pan3.setBackground(Color.white);
 
-		ImageIcon gameImg = new ImageIcon("images/GameHowTo_sc_2번.png");
+		ImageIcon gameImg = new ImageIcon("images/HowTo_SelectColor_2.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 		

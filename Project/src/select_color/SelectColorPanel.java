@@ -63,12 +63,12 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 		this.setLayout(null);
 
 		// 배경
-		bgImg = new ImageIcon("images/gamebg.png");
+		bgImg = new ImageIcon("images/backgroundImg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
 
 		// 스케치북
-		bgSK = new ImageIcon("images/sk.png");
+		bgSK = new ImageIcon("images/sketchbook_Color.png");
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
 
@@ -103,7 +103,7 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 //		btn3.addMouseListener(this); // 수정끝
 
 		// 정답, 오답
-		checkIcon = new ImageIcon("images/o.png");
+		checkIcon = new ImageIcon("images/checked.png");
 		checkLabel = new JLabel(checkIcon);
 		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
