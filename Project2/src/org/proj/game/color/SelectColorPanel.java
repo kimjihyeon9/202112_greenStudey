@@ -127,13 +127,13 @@ public class SelectColorPanel extends GameView {
 
 		checkIcon = new ImageIcon("images/checked.png");
 		checkLabel = new JLabel(checkIcon);
-		checkLabel.setBounds(670, 65, 150, 150);
+		checkLabel.setBounds(765, 105, 150, 150);
 		this.add(checkLabel);
 		checkLabel.setVisible(false);
 
 		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
-		xLabel.setBounds(670, 65, 150, 150);
+		xLabel.setBounds(765, 105, 150, 150);
 		this.add(xLabel);
 		xLabel.setVisible(false);
 

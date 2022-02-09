@@ -29,9 +29,10 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 	public JButton exit;
 	private JButton cardBtn;
 	
-	private JButton sound;
-
 	private Font font1;
+	
+	private JButton sound;
+	private Clip clip;
 
 	int count = 0;
 
@@ -39,8 +40,7 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 	public void Play(String fileName) {
 		try {
 			AudioInputStream ais = AudioSystem.getAudioInputStream(new File(fileName));
-			Clip clip = AudioSystem.getClip();
-			clip.stop();
+			clip = AudioSystem.getClip();
 			clip.open(ais);
 			clip.start();
 		} catch (Exception ex) {
@@ -61,6 +61,7 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 		exit.addActionListener(this);
 		prev.addActionListener(this);
 		next.addActionListener(this);
+		sound.addActionListener(this);
 	}
 
 	public void comm() {
@@ -87,7 +88,10 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 		exit.setContentAreaFilled(false);
 		exit.setBounds(720, 20, 80, 80);
 		
-		sound = new JButton("음성");
+		sound = new JButton(new ImageIcon("images/HowTo_sound.png"));
+		sound.setFocusPainted(false);
+		sound.setBorderPainted(false);
+		sound.setContentAreaFilled(false);
 		sound.setBounds(20, 20, 80, 80);
 
 		prev.setVisible(false);
@@ -168,17 +172,23 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == this) {
+			Play("sound/card01.wav");
+		}
 		if (e.getSource() == prev) {
+			this.clip.close();
 			count--;
 		}
 		if (e.getSource() == next) {
+			this.clip.close();
 			count++;
 		}
-
 		if (e.getSource() == exit) {
 			this.setVisible(false);
+			this.clip.close();
 			cardBtn.setVisible(true);
 		}
+		
 		if(e.getSource() == sound) {
 			if(count == 0) {
 				Play("sound/card01.wav");
