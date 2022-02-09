@@ -28,6 +28,8 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 	private JButton prev;
 	public JButton exit;
 	private JButton cardBtn;
+	
+	private JButton sound;
 
 	private Font font1;
 
@@ -84,8 +86,12 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 		exit.setBorderPainted(false);
 		exit.setContentAreaFilled(false);
 		exit.setBounds(720, 20, 80, 80);
+		
+		sound = new JButton("음성");
+		sound.setBounds(20, 20, 80, 80);
 
 		prev.setVisible(false);
+		bgSkPan.add(sound);
 		bgSkPan.add(next);
 		bgSkPan.add(prev);
 		bgSkPan.add(exit);
@@ -162,7 +168,6 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		if (e.getSource() == prev) {
 			count--;
 		}
@@ -174,6 +179,15 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 			this.setVisible(false);
 			cardBtn.setVisible(true);
 		}
+		if(e.getSource() == sound) {
+			if(count == 0) {
+				Play("sound/card01.wav");
+			} else if(count == 1) {
+				Play("sound/card02.wav");
+			} else if(count == 2) {
+				Play("sound/card03.wav");
+			}
+		}
 
 		if (e.getSource() == prev || e.getSource() == next) {
 			if (count == 0) {
@@ -182,7 +196,6 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 				pan1.setVisible(true);
 				pan2.setVisible(false);
 				pan3.setVisible(false);
-				Play("sound/card01.wav");
 				revalidate();
 				repaint();
 			} else if (count == 1) {
