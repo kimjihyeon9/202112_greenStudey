@@ -20,10 +20,6 @@ import javax.swing.border.LineBorder;
 
 import gameContainer.GameContainer;
 
-// 수정
-// 2월 7일 - 136줄, 145줄, 162줄, 180줄, 184줄, 193줄, 271줄, 283줄, 776줄, 781줄, LifeGameConsole부분 오타수정 (6-7번째줄 수정)
-// 2월 8일 - 추가와 삭제를 자세히 봐주세요!
-
 public class LifeGamePanel extends GameContainer implements MouseListener, MouseMotionListener {
 	// 배경
 	private ImageIcon bgImg;
@@ -133,8 +129,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	int lifeRemaining = 2;
 	JLabel life;
 
-	// 수정 (추가)
-	GameHowTo_lg ght; // 수정끝
+	GameHowTo_lg ght;
 
 	static Timer timer;
 
@@ -142,7 +137,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 	} // 여기 수정하시면 됩니다^^
 
 	public LifeGamePanel() {
-		ght = new GameHowTo_lg(); // 수정 (추가)
+		ght = new GameHowTo_lg();
 		lgc = new LifeGameConsole();
 		this.setLayout(null);
 
@@ -180,8 +175,6 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		xLabel.setVisible(false);
 
 		// 문제 제목
-//		MyMouseListener listener = new MyMouseListener(); // 수정 (삭제)
-//		title = new JButton(lgc.ArrLabel[lgc.k]); // 수정 끝
 		title = new JLabel(lgc.ArrLabel[lgc.k]);
 		title.setBounds(350, 30, 300, 80);
 		title.setBackground(Color.white); // 수정 (추가) - 한줄만
@@ -193,9 +186,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		Border c = new LineBorder(new Color(254, 178, 55), 7);
 		title.setBorder(c);
 		title.addMouseListener(this);
-//		title.setFocusPainted(false); // 수정 (삭제) - 한줄만
 		bgImgPan.add(title);
-		// new Color(254,178,55) 주황 컬러
 
 		// 드래그 앤 드롭
 		a1 = new JLabel(lgc.a[lgc.b[0]]);
@@ -254,10 +245,6 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		num2.setFont(font4);
 		num3.setFont(font4);
 		num4.setFont(font4);
-//		num1 = new JLabel(lgc.a[0]);
-//		num2 = new JLabel(lgc.a[1]);
-//		num3 = new JLabel(lgc.a[2]);
-//		num4 = new JLabel(lgc.a[3]);
 		ans1.setBounds(x1, y1, width, height);
 		ans2.setBounds(x2, y2, width, height);
 		ans3.setBounds(x3, y3, width, height);
@@ -271,7 +258,6 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 		bgImgPan.add(ans3);
 		bgImgPan.add(ans4);
 
-		// 도전횟수 - 2월 7일 4시 30분 수정
 		life = new JLabel("도전횟수 : " + lifeRemaining);
 		life.setFont(font1);
 		life.setBounds(100, 50, 150, 50);
@@ -282,39 +268,6 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 
 		this.add(bgImgPan);
 	}
-
-	// 수정 (삭제)
-	// 문제 제목의 버튼리스너
-//	class MyMouseListener implements MouseListener {
-//		@Override
-//		public void mouseEntered(MouseEvent e) {
-//			title = (JButton) e.getSource();
-//			Border c = new LineBorder(new Color(254, 178, 55), 7);
-//			title.setBorder(c);
-//		}
-//
-//		@Override
-//		public void mouseExited(MouseEvent e) {
-//			title = (JButton) e.getSource();
-//			Border c = new LineBorder(new Color(254, 178, 55), 7);
-//			title.setBorder(c);
-//		}
-//
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//
-//		}
-//
-//		@Override
-//		public void mousePressed(MouseEvent e) {
-//
-//		}
-//
-//		@Override
-//		public void mouseReleased(MouseEvent e) {
-//
-//		}
-//	} // 수정끝
 
 	// 정답 판별을 위한 문제 글자 보관함
 	String[] s = new String[4];
@@ -776,18 +729,11 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// 수정 (삭제)
-//		if (e.getSource() == ght.exit) {
-//			ght.setVisible(false);
-//		} // 수정끝
-		
-		// 수정 - 추가
 		if(e.getSource() == ght.exit) {
 			submit.setVisible(true);
 			ght.setVisible(false);
-		} // 수정끝
+		} 
 
-		// 수정 (괄호 위치 수정)
 		// 정답, 오답 판별
 		if (e.getSource() == submit) {
 			for (int i = 0; i < 4; i++) {
@@ -837,7 +783,7 @@ public class LifeGamePanel extends GameContainer implements MouseListener, Mouse
 				revalidate();
 				repaint();
 			}
-		} // 수정끝
+		} 
 
 		// 정답,오답 이미지 1.5초간 보이게하기
 		timer = new Timer(1000, new ActionListener() {

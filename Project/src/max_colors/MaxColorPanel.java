@@ -18,10 +18,6 @@ import javax.swing.border.LineBorder;
 import gameContainer.GameContainer;
 import gameHowTo.GameHowTo;
 
-
-// 수정
-// 2월 7일 - 125줄, 145줄, 189줄, 228줄
-
 public class MaxColorPanel extends GameContainer implements MouseListener {
 	// 배경
 	private ImageIcon bgImg;
@@ -122,11 +118,9 @@ public class MaxColorPanel extends GameContainer implements MouseListener {
 		btn1.addActionListener(this);
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
-		// 수정 (삭제함)
-//		MyMouseListener listener = new MyMouseListener();
 		btn1.addMouseListener(this);
 		btn2.addMouseListener(this);
-		btn3.addMouseListener(this); // 수정끝
+		btn3.addMouseListener(this); 
 
 		// 제목
 		txtTitle = new JLabel("가장 많은 색을 선택해주세요");
@@ -142,9 +136,6 @@ public class MaxColorPanel extends GameContainer implements MouseListener {
 		bgSKPan.add(btn2);
 		bgSKPan.add(btn3);
 		bgImgPan.add(bgSKPan);
-//		btn1.setEnabled(false); // 수정 (삭제함)
-//		btn2.setEnabled(false);
-//		btn3.setEnabled(false); // 수정끝
 		
 		this.add(bgImgPan);
 	}
@@ -186,45 +177,6 @@ public class MaxColorPanel extends GameContainer implements MouseListener {
 		}
 	}
 
-	// 수정 (주석부분 삭제함)
-	// 버튼 위에 마우스를 올리면 보더생기기
-//	class MyMouseListener implements MouseListener {
-//		@Override
-//		public void mouseEntered(MouseEvent e) {
-//			btn1 = (JButton) e.getSource();
-//			btn1.setBorder(new LineBorder(Color.black, 2));
-//			btn2 = (JButton) e.getSource();
-//			btn2.setBorder(new LineBorder(Color.black, 2));
-//			btn3 = (JButton) e.getSource();
-//			btn3.setBorder(new LineBorder(Color.black, 2));
-//		}
-//		
-//		@Override 
-//		public void mouseExited(MouseEvent e) {
-//			btn1 = (JButton) e.getSource();
-//			btn1.setBorder(new LineBorder(Color.black, 0));
-//			btn2 = (JButton) e.getSource();
-//			btn2.setBorder(new LineBorder(Color.black, 0));
-//			btn3 = (JButton) e.getSource();
-//			btn3.setBorder(new LineBorder(Color.black, 0));
-//		}
-//		
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//			
-//		}
-//		
-//		@Override
-//		public void mousePressed(MouseEvent e) {
-//			
-//		}
-//		
-//		@Override
-//		public void mouseReleased(MouseEvent e) {
-//			
-//		}
-//	} // 수정끝
-
 	// 수정 (코드추가)
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -241,7 +193,6 @@ public class MaxColorPanel extends GameContainer implements MouseListener {
 		
 	}
 
-	// 버튼 위에 마우스를 올리면 보더생기기
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		btn1 = (JButton) e.getSource();
@@ -260,5 +211,5 @@ public class MaxColorPanel extends GameContainer implements MouseListener {
 		btn2.setBorder(new LineBorder(Color.black, 0));
 		btn3 = (JButton) e.getSource();
 		btn3.setBorder(new LineBorder(Color.black, 0));
-	} // 수정끝
+	}
 }

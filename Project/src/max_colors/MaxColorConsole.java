@@ -53,10 +53,8 @@ public class MaxColorConsole {
 	}
 
 	public void MaxAns() {
-		int max;
-		
 		// 정답 출력
-		max = c0;
+		int max = c0;
 
 		ans = "RED";
 		if (max < c1) {

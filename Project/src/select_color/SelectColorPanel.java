@@ -16,9 +16,6 @@ import javax.swing.border.LineBorder;
 import gameContainer.GameContainer;
 import gameHowTo.GameHowTo;
 
-// 수정
-// 2월 7일 - 53줄, 99줄, 151줄, 181줄, 230줄, 270줄
-
 public class SelectColorPanel extends GameContainer implements MouseListener {
 	// 배경
 	private ImageIcon bgImg;
@@ -96,11 +93,6 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 		btn1.addActionListener(this);
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
-		// 수정 (삭제함)
-//		MyMouseListener listener = new MyMouseListener();
-//		btn1.addMouseListener(this);
-//		btn2.addMouseListener(this);
-//		btn3.addMouseListener(this); // 수정끝
 
 		// 정답, 오답
 		checkIcon = new ImageIcon("images/checked.png");
@@ -148,21 +140,6 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 		ght.setBounds(100, 100, 820, 530);
 		bgImgPan.add(ght);
 		ght.exit.addActionListener(this); // 수정끝
-		// 수정 (삭제)
-//		ght.exit.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				btn1.addMouseListener(SelectColorPanel.this);
-//				btn2.addMouseListener(SelectColorPanel.this);
-//				btn3.addMouseListener(SelectColorPanel.this);
-//				btn1.setEnabled(true);
-//				btn2.setEnabled(true);
-//				btn3.setEnabled(true);
-//
-//				ght.setVisible(false);
-//			}
-//		}); // 수정끝
 
 		// 판넬 붙이기
 		bgSKPan.add(txtTitle);
@@ -228,46 +205,6 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 		}
 	}
 
-	// 수정 (삭제함)
-	// 버튼 위에 마우스를 올리면 보더생기기
-//	class MyMouseListener implements MouseListener {
-//		@Override
-//		public void mouseEntered(MouseEvent e) {
-//			btn1 = (JButton) e.getSource();
-//			btn1.setBorder(new LineBorder(Color.black, 2));
-//			btn2 = (JButton) e.getSource();
-//			btn2.setBorder(new LineBorder(Color.black, 2));
-//			btn3 = (JButton) e.getSource();
-//			btn3.setBorder(new LineBorder(Color.black, 2));
-//		}
-//
-//		@Override
-//		public void mouseExited(MouseEvent e) {
-//			btn1 = (JButton) e.getSource();
-//			btn1.setBorder(new LineBorder(Color.black, 0));
-//			btn2 = (JButton) e.getSource();
-//			btn2.setBorder(new LineBorder(Color.black, 0));
-//			btn3 = (JButton) e.getSource();
-//			btn3.setBorder(new LineBorder(Color.black, 0));
-//		}
-//
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//
-//		}
-//
-//		@Override
-//		public void mousePressed(MouseEvent e) {
-//
-//		}
-//
-//		@Override
-//		public void mouseReleased(MouseEvent e) {
-//
-//		}
-//	} // 수정끝
-
-	// 수정 (추가)
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
@@ -302,5 +239,5 @@ public class SelectColorPanel extends GameContainer implements MouseListener {
 		btn2.setBorder(new LineBorder(Color.black, 0));
 		btn3 = (JButton) e.getSource();
 		btn3.setBorder(new LineBorder(Color.black, 0));
-	} // 수정끝
+	}
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="org.json.JSONTokener"/>
     <fullyQualifiedTypeName name="ex03.Ex05UrlJson"/>
     <fullyQualifiedTypeName name="java.io.File"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="select_color.SelectColorPanel"/>
     <fullyQualifiedTypeName name="test.RoundedLineBorder"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="org.proj.game.color.GameHowTo_sc"/>
 </qualifiedTypeNameHistroy>
