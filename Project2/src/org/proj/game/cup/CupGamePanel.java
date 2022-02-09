@@ -28,8 +28,8 @@ import org.proj.view.GameView;
 
 public class CupGamePanel extends GameView {
 
-	ImageIcon backIcon = new ImageIcon("images/background.png");
-	ImageIcon gameBagIcon = new ImageIcon("images/cupgamebackImg.png");
+	ImageIcon backIcon = new ImageIcon("images/backgroundImg.png");
+	ImageIcon gameBagIcon = new ImageIcon("images/sketchbook_Cup.png");
 	ImageIcon cupIcon = new ImageIcon("images/cup.png");
 	ImageIcon ballIcon = new ImageIcon("images/ball.png");
 	ImageIcon pauseIcon = new ImageIcon("images/pause.png");
@@ -345,7 +345,6 @@ public class CupGamePanel extends GameView {
 			if (startBtn == 1) {
 				return;
 			}
-			
 			playBtn.setVisible(false);
 			manualLabel.setVisible(false);
 			cupUpDown();
@@ -354,12 +353,11 @@ public class CupGamePanel extends GameView {
 		} 
 		if(!((e.getSource()== pauseBtn)||(e.getSource()==playBtn))) {
 			gameNum++;
-			System.out.println("되나?");
 			next();
 		}
 		
 		if(e.getSource() == pauseBtn) {
-			int yn = JOptionPane.showConfirmDialog(this, "게임을 종료하시겠습니까? ","확인",JOptionPane.YES_NO_OPTION);
+			int yn = JOptionPane.showConfirmDialog(this,  new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER),"확인",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
 			
 			if(yn==0) {
 				Controller c = Controller.getController();

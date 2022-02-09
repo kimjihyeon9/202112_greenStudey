@@ -134,10 +134,13 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 	JButton submit;
 	static Timer timer;
 
+	ImageIcon HowToIcon = new ImageIcon("images/HowTo_btn.png");
+	JButton howtoBtn = new JButton(HowToIcon);
 	GameHowTo_lg ght = new GameHowTo_lg();
 
 	public LifeGamePanel() {
 		pauseBtn.addActionListener(this);
+		howtoBtn.addActionListener(this);
 	}
 
 	@Override
@@ -153,9 +156,14 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 		pauseBtn.setBorderPainted(false); // 버튼의 외곽 투명하게
 		pauseBtn.setContentAreaFilled(false); // 만들어 주는 것
 		this.add(pauseBtn);
+		
+		howtoBtn.setBounds(850, 30, 50, 50);
+		howtoBtn.setBorderPainted(false);
+		howtoBtn.setContentAreaFilled(false);
+		this.add(howtoBtn);
 
 		// 배경
-		bgImg = new ImageIcon("images/gamebg.png");
+		bgImg = new ImageIcon("images/backgroundImg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
 
@@ -177,7 +185,7 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 		bgImgPan.add(ght);
 		ght.exit.addActionListener(this);
 
-		checkIcon = new ImageIcon("images/o.png");
+		checkIcon = new ImageIcon("images/checked.png");
 		checkLabel = new JLabel(checkIcon);
 		xIcon = new ImageIcon("images/x.png");
 		xLabel = new JLabel(xIcon);
@@ -754,6 +762,9 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 			ght.setVisible(false);
 			howtoState = false;
 		}
+		if (e.getSource() == howtoBtn) {
+			ght.setVisible(true);
+		}
 
 		if (e.getSource() == submit) {
 			for (int i = 0; i < 4; i++) {
@@ -812,7 +823,7 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 			}
 		}
 		if (e.getSource() == pauseBtn) {
-			int yn = JOptionPane.showConfirmDialog(this, "게임을 종료하시겠습니까? ", "확인", JOptionPane.YES_NO_OPTION);
+			int yn = JOptionPane.showConfirmDialog(this,  new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER),"확인",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
 
 			if (yn == 0) {
 				Controller c = Controller.getController();

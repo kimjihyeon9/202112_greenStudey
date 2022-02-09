@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,10 +16,11 @@ import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import org.proj.RoundJButton;
 import org.proj.controller.Controller;
 import org.proj.view.GameView;
 
-public class SelectColorPanel extends GameView implements MouseListener {
+public class SelectColorPanel extends GameView {
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
@@ -44,21 +44,27 @@ public class SelectColorPanel extends GameView implements MouseListener {
 
 	private JLabel txtTitle;
 	private JLabel txtColor;
-
+	boolean howtoState = true;
+	int click = 0;
 	SelectColorConsole scc;
 
 	Timer timer;
 	ImageIcon pauseIcon = new ImageIcon("images/pause.png");
 	JButton pauseBtn = new JButton(pauseIcon);
+	
+	ImageIcon HowToIcon = new ImageIcon("images/HowTo_btn.png");
+	JButton howtoBtn = new JButton(HowToIcon);
 
 	GameHowTo_sc ght = new GameHowTo_sc();
 
 	public SelectColorPanel() {
 		pauseBtn.addActionListener(this);
+		howtoBtn.addActionListener(this);
 	}
 
 	@Override
 	public void display() {
+		click = 0;
 		scc = new SelectColorConsole();
 		this.setLayout(null);
 
@@ -74,19 +80,24 @@ public class SelectColorPanel extends GameView implements MouseListener {
 		this.add(pauseBtn);
 
 		// 배경
-		bgImg = new ImageIcon("images/gamebg.png");
+		bgImg = new ImageIcon("images/backgroundImg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
 
 		// 스케치북
-		bgSK = new ImageIcon("images/sk.png");
+		bgSK = new ImageIcon("images/sketchbook_Color.png");
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
+		
+		howtoBtn.setBounds(850, 30, 50, 50);
+		howtoBtn.setBorderPainted(false);
+		howtoBtn.setContentAreaFilled(false);
+		this.add(howtoBtn);
 
 		// 버튼
-		btn1 = new JButton("btn1");
-		btn2 = new JButton("btn2");
-		btn3 = new JButton("btn3");
+		btn1 = new RoundJButton("btn1");
+		btn2 = new RoundJButton("btn2");
+		btn3 = new RoundJButton("btn3");
 		btn1.setFocusPainted(false);
 		btn2.setFocusPainted(false);
 		btn3.setFocusPainted(false);
@@ -108,7 +119,13 @@ public class SelectColorPanel extends GameView implements MouseListener {
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
 
-		checkIcon = new ImageIcon("images/o.png");
+		if (howtoState) {
+			btn1.setEnabled(false);
+			btn2.setEnabled(false);
+			btn3.setEnabled(false);
+		}
+
+		checkIcon = new ImageIcon("images/checked.png");
 		checkLabel = new JLabel(checkIcon);
 		checkLabel.setBounds(670, 65, 150, 150);
 		this.add(checkLabel);
@@ -148,9 +165,6 @@ public class SelectColorPanel extends GameView implements MouseListener {
 		txtTitle.setForeground(Color.black);
 		txtTitle.setBounds(220, 25, 500, 100);
 
-		btn1.setEnabled(false);
-		btn2.setEnabled(false);
-		btn3.setEnabled(false);
 		ght.setBounds(100, 100, 820, 530);
 		bgImgPan.add(ght);
 		ght.exit.addActionListener(this);
@@ -167,10 +181,12 @@ public class SelectColorPanel extends GameView implements MouseListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (click == 1) {
+			return;
+		}
+
 		if (e.getSource() == ght.exit) {
-			btn1.addMouseListener(SelectColorPanel.this);
-			btn2.addMouseListener(SelectColorPanel.this);
-			btn3.addMouseListener(SelectColorPanel.this);
+			howtoState = false;
 			btn1.setEnabled(true);
 			btn2.setEnabled(true);
 			btn3.setEnabled(true);
@@ -179,16 +195,17 @@ public class SelectColorPanel extends GameView implements MouseListener {
 		}
 
 		JButton btn = (JButton) e.getSource();
+		if (e.getSource() == howtoBtn) {
+			ght.setVisible(true);
+		}
 
 		if ("btn1".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[0]) {
-				gameNum++;
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
-				gameNum++;
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -210,13 +227,11 @@ public class SelectColorPanel extends GameView implements MouseListener {
 //		}
 		if ("btn2".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[1]) {
-				gameNum++;
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
-				gameNum++;
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -225,24 +240,26 @@ public class SelectColorPanel extends GameView implements MouseListener {
 
 		if ("btn3".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[2]) {
-				gameNum++;
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
-				gameNum++;
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
 			}
 		}
-
-		next();
+		if (!(e.getSource() == pauseBtn || e.getSource() == ght.exit || e.getSource() == howtoBtn)) {
+			click++;
+			gameNum++;
+			next();
+		}
 
 		if (e.getSource() == pauseBtn) {
-			int yn = JOptionPane.showConfirmDialog(this, "게임을 종료하시겠습니까? ", "확인", JOptionPane.YES_NO_OPTION);
-
+			int yn = JOptionPane.showConfirmDialog(this,
+					new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER), "확인", JOptionPane.YES_NO_OPTION,
+					JOptionPane.PLAIN_MESSAGE);
 			if (yn == 0) {
 				Controller c = Controller.getController();
 				gameNum = 0;
@@ -280,37 +297,5 @@ public class SelectColorPanel extends GameView implements MouseListener {
 	@Override
 	public String toString() {
 		return SelectColor;
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		btn1 = (JButton) e.getSource();
-		btn1.setBorder(new LineBorder(Color.black, 2));
-		btn2 = (JButton) e.getSource();
-		btn2.setBorder(new LineBorder(Color.black, 2));
-		btn3 = (JButton) e.getSource();
-		btn3.setBorder(new LineBorder(Color.black, 2));
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		btn1 = (JButton) e.getSource();
-		btn1.setBorder(new LineBorder(Color.black, 0));
-		btn2 = (JButton) e.getSource();
-		btn2.setBorder(new LineBorder(Color.black, 0));
-		btn3 = (JButton) e.getSource();
-		btn3.setBorder(new LineBorder(Color.black, 0));
 	}
 }

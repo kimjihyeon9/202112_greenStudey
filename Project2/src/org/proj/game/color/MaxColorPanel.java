@@ -1,6 +1,14 @@
 package org.proj.game.color;
 
-import static org.proj.Resource.*;
+import static org.proj.Resource.FRAME_HEIGHT;
+import static org.proj.Resource.FRAME_WIDTH;
+import static org.proj.Resource.MainPage;
+import static org.proj.Resource.MaxColor;
+import static org.proj.Resource.SelectColor;
+import static org.proj.Resource.endGameNum;
+import static org.proj.Resource.gameNum;
+import static org.proj.Resource.gametrue;
+import static org.proj.Resource.resultPane;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -19,10 +27,11 @@ import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import org.proj.RoundJButton;
 import org.proj.controller.Controller;
 import org.proj.view.GameView;
 
-public class MaxColorPanel extends GameView implements MouseListener {
+public class MaxColorPanel extends GameView {
 	// 배경
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
@@ -54,7 +63,7 @@ public class MaxColorPanel extends GameView implements MouseListener {
 	private JLabel txtTitle;
 	private Font font;
 	Timer timer;
-
+	int click = 0;
 	MaxColorConsole mcc;
 
 	public MaxColorPanel() {
@@ -63,6 +72,7 @@ public class MaxColorPanel extends GameView implements MouseListener {
 
 	@Override
 	public void display() {
+		click = 0;
 		mcc = new MaxColorConsole();
 		this.setLayout(null);
 
@@ -75,16 +85,16 @@ public class MaxColorPanel extends GameView implements MouseListener {
 		pauseBtn.setContentAreaFilled(false);
 		this.add(pauseBtn);
 
-		bgImg = new ImageIcon("images/gamebg.png");
+		bgImg = new ImageIcon("images/backgroundImg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
 		bgImgPan.setLayout(null);
 
-		bgSK = new ImageIcon("images/sk.png");
+		bgSK = new ImageIcon("images/sketchbook_Color.png");
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
 
-		checkIcon = new ImageIcon("images/o.png");
+		checkIcon = new ImageIcon("images/checked.png");
 		checkLabel = new JLabel(checkIcon);
 		checkLabel.setBounds(670, 65, 150, 150);
 		this.add(checkLabel);
@@ -107,18 +117,15 @@ public class MaxColorPanel extends GameView implements MouseListener {
 			b.setBackground(mcc.col[mcc.arr[i]]);
 			colorPan.add(b);
 		}
-		
+
 		// 버튼
-		btn1 = new JButton("btn1");
-		btn2 = new JButton("btn2");
-		btn3 = new JButton("btn3");
+		btn1 = new RoundJButton("btn1");
+		btn2 = new RoundJButton("btn2");
+		btn3 = new RoundJButton("btn3");
 		color = new Color(0, 0, 0, 0);
 		btn1.setForeground(color);
 		btn2.setForeground(color);
 		btn3.setForeground(color);
-		btn1.setFocusPainted(false);// 수정-추가
-		btn2.setFocusPainted(false);
-		btn3.setFocusPainted(false);// 수정끝
 		b1 = new EmptyBorder(5, 3, 5, 0);
 		btn1.setBorder(b1);
 		btn2.setBorder(b1);
@@ -132,10 +139,7 @@ public class MaxColorPanel extends GameView implements MouseListener {
 		btn1.addActionListener(this);
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
-		btn1.addMouseListener(this);
-		btn2.addMouseListener(this);
-		btn3.addMouseListener(this);
-		
+
 		// 제목
 		txtTitle = new JLabel("가장 많은 색을 선택해주세요");
 		font = new Font("맑은 고딕", Font.BOLD, 25);
@@ -155,18 +159,19 @@ public class MaxColorPanel extends GameView implements MouseListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (click == 1) {
+			return;
+		}
 
 		JButton btn = (JButton) e.getSource();
 		if ("btn1".equals(btn.getText())) {
 //			System.out.println("btn1");
 			if ("RED".equals(mcc.ans)) {
-				gameNum++;
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
-				gameNum++;
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -174,13 +179,11 @@ public class MaxColorPanel extends GameView implements MouseListener {
 		} else if ("btn2".equals(btn.getText())) {
 //			System.out.println("btn2");
 			if ("BLUE".equals(mcc.ans)) {
-				gameNum++;
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
-				gameNum++;
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -188,13 +191,11 @@ public class MaxColorPanel extends GameView implements MouseListener {
 		} else if ("btn3".equals(btn.getText())) {
 //			System.out.println("btn3");
 			if ("YELLOW".equals(mcc.ans)) {
-				gameNum++;
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
-				gameNum++;
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -203,11 +204,13 @@ public class MaxColorPanel extends GameView implements MouseListener {
 
 		if ((e.getSource() instanceof JButton) && (e.getSource() != pauseBtn)) {
 			System.out.println("버튼");
+			click++;
+			gameNum++;
 			next();
 		}
 
 		if (e.getSource() == pauseBtn) {
-			int yn = JOptionPane.showConfirmDialog(this, "게임을 종료하시겠습니까? ", "확인", JOptionPane.YES_NO_OPTION);
+			int yn = JOptionPane.showConfirmDialog(this,  new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER),"확인",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
 
 			if (yn == 0) {
 				Controller c = Controller.getController();
@@ -246,44 +249,6 @@ public class MaxColorPanel extends GameView implements MouseListener {
 	@Override
 	public String toString() {
 		return MaxColor;
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		btn1 = (JButton) e.getSource();
-		btn1.setBorder(new LineBorder(Color.black, 2));
-		btn2 = (JButton) e.getSource();
-		btn2.setBorder(new LineBorder(Color.black, 2));
-		btn3 = (JButton) e.getSource();
-		btn3.setBorder(new LineBorder(Color.black, 2));
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		btn1 = (JButton) e.getSource();
-		btn1.setBorder(new LineBorder(Color.black, 0));
-		btn2 = (JButton) e.getSource();
-		btn2.setBorder(new LineBorder(Color.black, 0));
-		btn3 = (JButton) e.getSource();
-		btn3.setBorder(new LineBorder(Color.black, 0));
 	}
 
 }
