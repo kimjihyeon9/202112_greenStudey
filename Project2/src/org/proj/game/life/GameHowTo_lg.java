@@ -53,6 +53,9 @@ public class GameHowTo_lg extends JPanel implements ActionListener {
 		first();
 		mid();
 		last();
+		Play("sound/life01.wav");
+		this.clip.close();
+		
 		prev.addActionListener(this);
 		next.addActionListener(this);
 		exit.addActionListener(this);

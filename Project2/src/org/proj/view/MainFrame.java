@@ -18,9 +18,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+public class MainFrame extends JFrame {
 
-public class MainFrame extends JFrame{
-	
 	Container contentPane;
 
 	public MainFrame() {
@@ -32,7 +31,7 @@ public class MainFrame extends JFrame{
 		displayView(LoginView);
 
 	}
-	
+
 	public void displayView(GameView gc) {
 		gc.display();
 		gc.setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
@@ -40,8 +39,7 @@ public class MainFrame extends JFrame{
 		contentPane.add(gc);
 		this.setVisible(true);
 	}
-	
-	
+
 	public void changeView(GameView gc) {
 		contentPane.removeAll();
 		gc.removeAll();

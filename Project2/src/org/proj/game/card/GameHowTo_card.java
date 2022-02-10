@@ -57,6 +57,8 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 		first();
 		mid();
 		last();
+		Play("sound/card01.wav");
+		this.clip.close();
 
 		exit.addActionListener(this);
 		prev.addActionListener(this);
@@ -172,9 +174,6 @@ public class GameHowTo_card extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == this) {
-			Play("sound/card01.wav");
-		}
 		if (e.getSource() == prev) {
 			this.clip.close();
 			count--;

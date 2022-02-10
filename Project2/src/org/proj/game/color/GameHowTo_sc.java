@@ -51,6 +51,9 @@ public class GameHowTo_sc extends JPanel implements ActionListener {
 		comm();
 		first();
 		last();
+		Play("sound/selectColor01.wav");
+		this.clip.close();
+		
 		prev.addActionListener(this);
 		next.addActionListener(this);
 		exit.addActionListener(this);
