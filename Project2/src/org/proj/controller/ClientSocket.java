@@ -112,11 +112,11 @@ public class ClientSocket {
 		}
 		return true;
 	}
-
+	
 	// 로그아웃
 	// 게임데이터를 데이터베이스에 저장
 	public void reqLogout(GameDataDto dto) {
-		if (dto == null) {
+		if(dto == null) {
 			return;
 		}
 		req = LOGOUT;
@@ -130,14 +130,11 @@ public class ClientSocket {
 			e1.printStackTrace();
 		}
 	}
-
 	class ClientThread extends Thread {
 		private boolean stop;
-
 		public ClientThread() {
 			stop = false;
 		}
-
 		@Override
 		public void run() {
 			while (!stop) {
@@ -163,20 +160,18 @@ public class ClientSocket {
 						userUpdate();
 						break;
 					}
-				} catch (SocketException e) {
+				} catch(SocketException e) {
 					stop = true;
-				} catch (IOException e) {
+				}catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-
+			
 			try {
 				System.out.println("서버 연결 해제");
-				if (ois != null)
-					ois.close();
-				if (oos != null)
-					oos.close();
-
+				if(ois != null)	ois.close();
+				if(oos != null) oos.close();
+				
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
@@ -188,12 +183,10 @@ public class ClientSocket {
 				if ("complete".equals(result)) {
 					// 정보수정 완료
 					// 프로필 새로 셋팅
-					JOptionPane.showMessageDialog(NowView, new JLabel("수정 완료!", javax.swing.SwingConstants.CENTER),
-							"프로필 수정", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(NowView, new JLabel("수정 완료!", javax.swing.SwingConstants.CENTER),"프로필 수정",JOptionPane.PLAIN_MESSAGE);
 				} else {
 					// 실패
-					JOptionPane.showMessageDialog(NowView, new JLabel("수정 실패!", javax.swing.SwingConstants.CENTER),
-							"프로필 수정", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(NowView, new JLabel("수정 실패!", javax.swing.SwingConstants.CENTER),"프로필 수정",JOptionPane.PLAIN_MESSAGE);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -229,42 +222,38 @@ public class ClientSocket {
 		private void login() {
 			try {
 				UserDto user = (UserDto) ois.readObject();
-				if ((user.getNo() != -1) && (user.getNo() != 0)) {
+				if ((user.getNo() != -1)&&(user.getNo() != 0)) {
 					Vector<GameDataDto> vector = (Vector) ois.readObject();
 					mainUser = user;
 					mainData = vector;
-
+					
 					System.out.println(mainUser);
 					String day = LocalDate.now().toString();
 					for (GameDataDto data : vector) {
 						System.out.println(data);
-						if (day.equals(data.getDay())) {
+						if(day.equals(data.getDay())) {
 							mainGameData = data;
 							System.out.println("데이터 있음");
 						}
 					}
-
-					if (mainGameData == null) {
-						mainGameData = new GameDataDto(user.getId(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, day);
+					
+					if(mainGameData == null) {
+						mainGameData = new GameDataDto(user.getId(), 0,0,0,0,0,0,0,0,0,0,day);
 					}
 					System.out.println("===============");
 					System.out.println(mainGameData);
 					// 정상로그인
-					JOptionPane.showMessageDialog(NowView, new JLabel("로그인 성공!", javax.swing.SwingConstants.CENTER),
-							"로그인", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(NowView, new JLabel("로그인 성공!", javax.swing.SwingConstants.CENTER),"로그인",JOptionPane.PLAIN_MESSAGE);
 					Controller c = Controller.getController();
 					c.mainframe.changeView(new MainView());
-				} else if (user.getNo() == 0) {
+				} else if(user.getNo() == 0) {
 					mainUser = null;
-					JOptionPane.showMessageDialog(NowView,
-							new JLabel("이미 접속된 아이디 입니다!", javax.swing.SwingConstants.CENTER), "로그인",
-							JOptionPane.PLAIN_MESSAGE);
-				} else {
+					JOptionPane.showMessageDialog(NowView,  new JLabel("이미 접속된 아이디 입니다!", javax.swing.SwingConstants.CENTER),"로그인",JOptionPane.PLAIN_MESSAGE);
+				}
+				else {
 					mainUser = null;
 					// 로그인 실패
-					JOptionPane.showMessageDialog(NowView,
-							new JLabel("아이디와 비밀번호를 확인해 주세요!", javax.swing.SwingConstants.CENTER), "로그인",
-							JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(NowView,  new JLabel("아이디와 비밀번호를 확인해 주세요!", javax.swing.SwingConstants.CENTER),"로그인",JOptionPane.PLAIN_MESSAGE);
 				}
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -278,12 +267,10 @@ public class ClientSocket {
 				String result = ois.readUTF();
 				if ("complete".equals(result)) {
 					// 회원가입 성공
-					JOptionPane.showMessageDialog(NowView, new JLabel("회원가입 성공!", javax.swing.SwingConstants.CENTER),
-							"회원가입", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(NowView, new JLabel("회원가입 성공!", javax.swing.SwingConstants.CENTER),"회원가입",JOptionPane.PLAIN_MESSAGE);
 				} else {
 					// 실패
-					JOptionPane.showMessageDialog(NowView, new JLabel("회원가입 실패!", javax.swing.SwingConstants.CENTER),
-							"회원가입", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(NowView, new JLabel("회원가입 실패!", javax.swing.SwingConstants.CENTER),"회원가입",JOptionPane.PLAIN_MESSAGE);
 
 				}
 			} catch (IOException e) {

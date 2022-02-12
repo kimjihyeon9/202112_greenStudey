@@ -1,20 +1,6 @@
 create user'proj'@'localhost' identified by '1234';
 use projdata;
 
-mysql -uroot -p1234
-
-
-show databases;
-
-
-create database projdata;
-
-
-use projdata;
-
-
-show tables;
-
 
 create table user(
 no int not null primary key auto_increment,
@@ -57,9 +43,5 @@ insert into gamedata(id, game1, game2, game3, game4, game5, day) values ('user3'
 insert into gamedata(id, game1, game2, game3, game4, game5, day) values ('user3', 85.0, 75.0, 60.0, 70.0, 80.0, '2022-01-06');
 insert into gamedata(id, game1, game2, game3, game4, game5, day) values ('user3', 90.0, 80.0, 70.0, 75.0, 90.0, '2022-01-08');
 insert into gamedata(id, game1, game2, game3, game4, game5, day) values ('user3', 85.0, 80.0, 70.0, 80.0, 95.0, '2022-01-11');
-
-
-select * from gamedata;
-
 
 

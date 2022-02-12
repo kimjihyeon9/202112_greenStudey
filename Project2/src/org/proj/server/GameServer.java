@@ -98,6 +98,9 @@ public class GameServer extends JFrame {
 	
 	public void logoutUpdate(String user) {
 		for (int i = 0; i < dao.userVector.size(); i++) {
+			if(user == null) {
+				return;
+			}
 			if (user.equals(idArr[i].getText())) {
 				loginStateArr[i].setText("비접속");
 				pArr[i].setBackground(Color.white);
@@ -202,10 +205,10 @@ public class GameServer extends JFrame {
 					}
 
 				} catch (SocketException e) {
-					e.printStackTrace();
+//					e.printStackTrace();
 					stop = true;
 				} catch (IOException e) {
-					e.printStackTrace();
+//					e.printStackTrace();
 					stop = true;
 				}
 
@@ -221,7 +224,7 @@ public class GameServer extends JFrame {
 					oos.close();
 
 			} catch (IOException e1) {
-				e1.printStackTrace();
+//				e1.printStackTrace();
 			}
 
 		}
@@ -394,7 +397,7 @@ public class GameServer extends JFrame {
 				dao.updateGameData(gameDto);
 				loginUser.remove(dto);
 				logoutUpdate(userID);
-				serverState.append(userID + " >> ID Check Complete" + "\n");
+				serverState.append(userID + " >> Logout" + "\n");
 //				userID = null;
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();

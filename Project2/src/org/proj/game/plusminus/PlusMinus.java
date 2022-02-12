@@ -28,7 +28,7 @@ public class PlusMinus extends GameView {
 	JLabel checkLabel; // 정답일 경우 나오는 체크표시
 	JLabel xLabel; // 오답일 경우 나오는 엑스표시
 
-	ImageIcon pauseIcon = new ImageIcon("images/pause.png");
+	ImageIcon pauseIcon = new ImageIcon("images/comm/pause.png");
 	JButton pauseBtn = new JButton(pauseIcon);
 
 	JLabel manualLabel; // 설명부분
@@ -36,13 +36,8 @@ public class PlusMinus extends GameView {
 	int click;
 
 	public PlusMinus() {
-//		choiceBtn[0] = new RoundJButton();
-//		choiceBtn[1] = new RoundJButton();
-//		choiceBtn[2] = new RoundJButton();
-//		choiceBtn[3] = new RoundJButton();
 
 		pauseBtn.addActionListener(this);
-//		display();
 	}
 
 	@Override
@@ -56,11 +51,11 @@ public class PlusMinus extends GameView {
 		resultPane.setBounds(FRAME_WIDTH / 2 - 300 / 2, FRAME_HEIGHT / 2 - 350 / 2, 300, 350);
 		resultPane.setVisible(false);
 
-		ImageIcon bgicon = new ImageIcon("images/backgroundImg.png");
+		ImageIcon bgicon = new ImageIcon("images/comm/backgroundImg.png");
 		bgLabel = new JLabel(bgicon);
 		bgLabel.setBounds(0, 0, 1024, 768);
 
-		ImageIcon pmicon = new ImageIcon("images/sketchbook_PlusMinus.png");
+		ImageIcon pmicon = new ImageIcon("images/plusminus/sketchbook_PlusMinus.png");
 		pmbgLabel = new JLabel(pmicon);
 		pmbgLabel.setBounds(155, 60, 700, 600);
 
@@ -68,10 +63,11 @@ public class PlusMinus extends GameView {
 		manualLabel.setBounds(320, 310, 400, 50);
 		manualLabel.setHorizontalAlignment(JLabel.CENTER);
 		manualLabel.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		this.add(manualLabel);
+		bgLabel.add(manualLabel);
 
 		quizLabel = new JLabel(gp.question);
-		quizLabel.setFont(new Font("Gothic", Font.BOLD, 115));
+		quizLabel.setFont(new Font("맑은 고딕", Font.BOLD, 100));
+		quizLabel.setHorizontalAlignment(JLabel.CENTER);
 		quizLabel.setForeground(new Color(255, 127, 0));
 		quizLabel.setBounds(315, 140, 400, 200);
 
@@ -80,7 +76,7 @@ public class PlusMinus extends GameView {
 			choiceBtn[i] = new RoundJButton();
 			choiceBtn[i].setText(Integer.toString(gp.answerArr[i]));
 			choiceBtn[i].setBackground(Color.orange);
-			choiceBtn[i].setFont(new Font("Gothic", Font.BOLD, 70));
+			choiceBtn[i].setFont(new Font("맑은 고딕", Font.BOLD, 70));
 			choiceBtn[i].setForeground(Color.WHITE);
 		}
 
@@ -89,9 +85,9 @@ public class PlusMinus extends GameView {
 		choiceBtn[2].setBounds(320, 480, 150, 70);
 		choiceBtn[3].setBounds(540, 480, 150, 70);
 
-		ImageIcon checkIcon = new ImageIcon("images/checked.png");
+		ImageIcon checkIcon = new ImageIcon("images/comm/checked.png");
 		checkLabel = new JLabel(checkIcon);
-		ImageIcon xIcon = new ImageIcon("images/x.png");
+		ImageIcon xIcon = new ImageIcon("images/comm/x.png");
 		xLabel = new JLabel(xIcon);
 
 		pauseBtn.setBounds(920, 30, 50, 50);
@@ -99,22 +95,22 @@ public class PlusMinus extends GameView {
 		pauseBtn.setContentAreaFilled(false); // 만들어 주는 것
 
 		checkLabel.setBounds(700, 20, 150, 150);
-		this.add(checkLabel);
+		bgLabel.add(checkLabel);
 		checkLabel.setVisible(false);
 		xLabel.setBounds(700, 20, 150, 150);
-		this.add(xLabel);
+		bgLabel.add(xLabel);
 		xLabel.setVisible(false);
 
-		this.add(pauseBtn);
+		bgLabel.add(pauseBtn);
 
-		this.add(choiceBtn[0]);
-		this.add(choiceBtn[1]);
-		this.add(choiceBtn[2]);
-		this.add(choiceBtn[3]);
+		bgLabel.add(choiceBtn[0]);
+		bgLabel.add(choiceBtn[1]);
+		bgLabel.add(choiceBtn[2]);
+		bgLabel.add(choiceBtn[3]);
 
-		this.add(quizLabel);
+		bgLabel.add(quizLabel);
 
-		this.add(pmbgLabel);
+		bgLabel.add(pmbgLabel);
 
 		this.add(bgLabel);
 
@@ -130,10 +126,10 @@ public class PlusMinus extends GameView {
 		if (click == 1) {
 			return;
 		}
-
+		
 		if (e.getSource() == choiceBtn[0]) {
-			gameNum++;
 			if (gp.answer == Integer.parseInt(choiceBtn[0].getText())) {
+				bgm.playEffect("true.wav");
 				gametrue++;
 				choiceBtn[0].setBackground(new Color(33, 139, 34));
 				checkLabel.setVisible(true);
@@ -141,65 +137,70 @@ public class PlusMinus extends GameView {
 				repaint();
 
 			} else {
+				bgm.playEffect("false.wav");
 				choiceBtn[0].setBackground(new Color(233, 23, 22));
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
 			}
 
-			next();
 		}
 		if (e.getSource() == choiceBtn[1]) {
-			gameNum++;
 			if (gp.answer == Integer.parseInt(choiceBtn[1].getText())) {
-				gametrue++;
+				bgm.playEffect("true.wav");
 				choiceBtn[1].setBackground(new Color(33, 139, 34));
+				gametrue++;
+				
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
+				bgm.playEffect("false.wav");
 				choiceBtn[1].setBackground(new Color(233, 23, 22));
 				xLabel.setVisible(true);
+				
 				revalidate();
 				repaint();
 			}
-			next();
 		}
 		if (e.getSource() == choiceBtn[2]) {
-			gameNum++;
 			if (gp.answer == Integer.parseInt(choiceBtn[2].getText())) {
-				gametrue++;
+				bgm.playEffect("true.wav");
 				choiceBtn[2].setBackground(new Color(33, 139, 34));
+				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
+				bgm.playEffect("false.wav");
 				choiceBtn[2].setBackground(new Color(233, 23, 22));
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
 			}
-			next();
 		}
 		if (e.getSource() == choiceBtn[3]) {
-			gameNum++;
 			if (gp.answer == Integer.parseInt(choiceBtn[3].getText())) {
-				gametrue++;
+				bgm.playEffect("true.wav");
 				choiceBtn[3].setBackground(new Color(33, 139, 34));
+				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
+				bgm.playEffect("false.wav");
 				choiceBtn[3].setBackground(new Color(233, 23, 22));
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
 			}
-			next();
+
 		}
 
 		if (e.getSource() == pauseBtn) {
-			int yn = JOptionPane.showConfirmDialog(this,  new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER),"확인",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
+			int yn = JOptionPane.showConfirmDialog(this,
+					new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER), "확인", JOptionPane.YES_NO_OPTION,
+					JOptionPane.PLAIN_MESSAGE);
 
 			if (yn == 0) {
 				Controller c = Controller.getController();
@@ -208,19 +209,34 @@ public class PlusMinus extends GameView {
 				c.Viewchange(MainPage);
 			}
 		}
-		click++;
+		if (e.getSource() instanceof JButton && e.getSource() != pauseBtn) {
+			gameNum++;
+			click++;
+			next();
+		}
 	}
 
 	public void next() {
 		// 딜레이 1.5초 주고 다음게임 시작
-		timer = new Timer(1500, new ActionListener() {
+		timer = new Timer(2000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (gameNum == endGameNum) {
-					resultPane.display();
-				} else {
-					Controller c = Controller.getController();
-					c.Viewchange(PlusMinus);
+				if (GameState == MiniGame) {
+
+					if (gameNum == endGameNum) {
+						resultPane.display();
+					} else {
+						Controller c = Controller.getController();
+						c.Viewchange(PlusMinus);
+					}
+				}else {
+					if (gameNum == 2) {
+						Controller c = Controller.getController();
+						c.Viewchange(CARD);
+					} else {
+						Controller c = Controller.getController();
+						c.Viewchange(PlusMinus);
+					}
 				}
 				timer.stop();
 			}
@@ -231,5 +247,9 @@ public class PlusMinus extends GameView {
 	@Override
 	public String toString() {
 		return PlusMinus;
+	}
+	
+	public String toBGM() {
+		return "plusminus.wav";
 	}
 }

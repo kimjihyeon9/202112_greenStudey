@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
@@ -29,22 +30,9 @@ public class GameHowTo_lg extends JPanel implements ActionListener {
 	public JButton exit;
 
 	private Font font1;
-
-	private JButton sound;
+	private JToggleButton soundBtn;
 	private Clip clip;
-
 	int count = 0;
-
-	// 음악 재생 메서드
-	public void Play(String fileName) {
-		try {
-			AudioInputStream ais = AudioSystem.getAudioInputStream(new File(fileName));
-			clip = AudioSystem.getClip();
-			clip.open(ais);
-			clip.start();
-		} catch (Exception ex) {
-		}
-	}
 
 	public GameHowTo_lg() {
 		this.setBackground(new Color(37, 9, 9));
@@ -53,47 +41,45 @@ public class GameHowTo_lg extends JPanel implements ActionListener {
 		first();
 		mid();
 		last();
-		Play("sound/life01.wav");
-		this.clip.close();
-		
+
 		prev.addActionListener(this);
 		next.addActionListener(this);
 		exit.addActionListener(this);
-		sound.addActionListener(this);
+		soundBtn.addActionListener(this);
 	}
 
 	public void comm() {
-		bgSK = new ImageIcon("images/HowTo_background.png");
+		bgSK = new ImageIcon("images/comm/HowTo_background.png");
 		bgSkPan = new JLabel(bgSK);
 		bgSkPan.setBounds(0, 0, 820, 525);
 		bgSkPan.setLayout(null);
 
 		font1 = new Font("맑은 고딕", Font.PLAIN, 24);
 
-		next = new JButton(new ImageIcon("images/HowTo_right.png"));
+		next = new JButton(new ImageIcon("images/comm/HowTo_right.png"));
 		next.setFocusPainted(false);
 		next.setBorderPainted(false);
 		next.setContentAreaFilled(false);
 		next.setBounds(720, 230, 80, 80);
-		prev = new JButton(new ImageIcon("images/HowTo_left.png"));
+		prev = new JButton(new ImageIcon("images/comm/HowTo_left.png"));
 		prev.setFocusPainted(false);
 		prev.setBorderPainted(false);
 		prev.setContentAreaFilled(false);
 		prev.setBounds(25, 230, 80, 80);
-		exit = new JButton(new ImageIcon("images/HowTo_exit.png"));
+		exit = new JButton(new ImageIcon("images/comm/HowTo_exit.png"));
 		exit.setFocusPainted(false);
 		exit.setBorderPainted(false);
 		exit.setContentAreaFilled(false);
 		exit.setBounds(720, 20, 80, 80);
-		
-		sound = new JButton(new ImageIcon("images/HowTo_sound.png"));
-		sound.setFocusPainted(false);
-		sound.setBorderPainted(false);
-		sound.setContentAreaFilled(false);
-		sound.setBounds(20, 20, 80, 80);
+
+		soundBtn = new JToggleButton(new ImageIcon("images/comm/HowTo_sound.png"));
+		soundBtn.setFocusPainted(false);
+		soundBtn.setBorderPainted(false);
+		soundBtn.setContentAreaFilled(false);
+		soundBtn.setBounds(20, 20, 80, 80);
 
 		prev.setVisible(false); // 수정 (추가)
-		bgSkPan.add(sound);
+		bgSkPan.add(soundBtn);
 		bgSkPan.add(next);
 		bgSkPan.add(prev);
 		bgSkPan.add(exit);
@@ -105,7 +91,7 @@ public class GameHowTo_lg extends JPanel implements ActionListener {
 		pan1.setBounds(130, 50, 570, 440);
 		pan1.setBackground(Color.white);
 
-		ImageIcon gameImg = new ImageIcon("images/HowTo_LifeGame_1.png");
+		ImageIcon gameImg = new ImageIcon("images/life/HowTo_LifeGame_1.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 
@@ -128,7 +114,7 @@ public class GameHowTo_lg extends JPanel implements ActionListener {
 		pan2.setBounds(130, 50, 570, 440);
 		pan2.setBackground(Color.white);
 
-		ImageIcon gameImg = new ImageIcon("images/HowTo_LifeGame_2.png");
+		ImageIcon gameImg = new ImageIcon("images/life/HowTo_LifeGame_2.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 
@@ -152,7 +138,7 @@ public class GameHowTo_lg extends JPanel implements ActionListener {
 		pan3.setBounds(130, 50, 570, 440);
 		pan3.setBackground(Color.white);
 
-		ImageIcon gameImg = new ImageIcon("images/HowTo_LifeGame_3.png");
+		ImageIcon gameImg = new ImageIcon("images/life/HowTo_LifeGame_3.png");
 		JLabel gameImgPan = new JLabel(gameImg);
 		gameImgPan.setBounds(10, 10, 550, 300);
 
@@ -171,29 +157,54 @@ public class GameHowTo_lg extends JPanel implements ActionListener {
 		bgSkPan.add(pan3);
 	}
 
+	public void Play(String fileName) {
+		try {
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new File(fileName));
+			clip = AudioSystem.getClip();
+			clip.open(ais);
+			clip.start();
+		} catch (Exception ex) {
+		}
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == prev) {
-			this.clip.stop();
+			if (clip != null) {
+				clip.stop();
+			}
+			soundBtn.setSelected(false);
 			count--;
 		}
 		if (e.getSource() == next) {
-			this.clip.stop();
+			if (clip != null) {
+				clip.stop();
+			}
+			soundBtn.setSelected(false);
 			count++;
 		}
-		if(e.getSource() == exit) {
-			this.clip.stop();
+		if (e.getSource() == exit) {
+			if (clip != null) {
+				clip.stop();
+			}
+			soundBtn.setSelected(false);
 		}
-		if(e.getSource() == sound) {
-			if(count == 0) {
-				Play("sound/life01.wav");
-			} else if(count == 1) {
-				Play("sound/life02.wav");
-			} else if(count == 2) {
-				Play("sound/life03.wav");
+		
+		if (e.getSource() == soundBtn) {
+			if (soundBtn.isSelected() == true) {
+				if (count == 0) {
+					Play("sound/life/life01.wav");
+				} else if (count == 1) {
+					Play("sound/life/life02.wav");
+				} else if (count == 2) {
+					Play("sound/life/life03.wav");
+				}
+			} else {
+				if (clip != null) {
+					clip.stop();
+				}
 			}
 		}
-
 		if (e.getSource() == prev || e.getSource() == next) {
 			if (count == 0) {
 				prev.setVisible(false);

@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,7 +21,7 @@ import org.proj.RoundJButton;
 import org.proj.controller.Controller;
 import org.proj.view.GameView;
 
-public class SelectColorPanel extends GameView {
+public class SelectColorPanel extends GameView{
 	private ImageIcon bgImg;
 	private JLabel bgImgPan;
 
@@ -45,18 +46,18 @@ public class SelectColorPanel extends GameView {
 	private JLabel txtTitle;
 	private JLabel txtColor;
 	boolean howtoState = true;
-	int click = 0;
+	int click=0;
 	SelectColorConsole scc;
 
 	Timer timer;
-	ImageIcon pauseIcon = new ImageIcon("images/pause.png");
+	ImageIcon pauseIcon = new ImageIcon("images/comm/pause.png");
 	JButton pauseBtn = new JButton(pauseIcon);
 	
-	ImageIcon HowToIcon = new ImageIcon("images/HowTo_btn.png");
-	JButton howtoBtn = new JButton(HowToIcon);
-
+	ImageIcon howtoIcon = new ImageIcon("images/comm/HowTo_Btn.png");
+	JButton howtoBtn = new JButton(howtoIcon); 
+	
 	GameHowTo_sc ght = new GameHowTo_sc();
-
+	
 	public SelectColorPanel() {
 		pauseBtn.addActionListener(this);
 		howtoBtn.addActionListener(this);
@@ -67,33 +68,33 @@ public class SelectColorPanel extends GameView {
 		click = 0;
 		scc = new SelectColorConsole();
 		this.setLayout(null);
-
+		
 		// 결과 알려주는 곳
 		this.add(resultPane);
-		resultPane.setBounds(FRAME_WIDTH / 2 - 300 / 2, FRAME_HEIGHT / 2 - 350 / 2, 300, 350);
+//		resultPane.setBounds(FRAME_WIDTH / 2 - 300 / 2, FRAME_HEIGHT / 2 - 350 / 2, 300, 350);
 		resultPane.setVisible(false);
-
+		
 		// 정지 버튼
 		pauseBtn.setBounds(920, 30, 50, 50);
-		pauseBtn.setBorderPainted(false);
+		pauseBtn.setBorderPainted(false); 
 		pauseBtn.setContentAreaFilled(false);
-		this.add(pauseBtn);
-
+		
+		
 		// 배경
-		bgImg = new ImageIcon("images/backgroundImg.png");
+		bgImg = new ImageIcon("images/comm/backgroundImg.png");
 		bgImgPan = new JLabel(bgImg);
 		bgImgPan.setSize(1024, 768);
-
+		
 		// 스케치북
-		bgSK = new ImageIcon("images/sketchbook_Color.png");
+		bgSK = new ImageIcon("images/color/sketchbook_Color.png");
 		bgSKPan = new JLabel(bgSK);
 		bgSKPan.setBounds(150, 150, 720, 425);
 		
-		howtoBtn.setBounds(850, 30, 50, 50);
+		howtoBtn.setBounds(850,30,50,50);
 		howtoBtn.setBorderPainted(false);
 		howtoBtn.setContentAreaFilled(false);
-		this.add(howtoBtn);
-
+		
+		
 		// 버튼
 		btn1 = new RoundJButton("btn1");
 		btn2 = new RoundJButton("btn2");
@@ -118,25 +119,25 @@ public class SelectColorPanel extends GameView {
 		btn1.addActionListener(this);
 		btn2.addActionListener(this);
 		btn3.addActionListener(this);
-
-		if (howtoState) {
+		
+		if(howtoState) {
 			btn1.setEnabled(false);
 			btn2.setEnabled(false);
 			btn3.setEnabled(false);
 		}
-
-		checkIcon = new ImageIcon("images/checked.png");
+		
+		checkIcon = new ImageIcon("images/comm/checked.png");
 		checkLabel = new JLabel(checkIcon);
 		checkLabel.setBounds(765, 105, 150, 150);
 		this.add(checkLabel);
 		checkLabel.setVisible(false);
 
-		xIcon = new ImageIcon("images/x.png");
+		xIcon = new ImageIcon("images/comm/x.png");
 		xLabel = new JLabel(xIcon);
 		xLabel.setBounds(765, 105, 150, 150);
 		this.add(xLabel);
 		xLabel.setVisible(false);
-
+		
 		// 제목 글자 색깔정하기
 		if (scc.ansColor == 0) {
 			txtColor = new JLabel("빨간색");
@@ -153,7 +154,7 @@ public class SelectColorPanel extends GameView {
 		} else {
 			txtColor = new JLabel("보라색");
 		}
-
+		
 		font1 = new Font("맑은 고딕", Font.BOLD, 44);
 		txtColor.setFont(font1);
 		txtColor.setForeground(scc.paintTxt());
@@ -164,13 +165,16 @@ public class SelectColorPanel extends GameView {
 		txtTitle.setFont(font2);
 		txtTitle.setForeground(Color.black);
 		txtTitle.setBounds(220, 25, 500, 100);
-
+		
+		
 		ght.setBounds(100, 100, 820, 530);
 		bgImgPan.add(ght);
 		ght.exit.addActionListener(this);
-
+		
 		bgSKPan.add(txtTitle);
 		bgSKPan.add(txtColor);
+		bgImgPan.add(pauseBtn);
+		bgImgPan.add(howtoBtn);
 		bgSKPan.add(btn1);
 		bgSKPan.add(btn2);
 		bgSKPan.add(btn3);
@@ -181,31 +185,35 @@ public class SelectColorPanel extends GameView {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (click == 1) {
+		if(click == 1) {
 			return;
 		}
-
-		if (e.getSource() == ght.exit) {
+		
+		if(e.getSource() == howtoBtn) {
+			howtoState = true;
+			ght.setVisible(true);
+		}
+		
+		if(e.getSource() == ght.exit) {
 			howtoState = false;
 			btn1.setEnabled(true);
 			btn2.setEnabled(true);
 			btn3.setEnabled(true);
-
+			
 			ght.setVisible(false);
-		}
-
+	}
+		
 		JButton btn = (JButton) e.getSource();
-		if (e.getSource() == howtoBtn) {
-			ght.setVisible(true);
-		}
 
 		if ("btn1".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[0]) {
 				gametrue++;
+				bgm.playEffect("true.wav");
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
+				bgm.playEffect("false.wav");
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -227,11 +235,13 @@ public class SelectColorPanel extends GameView {
 //		}
 		if ("btn2".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[1]) {
+				bgm.playEffect("true.wav");
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
+				bgm.playEffect("false.wav");
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
@@ -240,26 +250,26 @@ public class SelectColorPanel extends GameView {
 
 		if ("btn3".equals(btn.getText())) {
 			if (scc.ansColor == scc.arrBtn[2]) {
+				bgm.playEffect("true.wav");
 				gametrue++;
 				checkLabel.setVisible(true);
 				revalidate();
 				repaint();
 			} else {
+				bgm.playEffect("false.wav");
 				xLabel.setVisible(true);
 				revalidate();
 				repaint();
 			}
 		}
-		if (!(e.getSource() == pauseBtn || e.getSource() == ght.exit || e.getSource() == howtoBtn)) {
+		if((e.getSource()!= pauseBtn&&e.getSource() != ght.exit)&&(e.getSource()!=howtoBtn)) {
 			click++;
 			gameNum++;
 			next();
 		}
 
 		if (e.getSource() == pauseBtn) {
-			int yn = JOptionPane.showConfirmDialog(this,
-					new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER), "확인", JOptionPane.YES_NO_OPTION,
-					JOptionPane.PLAIN_MESSAGE);
+			int yn = JOptionPane.showConfirmDialog(this,  new JLabel("게임을 종료하시겠습니까? ", javax.swing.SwingConstants.CENTER),"확인",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
 			if (yn == 0) {
 				Controller c = Controller.getController();
 				gameNum = 0;
@@ -276,16 +286,26 @@ public class SelectColorPanel extends GameView {
 			public void actionPerformed(ActionEvent e) {
 				checkLabel.setVisible(false);
 				xLabel.setVisible(false);
-				if (gameNum == endGameNum) {
-					resultPane.display();
-				} else {
-					Controller c = Controller.getController();
-					int n = (int) ((Math.random() * 100000) % 2);
-
-					if (n == 0) {
-						c.Viewchange(SelectColor);
+				if (GameState == MiniGame) {
+					if (gameNum == endGameNum) {
+						resultPane.display();
 					} else {
-						c.Viewchange(MaxColor);
+						Controller c = Controller.getController();
+						int n = (int) ((Math.random() * 100000) % 2);
+
+						if (n == 0) {
+							c.Viewchange(SelectColor);
+						} else {
+							c.Viewchange(MaxColor);
+						}
+					}
+				}else {
+					if (gameNum == 12) {
+						Controller c = Controller.getController();
+						resultPane.display();
+					} else {
+						Controller c = Controller.getController();
+						c.Viewchange(SelectColor);
 					}
 				}
 				timer.stop();
@@ -297,5 +317,9 @@ public class SelectColorPanel extends GameView {
 	@Override
 	public String toString() {
 		return SelectColor;
+	}
+	
+	public String toBGM() {
+		return "color.wav";
 	}
 }
