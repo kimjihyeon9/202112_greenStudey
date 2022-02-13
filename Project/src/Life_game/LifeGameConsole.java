@@ -12,7 +12,7 @@ public class LifeGameConsole {
 			{ "전원을 킨다", "분무기로 물을 뿌린다", "옷을 다린다", "전원을 끈다" },
 			{ "재료를 넣는다", "전원을 킨다", "음식을 간다", "전원을 끈다" }, 
 			{ "그릇을 넣는다", "전원을 누른다", "그릇을 뺀다", "제자리에 놓는다" },
-			{ "뚜껑을 연다", " 볼일을 본다", "레버로 물을 내린다", "손을 씻는다"} }; // 11개
+			{ "뚜껑을 연다", "볼일을 본다", "레버로 물을 내린다", "손을 씻는다"} }; // 11개
 	
 	// 게임의 제목
 	String[] ArrLabel = {"전자레인지", "TV", "선풍기", "가스레인지", "청소기", "세탁기", "드라이어기", "다리미", "믹서기", "식기세척기", "변기"};
@@ -40,9 +40,9 @@ public class LifeGameConsole {
 		for (int i = k; i < k + 1; i++) { // 문제뽑기
 			for (int j = 0; j < 4; j++) { // 문제안 정답 뽑기
 				a[count++] = Arr[i][j]; // 문제 정답을 차례대로 보여준다
-//				System.out.println(a[j]);
+				System.out.println(a[j]);
 			}
-//			System.out.println();
+			System.out.println();
 		}
 	}
 
@@ -58,9 +58,9 @@ public class LifeGameConsole {
 			}
 //			System.out.println(a[b[0]]);
 		}
-//		for(int i = 0; i < 4; i++) {
-//			System.out.println(a[b[i]]);
-//		}
+		for(int i = 0; i < 4; i++) {
+			System.out.println(a[b[i]]);
+		}
 	}
 
 	public static void main(String[] args) {

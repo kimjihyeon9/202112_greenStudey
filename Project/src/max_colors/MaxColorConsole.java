@@ -25,7 +25,7 @@ public class MaxColorConsole {
 		// 3*3인 2차원 배열을 만들고
 		// 변수를 선언후 색깔변수 갯수 세기
 		// 정수를 랜덤하게 생성해 저장
-		setArr();
+//		setArr();
 
 		// 3x3 arr 결정됐고, c0, c1, c2의 갯수를 나타내는 값이 정해졌다.
 
@@ -46,9 +46,9 @@ public class MaxColorConsole {
 		MaxAns();
 
 		// 갯수 확인
-//		System.out.println("RED의 개수 : " + c0);
-//		System.out.println("BLUE의 개수 : " + c1);
-//		System.out.println("YELLOW의 개수 : " + c2);
+		System.out.println("RED의 개수 : " + c0);
+		System.out.println("BLUE의 개수 : " + c1);
+		System.out.println("YELLOW의 개수 : " + c2);
 
 	}
 
@@ -66,7 +66,7 @@ public class MaxColorConsole {
 			max = c2;
 			ans = "YELLOW";
 		}
-//		System.out.println("정답 : " + ans);
+		System.out.println("정답 : " + ans);
 	}
 
 	// 배열 만들고 갯수 세기
@@ -77,19 +77,26 @@ public class MaxColorConsole {
 		c2 = 0;
 
 		// 배열 랜덤수 받기
-		for (int i = 0; i < arr.length; i++) {
-			arr[i] = (int) (Math.random() * 3);
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				arr[i] = (int) (Math.random() * 3);
 
-			if (arr[i] == 0) {
-				c0++;
-			} else if (arr[i] == 1) {
-				c1++;
-			} else {
-				c2++;
+				if (arr[i] == 0) {
+					c0++;
+				} else if (arr[i] == 1) {
+					c1++;
+				} else {
+					c2++;
+				}
+				System.out.print(arr[i] + " ");
 			}
-//			System.out.print(arr[i]);
+			System.out.println();
 		}
-//		System.out.println(" ");
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		new MaxColorConsole();
 	}
 
 }
