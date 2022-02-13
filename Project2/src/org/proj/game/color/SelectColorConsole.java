@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 import javax.swing.Icon;
 
+// 변수명 바꿈 : num -> numToKor, num1 -> numPaint
+// 자주색 -> 보라색
+
 public class SelectColorConsole {
 	// 색깔 상수
 //	private static final int RED = 0;
@@ -34,8 +37,8 @@ public class SelectColorConsole {
 	
 	// 콘솔창에 찍히는 부분으로 필요없어서 주석처리
 	// 숫자를 글자로 바꾸기위한 변수
-	static int num;
-	static int num1;
+	static int numToKor;
+	static int numPaint;
 //	static Scanner scan = new Scanner(System.in);
 
 	// 글자 함수
@@ -50,9 +53,9 @@ public class SelectColorConsole {
 		// 콘솔창에 찍히는 부분으로 필요없어서 주석처리
 		// 숫자를 글자로(한국어)
 //		System.out.print("글자 : ");
-		num = ansColor;
-		numToColorKor(num);
-		return numToColorKor(num);
+		numToKor = ansColor;
+		numToColorKor(numToKor);
+		return numToColorKor(numToKor);
 	}
 	
 	// 글자의 색 함수
@@ -65,8 +68,8 @@ public class SelectColorConsole {
 				break;
 			}
 		}
-		num1 = paintColor;
-		return col[num1];
+		numPaint = paintColor;
+		return col[numPaint];
 		
 		// 콘솔창에 찍히는 부분으로 필요없어서 주석처리
 		// 숫자를 글자로
@@ -146,21 +149,21 @@ public class SelectColorConsole {
 //	}
 	
 	// 숫자를 글자(한국어)로 바꾸는 함수
-	public String numToColorKor(int num) {
-		if(num == 0) {
+	public String numToColorKor(int numToKor) {
+		if(numToKor == 0) {
 			return "빨간색";
-		} else if(num == 1) {
+		} else if(numToKor == 1) {
 			return "주황색";
-		} else if(num == 2) {
+		} else if(numToKor == 2) {
 			return "노란색";
-		} else if(num == 3) {
+		} else if(numToKor == 3) {
 			return "초록색";
-		} else if(num == 4) {
+		} else if(numToKor == 4) {
 			return "파란색";
-		} else if(num == 5) {
+		} else if(numToKor == 5) {
 			return "분홍색";
 		} else  {
-			return "자주색"; // 보라색으로 수정시 수정해주기
+			return "보라색"; // 보라색으로 수정시 수정해주기
 		} 
 	}
 

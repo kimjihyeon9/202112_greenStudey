@@ -23,6 +23,8 @@ import org.proj.RoundJButton;
 import org.proj.controller.Controller;
 import org.proj.view.GameView;
 
+// 변수명 바꿈 : ans -> answer, b1 -> border, b2 -> lborder, b -> back 
+
 public class MaxColorPanel extends GameView{
 	// 배경
 	private ImageIcon bgImg;
@@ -50,7 +52,7 @@ public class MaxColorPanel extends GameView{
 	private JButton btn3;
 
 	private Color color;
-	private EmptyBorder b1;
+	private EmptyBorder border;
 
 	private JLabel txtTitle;
 	private Font font;
@@ -103,11 +105,11 @@ public class MaxColorPanel extends GameView{
 		colorPan.setBounds(100, 150, 300, 200);
 
 		for (int i = 0; i < 9; i++) {
-			JPanel b = new JPanel();
-			LineBorder b2 = new LineBorder(new Color(248, 248, 248), 1);
-			b.setBorder(b2);
-			b.setBackground(mcc.col[mcc.arr[i]]);
-			colorPan.add(b);
+			JPanel back = new JPanel();
+			LineBorder lborder = new LineBorder(new Color(248, 248, 248), 1);
+			back.setBorder(lborder);
+			back.setBackground(mcc.col[mcc.arr[i]]);
+			colorPan.add(back);
 		}
 
 		// 버튼
@@ -118,10 +120,10 @@ public class MaxColorPanel extends GameView{
 		btn1.setForeground(color);
 		btn2.setForeground(color);
 		btn3.setForeground(color);
-		b1 = new EmptyBorder(5, 3, 5, 0);
-		btn1.setBorder(b1);
-		btn2.setBorder(b1);
-		btn3.setBorder(b1);
+		border = new EmptyBorder(5, 3, 5, 0);
+		btn1.setBorder(border);
+		btn2.setBorder(border);
+		btn3.setBorder(border);
 		btn1.setBounds(500, 160, 100, 50);
 		btn2.setBounds(500, 230, 100, 50);
 		btn3.setBounds(500, 300, 100, 50);
@@ -157,7 +159,7 @@ public class MaxColorPanel extends GameView{
 
 		JButton btn = (JButton) e.getSource();
 		if ("btn1".equals(btn.getText())) {
-			if ("RED".equals(mcc.ans)) {
+			if ("RED".equals(mcc.answer)) {
 				bgm.playEffect("true.wav");
 				gametrue++;
 				checkLabel.setVisible(true);
@@ -170,7 +172,7 @@ public class MaxColorPanel extends GameView{
 				repaint();
 			}
 		} else if ("btn2".equals(btn.getText())) {
-			if ("BLUE".equals(mcc.ans)) {
+			if ("BLUE".equals(mcc.answer)) {
 				bgm.playEffect("true.wav");
 				gametrue++;
 				checkLabel.setVisible(true);
@@ -183,7 +185,7 @@ public class MaxColorPanel extends GameView{
 				repaint();
 			}
 		} else if ("btn3".equals(btn.getText())) {
-			if ("YELLOW".equals(mcc.ans)) {
+			if ("YELLOW".equals(mcc.answer)) {
 				bgm.playEffect("true.wav");
 				gametrue++;
 				checkLabel.setVisible(true);
