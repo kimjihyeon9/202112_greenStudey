@@ -24,7 +24,7 @@ import org.proj.RoundJButton;
 import org.proj.controller.Controller;
 import org.proj.view.GameView;
 
-// 변수명 변경 : w -> answerCount, s -> answerBox
+// 변수명 변경 : w -> answerCount, s -> answerBox, a -> showAnswer, b -> showQuiz
 
 public class LifeGamePanel extends GameView implements MouseListener, MouseMotionListener {
 	// 배경
@@ -169,7 +169,7 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 
 		// 문제
 		for (int i = 0; i < label.length; i++) {
-			label[i] = new LifeLabel(lgc.a[lgc.b[i]], 100, yArr[i], width, height);
+			label[i] = new LifeLabel(lgc.showAnswer[lgc.showQuiz[i]], 100, yArr[i], width, height);
 			label[i].setHorizontalAlignment(JLabel.CENTER);
 			label[i].setFont(new Font("맑은 고딕", Font.BOLD, 24));
 			label[i].setOpaque(true);
@@ -381,7 +381,7 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 			}
 
 			for (int i = 0; i < 4; i++) {
-				if (answerBox[i] == lgc.a[i]) {
+				if (answerBox[i] == lgc.showAnswer[i]) {
 					answerCount++;
 				}
 			}

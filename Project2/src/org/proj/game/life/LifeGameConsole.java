@@ -1,5 +1,7 @@
 package org.proj.game.life;
 
+// 변수명 변경 : a -> showAnswer, b -> showQuiz
+
 public class LifeGameConsole {
 	// 답 순서를 담아놓은 배열
 		String[][] Arr = { { "전원을 킨다", "음식을 넣는다", "동작 버튼을 누른다", "음식을 꺼낸다" },
@@ -24,8 +26,8 @@ public class LifeGameConsole {
 		int count = 0;
 		
 		// 중복 체크 - 만약 Arr[0]이 나왔는데 다음 문제도 Arr[0]이 나오는 경우 생각하기
-		String[] a = new String[11];
-		int[] b = new int[4];
+		String[] showAnswer = new String[11];
+		int[] showQuiz = new int[4];
 		int r;
 
 		public LifeGameConsole() {
@@ -44,7 +46,7 @@ public class LifeGameConsole {
 			int n = 0;
 			for (int i = k; i < k + 1; i++) { // 문항뽑기
 				for (int j = 0; j < 4; j++) { // 문항안 정답 뽑기
-					a[count++] = Arr[i][j]; // 문항 정답을 차례대로 보여준다
+					showAnswer[count++] = Arr[i][j]; // 문항 정답을 차례대로 보여준다
 				}
 			}
 		}
@@ -53,9 +55,9 @@ public class LifeGameConsole {
 		public void quiz() {
 			for (int i = 0; i < 4; i++) {
 				r = (int) (Math.random() * 4);
-				b[i] = r;
+				showQuiz[i] = r;
 				for (int j = 0; j < i; j++) {
-					if (b[j] == b[i]) {
+					if (showQuiz[j] == showQuiz[i]) {
 						i--;
 						break;
 					} 

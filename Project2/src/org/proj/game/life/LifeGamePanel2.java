@@ -243,10 +243,10 @@ public class LifeGamePanel2 extends GameView implements MouseListener, MouseMoti
 		
 		
 		// 드래그 앤 드롭
-		a1 = new JLabel(lgc.a[lgc.b[0]]);
-		a2 = new JLabel(lgc.a[lgc.b[1]]);
-		a3 = new JLabel(lgc.a[lgc.b[2]]);
-		a4 = new JLabel(lgc.a[lgc.b[3]]);
+		a1 = new JLabel(lgc.showAnswer[lgc.showQuiz[0]]);
+		a2 = new JLabel(lgc.showAnswer[lgc.showQuiz[1]]);
+		a3 = new JLabel(lgc.showAnswer[lgc.showQuiz[2]]);
+		a4 = new JLabel(lgc.showAnswer[lgc.showQuiz[3]]);
 		a1.setHorizontalAlignment(JLabel.CENTER);
 		a2.setHorizontalAlignment(JLabel.CENTER);
 		a3.setHorizontalAlignment(JLabel.CENTER);
@@ -813,7 +813,7 @@ public class LifeGamePanel2 extends GameView implements MouseListener, MouseMoti
 			}
 
 			for (int i = 0; i < 4; i++) {
-				if (s[i] == lgc.a[i]) {
+				if (s[i] == lgc.showAnswer[i]) {
 					w++;
 				}
 			}
