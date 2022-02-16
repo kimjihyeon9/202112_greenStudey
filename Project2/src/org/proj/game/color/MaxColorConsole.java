@@ -74,7 +74,7 @@ public class MaxColorConsole {
 			max = c2;
 			answer = "YELLOW";
 		}
-//		System.out.println("정답 : " + ans);
+		System.out.println("정답 : " + answer);
 	}
 
 	// 배열 만들고 갯수 세기
@@ -86,9 +86,11 @@ public class MaxColorConsole {
 		
 		// 배열 랜덤수 받기
 		for (int i = 0; i < arr.length; i++) {
+//		for (int i = 0; i < 3; i++) {
 //			for (int j = 0; j < arr[i].length; j++) {
-				arr[i] = (int) (Math.random() * 3);
-
+//			for (int j = 0; j < 3; j++) {
+				arr[i] = (int) ((Math.random() * 1000) % 3);
+				
 				if (arr[i] == 0) {
 					color = col[0];
 					c0++;
@@ -99,10 +101,15 @@ public class MaxColorConsole {
 					color = col[2];
 					c2++;
 				}
-//				System.out.print(arr[i]);
-//			}
-//			System.out.println(" ");
+				System.out.print(arr[i] + " ");
+			}
+			System.out.println();
 		}
+//		System.out.println();
 //		return color;
+//	}
+
+	public static void main(String[] args) {
+		new MaxColorConsole();
 	}
 }

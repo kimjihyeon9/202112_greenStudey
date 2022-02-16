@@ -79,7 +79,7 @@ public class MaxColorConsole {
 		// 배열 랜덤수 받기
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				arr[i] = (int) (Math.random() * 3);
+				arr[i] = (int) ((Math.random() * 1000) % 3);
 
 				if (arr[i] == 0) {
 					c0++;
