@@ -24,8 +24,6 @@ import org.proj.RoundJButton;
 import org.proj.controller.Controller;
 import org.proj.view.GameView;
 
-// 변수명 변경 : w -> answerCount, s -> answerBox, a -> showAnswer, b -> showQuiz
-
 public class LifeGamePanel extends GameView implements MouseListener, MouseMotionListener {
 	// 배경
 	private ImageIcon bgImg = new ImageIcon("images/comm/backgroundImg.png");
@@ -70,7 +68,7 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 
 	LifeLabel[] label = new LifeLabel[4];
 	String[] answerBox = new String[4];
-
+	int click;
 	public LifeGamePanel() {
 		pauseBtn.addActionListener(this);
 		howtoBtn.addActionListener(this);
@@ -78,11 +76,12 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 
 	@Override
 	public void display() {
+		click = 0;
+		lifeRemaining = 2;
 		// 중복제거
 		String prev = null;
 		String now = null;
 		int count = 0;
-
 		// 중복제거
 		while (true) {
 			lgc = new LifeGameConsole();
@@ -140,16 +139,15 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 		ght.exit.addActionListener(this);
 
 		checkLabel = new JLabel(checkIcon);
-		checkLabel.setBounds(427, 284, 150, 150);
-		checkLabel.setVisible(false);
-		this.add(checkLabel);
-		
 		xLabel = new JLabel(xIcon);
+		checkLabel.setBounds(427, 284, 150, 150);
+		this.add(checkLabel);
+		checkLabel.setVisible(false);
 		xLabel.setBounds(427, 284, 150, 150);
 		this.add(xLabel);
 		xLabel.setVisible(false);
 
-		title = new JLabel(lgc.ArrLabel[lgc.k]);
+		title = new JLabel(lgc.cate);
 		title.setBounds(350, 30, 300, 80);
 		title.setBackground(Color.white);
 		Font font3 = new Font("맑은 고딕", Font.BOLD, 28);
@@ -169,7 +167,7 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 
 		// 문제
 		for (int i = 0; i < label.length; i++) {
-			label[i] = new LifeLabel(lgc.showAnswer[lgc.showQuiz[i]], 100, yArr[i], width, height);
+			label[i] = new LifeLabel(lgc.ansArr[lgc.showQuiz[i]], 100, yArr[i], width, height);
 			label[i].setHorizontalAlignment(JLabel.CENTER);
 			label[i].setFont(new Font("맑은 고딕", Font.BOLD, 24));
 			label[i].setOpaque(true);
@@ -360,6 +358,9 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(click == 1) {
+			return;
+		}
 		if (e.getSource() == howtoBtn) {
 			ght.setVisible(true);
 			submit.setVisible(false);
@@ -381,12 +382,13 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 			}
 
 			for (int i = 0; i < 4; i++) {
-				if (answerBox[i] == lgc.showAnswer[i]) {
+				if (lgc.ansArr[i].equals(answerBox[i])) {
 					answerCount++;
 				}
 			}
 
 			if (answerCount == 4) {
+				click++;
 				bgm.playEffect("true.wav");
 				gameNum++;
 				gametrue++;
@@ -410,8 +412,8 @@ public class LifeGamePanel extends GameView implements MouseListener, MouseMotio
 					bgm.playEffect("false.wav");
 					life.setText("도전횟수 : " + lifeRemaining);
 					gameNum++;
+					click++;
 					xLabel.setVisible(true);
-					lifeRemaining = 2;
 					next();
 				} else if (lifeRemaining == 1) {
 					life.setText("도전횟수 : " + lifeRemaining);
